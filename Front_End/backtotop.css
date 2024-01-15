@@ -1,0 +1,20 @@
+#btn-back-to-top {
+  position: fixed;
+  bottom: 100px;
+  right: 40px;
+  display: none;
+}
+
+.list-btn-social-share {
+  position: fixed;
+  bottom: 160px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  gap: 18px;
+}
