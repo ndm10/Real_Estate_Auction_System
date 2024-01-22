@@ -3,44 +3,265 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - RealEstateAuction</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" rel="dns-prefetch"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/RealEstateAuction.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">RealEstateAuction</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+    <header role="banner">
+        <div class="container-fluid">
+            <div class="row space-bottom-wide">
+                <div class="col-xs-7 col-sm-4 col-md-3 logo-col-container">
+                    <div class="navbar-header inline-block space-top-wide">
+                        <!-- LOGO -->
+                        <a href="/" class="logo pull-left" itemprop="url">
+                            <img src="https://image.invaluable.com/static/header/IN_Red32.svg" alt="Invaluable" />
+                        </a>
+                    </div>
+                </div>
+                <div class="log-signup-container pull-right">
+                    <a id="headerHeartIcon" class="btn btn-link saved-items notifs-link" role="button">
+                        <span class="fa fa-heart"></span>
+                        <span class="space-left-sm hidden-xs hidden-sm">Saved</span>
+                    </a>
+                    <div href="/my-account/home" popover-placement="bottom" data-toggle="popover"
+                         data-container="header" data-popover="notifs-link" class="notifs-link btn hidden-xs"
+                         aria-label="Notifications Flyout" aria-expanded="false">
+                        <span class="fa fa-bell "></span>
+                        <span class="user-name notranslate hidden-sm">Notifications</span>
+                    </div>
+                    <div class="log-in-container inline-block">
+                        <button id="notifOptionsBtn" type="button"
+                                class="btn btn-modal-trigger btn-link bell-btn-sm right hidden-sm hidden-md hidden-lg"
+                                data-direction="right" aria-expanded="false" aria-label="Notifications Flyout"
+                                aria-hidden="true" data-modal-trigger="header-notifications">
+                            <span id="headerUserIconMobile" class="fa fa-bell header-bell-sm"></span>
+                        </button>
+                        <button popover-placement="bottom" data-container="header" role="button"
+                                class="btn btn-transparent login-link" id="loginLink">
+                            Log In
+                        </button>
+                        <button class="btn btn-default hidden-xs notranslate create-acct-link" id="signUpLink">
+                            Sign
+                            up
+                        </button>
+                    </div>
                 </div>
             </div>
-        </nav>
+        </div>
     </header>
+    <!-- NAV BAR -->
+    <nav class="navbar hidden-xs">
+        <div class="navbar-container container-fluid">
+            <div class="navbar-nav-links">
+                <a href="/auctions/" class="artists-link">Auctions</a>
+                <a href="/auction-house" class="artists-link">Auction Houses</a>
+                <a href="/artists/" class="artists-link notranslate">Artists</a>
+                <span class="divider"></span>
+                <a href="/search?queryContext=PremiumLots_all&sort=bidsDesc&query=%2520&keyword=%2520"
+                   class="view-all invaluable-picks-link hide d-none"
+                   style="gap: 2px; display: flex; align-items: center; justify-content: center;">
+                    <img src="https://image.invaluable.com/static/invaluable_picks.svg" alt="Invaluable picks logo">
+                    <span style="font-weight: 500;">INVALUABLE PICKS</span>
+                </a>
+                <a popover-placement="bottom" data-toggle="popover" data-container="nav"
+                   class="fine-art-link notranslate" data-popover="fine-art-link" data-num-cols="1"
+                   href="/fine-art/pc-SG2BIX3JPJ/" aria-expanded="false">Fine Art</a>
+                <a popover-placement="bottom" data-toggle="popover" data-container="nav"
+                   class="decorate-art-link notranslate" data-popover="decorate-art-link" data-num-cols="1"
+                   href="/decorative-art/pc-HV9SJ0PETO/" aria-expanded="false">Decorative Art</a>
+                <a popover-placement="bottom" data-toggle="popover" data-container="nav"
+                   class="jewelry-link notranslate" data-popover="jewelry-link" data-num-cols="2"
+                   href="/jewelry/pc-YKGNZXS2MH/" aria-expanded="false">Jewelry</a>
+                <a popover-placement="bottom" data-toggle="popover" data-container="nav"
+                   class="collectibles-link hidden-sm notranslate" data-popover="collectibles-link" data-num-cols="2"
+                   href="/collectibles/pc-BQWOG3FLWY/" aria-expanded="false">Collectibles</a>
+                <a popover-placement="bottom" data-toggle="popover" data-container="nav"
+                   class="furniture-link hidden-sm notranslate" data-popover="furniture-link" data-num-cols="2"
+                   href="/furniture/pc-66MNH3RVXU/" aria-expanded="false">
+                    <span class>Furniture</span>
+                </a>
+                <a popover-placement="bottom" data-toggle="popover" data-container="nav"
+                   class="asian-art-link hidden-sm notranslate" data-popover="asian-art-link" data-num-cols="1"
+                   href="/asian-art-antiques/pc-URF9IESAHL/" aria-expanded="false">
+                    <span class="hidden-sm">Asian Art</span>
+                </a>
+                <button popover-placement="bottom" data-toggle="popover" aria-label="More Categories"
+                        data-container="nav" class="btn more-link notranslate" data-popover="more-link"
+                        aria-expanded="false">
+                    <span class="fa fa-bars"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        @RenderBody()
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - RealEstateAuction - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <div class="_main-footer-section_11xsz_3">
+        <div class="_app-section_1sbed_3">
+            <div class="_app-section-content-holder_1sbed_9 _flex-container_1sbed_90">
+                <div class="_devices-img_1sbed_14">
+                    <picture>
+                        <img src="https://image.invaluable.com/static/invaluable/footer/footer2-devices.png"
+                             alt="Devices" loading="lazy" class="_devices-img_1sbed_14" />
+                    </picture>
+                </div>
+                <div class="_app-section-content_1sbed_9">
+                    <div class="text-me-a-link-control">
+                        <h3 class="_bid-on-go_1sbed_53">Bid On-the-Go!</h3>
+                        <p>
+                            Download the Invaluable app and never miss an auction from your iOS or Android device.
+                        </p>
+                    </div>
+                    <div class="_app-badge-buttons_1sbed_71">
+                        <a target="blank"
+                           href="https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=944415329&amp;mt=8">
+                            <img src="https://image.invaluable.com/static/invaluable/footer/apple-store-badge.svg"
+                                 alt="App Store badge" />
+                        </a>
+                        <a target="blank"
+                           href="https://play.google.com/store/apps/details?id=com.invaluable.invaluable&amp;referrer=utm_source%3DInvaluable%20Footer%26utm_medium%3Dwebsite%26utm_campaign%3DGoogle%20Play%20App%20Download">
+                            <img src="https://image.invaluable.com/static/invaluable/footer/google-play-badge.svg"
+                                 alt="Google Play badge" />
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </footer>
+        <!-- FOOTER -->
+        <div class="_social-widget_l1mfk_9 _flex-container_l1mfk_3">
+            <a target="_blank" rel="noreferrer" href="https://www.facebook.com/InvaluableOfficial/">
+                <i class="fa fa-facebook"></i>
+            </a>
+            <a target="_blank" rel="noreferrer" href="https://twitter.com/invaluablelive">
+                <i class="fa fa-twitter"></i>
+            </a>
+            <a target="_blank" rel="noreferrer" href="https://www.instagram.com/invaluableofficial/">
+                <i class="fa fa-instagram"></i>
+            </a>
+            <a target="_blank" rel="noreferrer" href="https://www.pinterest.com/invaluable/">
+                <i class="fa fa-pinterest-p"></i>
+            </a>
+        </div>
+        <div class="_footer_11xsz_35">
+            <div class="container _container_11xsz_8">
+                <div class="_footer-inner_11xsz_41">
+                    <div class="row _custom-row_11xsz_44">
+                        <div class="col-12 col-md-5 col-lg-5 _custom-sm-col-5_11xsz_53">
+                            <div>
+                                <div class="_footer-link-primary_es2dk_3">
+                                    <ul class="_footer-link-primary-list_es2dk_17">
+                                        <li>
+                                            <a href="/blog/">Blog</a>
+                                        </li>
+                                        <li>
+                                            <a href="/inv/about-us/">About</a>
+                                        </li>
+                                        <li>
+                                            <a href="/invaluable/contact.cfm">Contact</a>
+                                        </li>
+                                        <li>
+                                            <a href="/inv/about-us/careers/">Careers</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="_footer-link-secondary-holder_es2dk_53">
+                                    <div class="_footer-link-secondary_es2dk_53">
+                                        <div class="row">
+                                            <div class="col-6 col-xs-6 col-sm-6 col-lg-4">
+                                                <a href="/invaluable/subOverview.cfm">Subscriptions</a>
+                                            </div>
+                                            <div class="col-6 col-xs-6 col-sm-6 col-lg-4">
+                                                <a href="/artists/">Artist Database</a>
+                                            </div>
+                                            <div class="col-6 col-xs-6 col-sm-6 col-lg-4">
+                                                <a href="/press">Press</a>
+                                            </div>
+                                            <div class="col-6 col-xs-6 col-sm-6 col-lg-4">
+                                                <a href="/catalog/advancedSearch.cfm?srchScope=p">Price Archive</a>
+                                            </div>
+                                            <div class="col-6 col-xs-6 col-sm-6 col-lg-4">
+                                                <a target="_blank" rel="noreferrer"
+                                                   href="/inv/sell-with-invaluable/">Sell on Invaluable</a>
+                                            </div>
+                                            <div class="col-6 col-xs-6 col-sm-6 col-lg-4">
+                                                <a href="/invaluable/help.cfm">Help</a>
+                                            </div>
+                                            <div class="col-6 col-xs-6 col-sm-6 col-lg-4">
+                                                <a href="/inv/auctionnews">Auction News</a>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12">
+                                                <div class="_live-chat_hbe81_3">
+                                                    <button>
+                                                        <i class="fa fa-comment"></i>
+                                                        Live Chat
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="_yotpo-stars-container_1yyfk_3">
+                                <a class="_yotpo-stars-link_1yyfk_18" href="/reviews">
+                                    <div class="yotpo bottomLine" data-product-id="yotpo_site_reviews"></div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-7 col-lg-7 _custom-sm-col-7_11xsz_60">
+                            <div>
+                                <div class="_footer-logo_a506i_3">
+                                    <img class="_logo-img_a506i_11"
+                                         src="https://image.invaluable.com/static/invaluable/footer/logo.svg"
+                                         alt="Invaluable Logo" />
+                                    <p>
+                                        As the world &#x27;s leading online auction marketplace, thousands of auction
+                                        houses use Invaluable to deepen relationships with millions of clients
+                                        around the world. Stay connected to the things you love with curated items
+                                        and auctions sent to your inbox.
+                                    </p>
+                                </div>
+                                <form class="_footer-signup-form_a506i_27">
+                                    <input type="text" class placeholder="Email" value />
+                                    <button class="_btn_a506i_65 btn btn-secondary" type="submit">Sign Up</button>
+                                </form>
+                                <p class="_unsubscribe-policy-text_a506i_90">
+                                    You can unsubscribe at any time. View our<a href="/inv/agreements/privacy-policy/">Privacy Policy.</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="_sub-footer_1vo11_3">
+                <p>
+                    © 1986-
+                    <!-- -->
+                    2024
+                    <!-- -->
+                    Invaluable, LLC. and participating auction houses. All Rights Reserved.
+                </p>
+                <div class="_sub-footer-links_1vo11_31">
+                    <a target="_blank" href="/inv/agreements/terms-of-use/" rel="noreferrer">Terms</a>
+                    <a target="_blank" href="/inv/agreements/subscription-agreement/" rel="noreferrer">
+                        Subscription
+                        Agreement
+                    </a>
+                    <a target="_blank" href="/inv/agreements/privacy-policy/" rel="noreferrer">Privacy Policy</a>
+                    <a target="_blank" href="/inv/agreements/copyright-usage/" rel="noreferrer">Copyright</a>
+                    <a target="_blank" rel="noreferrer" href="/inv/gdpr/">GDPR Info</a>
+                    <a target="_blank" rel="noreferrer" href="/inv/agreements/cookie-policy/">
+                        <img src="https://image.invaluable.com/static/invaluable/footer/privacy-choice.svg"
+                             alt="Privacy Choice" class="_mr_1vo11_51" />
+                        <span>Your Privacy Choices</span>
+                    </a>
+                    <a target="_blank" href="/sitemap">Site Map</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
