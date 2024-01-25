@@ -10,15 +10,13 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = RealEstateAuction
 build_property.RootNamespace = RealEstateAuction
 build_property.ProjectDir = D:\Work\FU_Support\Quang_Minh\Fall2024\SourceCode\RealEstateAuction\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = D:\Work\FU_Support\Quang_Minh\Fall2024\SourceCode\RealEstateAuction
 build_property._RazorSourceGeneratorDebug = 
-
-[D:/Work/FU_Support/Quang_Minh/Fall2024/SourceCode/RealEstateAuction/Views/Home/HomePage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIb21lUGFnZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Work/FU_Support/Quang_Minh/Fall2024/SourceCode/RealEstateAuction/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
