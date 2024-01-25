@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Work\FU_Support\Quang_Minh\Fall2024\SourceCode\RealEstateAuction
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Work/FU_Support/Quang_Minh/Fall2024/SourceCode/RealEstateAuction/Views/Authentication/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aGVudGljYXRpb25cTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Work/FU_Support/Quang_Minh/Fall2024/SourceCode/RealEstateAuction/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

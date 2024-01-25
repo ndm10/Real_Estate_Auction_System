@@ -1,11 +1,18 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims
+@using Microsoft.AspNetCore.Authentication.Cookies
+
+@{
+    var fullName = User.FindFirstValue("FullName");
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" rel="dns-prefetch"
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
     <!-- Display message here -->
@@ -54,10 +61,30 @@
                                 aria-hidden="true" data-modal-trigger="header-notifications">
                             <span id="headerUserIconMobile" class="fa fa-bell header-bell-sm"></span>
                         </button>
-                        <button popover-placement="bottom" data-container="header" role="button"
-                                class="btn btn-transparent login-link" id="loginLink">
-                            Log In
-                        </button>
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <button popover-placement="bottom" data-container="header" role="button"
+                                    class="btn btn-transparent login-link" id="loginLink">
+                                Log In
+                            </button>
+
+                            <button class="btn btn-default hidden-xs notranslate create-acct-link" id="signUpLink">
+                                Sign
+                                up
+                            </button>
+                        }
+                        else
+                        {
+
+                            <form action="/Logout">
+                                <div class="log-in-container inline-block d-flex">
+                                    <p style="margin-right:15px; margin-top:15px; font-weight:bold">@fullName</p>
+                                    <button class="btn btn-default hidden-xs notranslate create-acct-link" id="signUpLink">
+                                        Log out
+                                    </button>
+                                </div>
+                            </form>
+                        }
                         <div id="loginModal" class="modal">
                             <div class="modal-content">
                                 <span class="close">&times;</span>
@@ -66,7 +93,7 @@
                                     Log in to view your account and personalized
                                     recommendations.
                                 </div>
-                                <form action="/Login">
+                                <form action="/Login" method="post">
                                     <input type="email" placeholder="Enter email address"
                                            class="form-control space-top email-login" name="email">
                                     <input type="password" placeholder="Password" class="form-control space-top email-login"
@@ -94,10 +121,6 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-default hidden-xs notranslate create-acct-link" id="signUpLink">
-                            Sign
-                            up
-                        </button>
                         <div id="signupModal" class="modal">
                             <div class="modal-content">
                                 <span class="close">&times;</span>
@@ -334,9 +357,7 @@
             </div>
         </div>
     </div>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/site.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

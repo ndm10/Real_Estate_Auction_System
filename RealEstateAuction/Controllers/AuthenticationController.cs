@@ -16,12 +16,15 @@ namespace RealEstateAuction.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(FormCollection form)
+        [Route("Login")]
+        public async Task<IActionResult> Login()
         {
-            var email = form["email"];
-            var password = form["pwd"];
+            string email = Request.Form["email"];
+            string password = Request.Form["pwd"];
 
             var user = context.Users.SingleOrDefault(u => u.Email.Equals(email) && u.Password.Equals(password));
+
+            Console.WriteLine(user);
             if (user != null)
             {
                 List<Claim> claims = new List<Claim>() {
@@ -31,12 +34,13 @@ namespace RealEstateAuction.Controllers
                     new Claim("Phone", user.Phone),
                     new Claim("Dob", user.Dob.ToString()),
                     new Claim("Address", user.Address),
-                    new Claim("Avatar", user.Avatar),
+                    new Claim("Avatar", user.Avatar==null?"":"oke"),
                     new Claim("RoleId", user.RoleId.ToString()),
-                    new Claim("Description", user.Description),
+                    new Claim("Description", user.Description==null?"":"oke"),
                 };
 
-                ClaimsIdentity claimsIdentity = 
+
+                ClaimsIdentity claimsIdentity =
                     new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
 
@@ -50,7 +54,7 @@ namespace RealEstateAuction.Controllers
                 };
 
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
-                                                          new ClaimsPrincipal(claimsIdentity),properties);
+                                                          new ClaimsPrincipal(claimsIdentity), properties);
 
                 TempData["Message"] = "Login successful!";
                 return Redirect("home");
@@ -62,9 +66,17 @@ namespace RealEstateAuction.Controllers
             }
         }
 
+        [HttpPost]
         public IActionResult Register()
         {
-            return View();
+            return Redirect("home");
+        }
+
+        [Route("Logout")]
+        public IActionResult Logout()
+        {
+            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return Redirect("home");
         }
     }
 }
