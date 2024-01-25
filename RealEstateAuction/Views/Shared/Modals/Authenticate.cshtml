@@ -1,0 +1,79 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-body p-0">
+                <div class="card card-plain">
+                    <div class="card-header pb-0 text-left">
+                        <h3 class="font-weight-bolder text-info text-gradient">Welcome back</h3>
+                        <p class="mb-0">Enter your email and password to sign in</p>
+                    </div>
+                    <div class="card-body">
+                        <form action="/Login" method="post">
+                            <label>Email</label>
+                            <div class="input-group mb-3">
+                                <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon" name="email">
+                            </div>
+                            <label>Password</label>
+                            <div class="input-group mb-3">
+                                <input type="email" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="password">
+                            </div>
+                            <div class="text-center">
+                                <button type="button" class="btn btn-round bg-gradient-info btn-lg w-100 mt-4 mb-0">Sign in</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                        <p class="mb-4 text-sm mx-auto">
+                            Don't have an account?
+                            <a href="#" class="text-info text-gradient font-weight-bold"
+                               data-bs-toggle="modal" data-bs-target="#modal-signup">Sign up</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalSignTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-body p-0">
+                <div class="card card-plain">
+                    <div class="card-header pb-0 text-left">
+                        <h3 class="font-weight-bolder text-primary text-gradient">Join us today</h3>
+                        <p class="mb-0">Enter your email and password to register</p>
+                    </div>
+                    <div class="card-body pb-3">
+                        <form role="form text-left">
+                            <label>Email</label>
+                            <div class="input-group mb-3">
+                                <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
+                            </div>
+                            <label>Password</label>
+                            <div class="input-group mb-3">
+                                <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                            </div>
+                            <div class="text-center">
+                                <button type="button" class="btn bg-gradient-primary btn-lg btn-rounded w-100 mt-4 mb-0">Sign up</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-center pt-0 px-sm-4 px-1">
+                        <p class="mb-4 mx-auto">
+                            Already have an account?
+                            <a href="#" class="text-primary text-gradient font-weight-bold"
+                                data-bs-toggle="modal" data-bs-target="#modal-form">Sign in</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
