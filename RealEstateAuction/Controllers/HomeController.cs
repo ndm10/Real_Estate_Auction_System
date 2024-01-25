@@ -13,12 +13,8 @@ namespace RealEstateAuction.Controllers
             _logger = logger;
         }
 
-        [Route("homepage")]
-        public IActionResult HomePage()
-        {
-            return View();
-        }
-
+        [Route("")]
+        [Route("home")]
         public IActionResult Index()
         {
             return View();
