@@ -7,8 +7,8 @@ namespace RealEstateAuction.Services
     {
         public Task SendEmailAsync(String email, String subject, String message)
         {
-            var mail = "ndminh1010@gmail.com";
-            var pw = "tgjusrbiaiihcrty";
+            var mail = "f4landproject@gmail.com";
+            var pw = "jyaqrcwfltgktweh";
 
             var client = new SmtpClient("smtp.gmail.com", 587)
             {

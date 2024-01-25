@@ -15,8 +15,12 @@ internal class Program
             {
                 options.LoginPath = "/home";
                 options.AccessDeniedPath = "/home/Error/";
-                options.ExpireTimeSpan= TimeSpan.FromMinutes(20);
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
             });
+        builder.Services.AddSession(options =>
+        {
+            options.Cookie.IsEssential = true;
+        });
 
         var app = builder.Build();
 
@@ -32,7 +36,8 @@ internal class Program
         app.UseStaticFiles();
 
         app.UseRouting();
-
+        app.UseSession();
+        
         app.UseAuthentication();
 
         app.UseAuthorization();

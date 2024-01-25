@@ -107,7 +107,7 @@ namespace RealEstateAuction.Controllers
             else
             {
                 var result = userDAO.AddUser(user);
-                if(result)
+                if (result)
                 {
                     TempData["Message"] = "Register successful!";
                 }
@@ -123,8 +123,73 @@ namespace RealEstateAuction.Controllers
         [HttpPost("forgot-password")]
         public IActionResult ForgotPassword()
         {
-            string email = Request.Form["email"];
-            _emailSender.SendEmailAsync(email, "Reset Password", "123@123");
+            var user = userDAO.GetUserByEmail(Request.Form["email"]);
+            if (user == null)
+            {
+                TempData["Message"] = "Email does not exist!";
+                return Redirect("home");
+            }
+            else
+            {
+                string email = Request.Form["email"];
+
+                // Generate a random OTP (6-digit number)
+                Random random = new Random();
+                int otpNumber = random.Next(0, 1000000);
+                string otp = otpNumber.ToString("D6");
+
+                // Save the OTP into session
+                HttpContext.Session.SetString("Otp", otp);
+
+                // Save user email into session
+                HttpContext.Session.SetString("email", email);
+
+                //send email
+                _emailSender.SendEmailAsync(email, "Reset your password!",
+                    "\nEnter OTP to change your password!" +
+                    "\nYour OTP: " + otp);
+
+                //redirect to enter otp page
+                return Redirect("enter-otp");
+            }
+        }
+
+        [HttpGet("enter-otp")]
+        public IActionResult EnterOtp()
+        {
+            return View();
+        }
+
+        [HttpPost("enter-otp")]
+        public IActionResult EnterOtp(IFormCollection formCollection)
+        {
+            string otp = formCollection["otp"];
+            //check otp is correct or not
+            if (HttpContext.Session.GetString("Otp").Equals(otp))
+            {
+                HttpContext.Session.Remove("Otp");
+                return Redirect("reset-password");
+            }
+            else
+            {
+                TempData["Message"] = "Wrong OTP!";
+                return View();
+            }
+        }
+
+        [HttpGet("reset-password")]
+        public IActionResult ResetPassword()
+        {
+            return View();
+        }
+
+        [HttpPost("reset-password")]
+        public IActionResult ResetPassword(IFormCollection formCollection)
+        {
+            string pwd = formCollection["pwd"];
+            userDAO.UpdatePassword(HttpContext.Session.GetString("email"), pwd);
+
+            TempData["Message"] = "Reset password successful!";
             return Redirect("home");
         }
 
