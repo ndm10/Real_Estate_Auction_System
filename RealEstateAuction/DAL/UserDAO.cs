@@ -30,8 +30,9 @@ namespace RealEstateAuction.DAL
                 context.SaveChanges();
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Console.WriteLine(e.InnerException);
                 return false;
             }
         }

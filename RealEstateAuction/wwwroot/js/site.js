@@ -1,16 +1,10 @@
 ﻿// Get the modals
 var loginModal = document.getElementById("loginModal");
 var signupModal = document.getElementById("signupModal");
-var forgotModal = document.getElementById("forgotPassword");
 
 // Get the buttons that open the modals
 var loginBtn = document.getElementById("loginLink");
 var signupBtn = document.getElementById("signUpLink");
-
-// Get the buttons that open the modals
-var forgotBtn = document.getElementById("forgotBtn");
-var loginForgotBtn = document.getElementById("logInForgotBtn");
-
 
 // Get the <span> elements that close the modals
 var closeButtons = document.getElementsByClassName("close");
@@ -19,25 +13,10 @@ var closeButtons = document.getElementsByClassName("close");
 loginBtn.onclick = function () {
     loginModal.style.display = "block";
     signupModal.style.display = "none"; // Close the signup modal
-    forgotModal.style.display = "none";
 }
-
-loginForgotBtn.onclick = function () {
-    loginModal.style.display = "block";
-    signupModal.style.display = "none"; // Close the signup modal
-    forgotModal.style.display = "none";
-}
-
-forgotBtn.onclick = function () {
-    forgotModal.style.display = "block";
-    loginModal.style.display = "none";
-    signupModal.style.display = "none"; // Close the signup modal
-}
-
 signupBtn.onclick = function () {
     signupModal.style.display = "block";
     loginModal.style.display = "none"; // Close the login modal
-    forgotModal.style.display = "none";
 }
 
 // When the user clicks on a <span> (x), close the corresponding modal
@@ -53,8 +32,6 @@ window.onclick = function (event) {
         loginModal.style.display = "none";
     } else if (event.target == signupModal) {
         signupModal.style.display = "none";
-    } else if (event.target == signupModal) {
-        forgotModal.style.display = "none";
     }
 }
 
