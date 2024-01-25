@@ -75,7 +75,6 @@
                         }
                         else
                         {
-
                             <form action="/Logout">
                                 <div class="log-in-container inline-block d-flex">
                                     <p style="margin-right:15px; margin-top:15px; font-weight:bold">@fullName</p>
@@ -124,19 +123,27 @@
                         <div id="signupModal" class="modal">
                             <div class="modal-content">
                                 <span class="close">&times;</span>
-                                <div class="modal-title modal-title-text text-center">Create Your Account</div>
+                                <div class="modal-title modal-title-text text-center">Get Started</div>
                                 <div class="modal-subheader text-center">
-                                    Sign up to view your account and personalized
-                                    recommendations.
+                                    Create an account to make bidding fast & easy.
                                 </div>
-                                <input type="email" placeholder="Enter email address"
-                                       class="form-control space-top email-login" name="email">
-                                <input type="password" placeholder="Password" class="form-control space-top email-login"
-                                       name="pwd">
-                                <button class="btn btn-primary modal-login-btn space-top log-in-memory continue-btn"
-                                        style="background-color: #43c4eb;color: black;">
-                                    Sign Up
-                                </button>
+                                <form action="Register" method="post">
+                                    <input type="text" placeholder="Enter your full name"
+                                           class="form-control space-top email-login" name="fullName" required>
+                                    <input type="email" placeholder="Enter email address"
+                                           class="form-control space-top email-login" name="email" required>
+                                    <input type="password" placeholder="Enter password" class="form-control space-top email-login"
+                                           name="pwd" required>
+                                    <input type="tel" placeholder="Enter phone number" class="form-control space-top email-login"
+                                           name="phone" pattern="[0-9]{10}" required>
+                                    <input type="date" placeholder="Date of birth" class="form-control space-top email-login"
+                                           name="dob" required>
+                                    <input type="text" placeholder="Enter address" class="form-control space-top email-login"
+                                           name="address" required>
+                                    <button class="btn btn-primary modal-login-btn space-top log-in-memory continue-btn">
+                                        Sign Up
+                                    </button>
+                                </form>
                                 <div class="clearfix space-bottom text-center space-top-30">
                                     <span class="dark-gray-text">Already have an account?</span>
                                     <a href="/login/" id="logInBtn" class="create-acct-link">Log in</a>

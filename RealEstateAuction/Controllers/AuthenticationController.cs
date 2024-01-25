@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Diagnostics;
+using RealEstateAuction.DAL;
 using RealEstateAuction.Models;
 using System.Security.Claims;
 
@@ -9,7 +10,7 @@ namespace RealEstateAuction.Controllers
 {
     public class AuthenticationController : Controller
     {
-        RealEstateContext context = new RealEstateContext();
+        UserDAO userDAO = new UserDAO();
         public IActionResult Index()
         {
             return View();
@@ -22,7 +23,7 @@ namespace RealEstateAuction.Controllers
             string email = Request.Form["email"];
             string password = Request.Form["pwd"];
 
-            var user = context.Users.SingleOrDefault(u => u.Email.Equals(email) && u.Password.Equals(password));
+            var user = userDAO.GetUserByEmailAndPassword(email, password);
 
             Console.WriteLine(user);
             if (user != null)
@@ -66,9 +67,48 @@ namespace RealEstateAuction.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost("Register")]
         public IActionResult Register()
         {
+            string fullName = Request.Form["fullName"];
+            string email = Request.Form["email"];
+            string pwd = Request.Form["pwd"];
+            string phone = Request.Form["phone"];
+            string date = Request.Form["dob"];
+            string address = Request.Form["address"];
+
+            User user = new User()
+            {
+                FullName = fullName,
+                Email = email,
+                Password = pwd,
+                Phone = phone,
+                Dob = DateTime.Parse(date),
+                Address = address,
+                //set role id of member is 3
+                RoleId = 3,
+                Wallet = 0
+            };
+
+            var exist = userDAO.GetUserByEmail(email);
+            if (exist != null)
+            {
+                TempData["Message"] = "Email already exists!";
+                ViewBag.User = user;
+            }
+            else
+            {
+                var result = userDAO.AddUser(user);
+                if(result)
+                {
+                    TempData["Message"] = "Register successful!";
+                }
+                else
+                {
+                    TempData["Message"] = "Register fail!";
+                }
+            }
+
             return Redirect("home");
         }
 
