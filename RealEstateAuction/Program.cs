@@ -1,9 +1,12 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using RealEstateAuction.Services;
 internal class Program
 {
     private static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+
+        builder.Services.AddTransient<IEmailSender, EmailSender>();
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();

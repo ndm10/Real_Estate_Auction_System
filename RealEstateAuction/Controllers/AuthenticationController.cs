@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Diagnostics;
 using RealEstateAuction.DAL;
 using RealEstateAuction.Models;
+using RealEstateAuction.Services;
 using System.Security.Claims;
 
 namespace RealEstateAuction.Controllers
@@ -11,13 +12,20 @@ namespace RealEstateAuction.Controllers
     public class AuthenticationController : Controller
     {
         UserDAO userDAO = new UserDAO();
+        private readonly IEmailSender _emailSender;
+
+        public AuthenticationController(IEmailSender emailSender)
+        {
+            _emailSender = emailSender;
+        }
+
         public IActionResult Index()
         {
             return View();
         }
 
         [HttpPost]
-        [Route("Login")]
+        [Route("login")]
         public async Task<IActionResult> Login()
         {
             string email = Request.Form["email"];
@@ -67,7 +75,7 @@ namespace RealEstateAuction.Controllers
             }
         }
 
-        [HttpPost("Register")]
+        [HttpPost("register")]
         public IActionResult Register()
         {
             string fullName = Request.Form["fullName"];
@@ -112,7 +120,15 @@ namespace RealEstateAuction.Controllers
             return Redirect("home");
         }
 
-        [Route("Logout")]
+        [HttpPost("forgot-password")]
+        public IActionResult ForgotPassword()
+        {
+            string email = Request.Form["email"];
+            _emailSender.SendEmailAsync(email, "Reset Password", "123@123");
+            return Redirect("home");
+        }
+
+        [Route("logout")]
         public IActionResult Logout()
         {
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
