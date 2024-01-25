@@ -9,39 +9,53 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = RealEstateAuction
 build_property.RootNamespace = RealEstateAuction
-build_property.ProjectDir = D:\Work\FU_Support\Quang_Minh\Fall2024\SourceCode\RealEstateAuction\
-build_property.EnableComHosting = 
-build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.ProjectDir = D:\Studying\Clone-Project\Real_Estate_Auction_System\RealEstateAuction\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Work\FU_Support\Quang_Minh\Fall2024\SourceCode\RealEstateAuction
+build_property.MSBuildProjectDirectory = D:\Studying\Clone-Project\Real_Estate_Auction_System\RealEstateAuction
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Work/FU_Support/Quang_Minh/Fall2024/SourceCode/RealEstateAuction/Views/Home/Index.cshtml]
+[D:/Studying/Clone-Project/Real_Estate_Auction_System/RealEstateAuction/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Work/FU_Support/Quang_Minh/Fall2024/SourceCode/RealEstateAuction/Views/Home/Privacy.cshtml]
+[D:/Studying/Clone-Project/Real_Estate_Auction_System/RealEstateAuction/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Work/FU_Support/Quang_Minh/Fall2024/SourceCode/RealEstateAuction/Views/Shared/Error.cshtml]
+[D:/Studying/Clone-Project/Real_Estate_Auction_System/RealEstateAuction/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Work/FU_Support/Quang_Minh/Fall2024/SourceCode/RealEstateAuction/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Studying/Clone-Project/Real_Estate_Auction_System/RealEstateAuction/Views/Shared/Modal/LogIn_SignUp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE1vZGFsXExvZ0luX1NpZ25VcC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Studying/Clone-Project/Real_Estate_Auction_System/RealEstateAuction/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Work/FU_Support/Quang_Minh/Fall2024/SourceCode/RealEstateAuction/Views/_ViewImports.cshtml]
+[D:/Studying/Clone-Project/Real_Estate_Auction_System/RealEstateAuction/Views/User/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Studying/Clone-Project/Real_Estate_Auction_System/RealEstateAuction/Views/User/ExternalLoginCallBack.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFeHRlcm5hbExvZ2luQ2FsbEJhY2suY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Studying/Clone-Project/Real_Estate_Auction_System/RealEstateAuction/Views/User/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Studying/Clone-Project/Real_Estate_Auction_System/RealEstateAuction/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Work/FU_Support/Quang_Minh/Fall2024/SourceCode/RealEstateAuction/Views/_ViewStart.cshtml]
+[D:/Studying/Clone-Project/Real_Estate_Auction_System/RealEstateAuction/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Work/FU_Support/Quang_Minh/Fall2024/SourceCode/RealEstateAuction/Views/Shared/_Layout.cshtml]
+[D:/Studying/Clone-Project/Real_Estate_Auction_System/RealEstateAuction/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ekamksil0x

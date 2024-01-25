@@ -8,6 +8,10 @@
     ".NETCoreApp,Version=v6.0": {
       "RealEstateAuction/1.0.0": {
         "dependencies": {
+          "Google.Apis": "1.66.0",
+          "Google.Apis.Auth": "1.66.0",
+          "Google.Apis.Gmail.v1": "1.66.0.3287",
+          "Microsoft.AspNetCore.Authentication.Google": "6.0.26",
           "Microsoft.AspNetCore.Session": "2.2.0",
           "Microsoft.EntityFrameworkCore.Design": "7.0.15",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.15",
@@ -51,11 +55,66 @@
           }
         }
       },
+      "Google.Apis/1.66.0": {
+        "dependencies": {
+          "Google.Apis.Core": "1.66.0"
+        },
+        "runtime": {
+          "lib/net6.0/Google.Apis.dll": {
+            "assemblyVersion": "1.66.0.0",
+            "fileVersion": "1.66.0.0"
+          }
+        }
+      },
+      "Google.Apis.Auth/1.66.0": {
+        "dependencies": {
+          "Google.Apis": "1.66.0",
+          "Google.Apis.Core": "1.66.0",
+          "System.Management": "7.0.2"
+        },
+        "runtime": {
+          "lib/net6.0/Google.Apis.Auth.dll": {
+            "assemblyVersion": "1.66.0.0",
+            "fileVersion": "1.66.0.0"
+          }
+        }
+      },
+      "Google.Apis.Core/1.66.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3"
+        },
+        "runtime": {
+          "lib/net6.0/Google.Apis.Core.dll": {
+            "assemblyVersion": "1.66.0.0",
+            "fileVersion": "1.66.0.0"
+          }
+        }
+      },
+      "Google.Apis.Gmail.v1/1.66.0.3287": {
+        "dependencies": {
+          "Google.Apis": "1.66.0",
+          "Google.Apis.Auth": "1.66.0"
+        },
+        "runtime": {
+          "lib/net6.0/Google.Apis.Gmail.v1.dll": {
+            "assemblyVersion": "1.66.0.3287",
+            "fileVersion": "1.66.0.3287"
+          }
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "runtime": {
           "lib/net6.0/Humanizer.dll": {
             "assemblyVersion": "2.14.0.0",
             "fileVersion": "2.14.1.48190"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Google/6.0.26": {
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "assemblyVersion": "6.0.26.0",
+            "fileVersion": "6.0.2623.60506"
           }
         }
       },
@@ -496,7 +555,7 @@
       },
       "Mono.TextTemplating/2.2.1": {
         "dependencies": {
-          "System.CodeDom": "4.4.0"
+          "System.CodeDom": "7.0.0"
         },
         "runtime": {
           "lib/netstandard2.0/Mono.TextTemplating.dll": {
@@ -505,11 +564,19 @@
           }
         }
       },
-      "System.CodeDom/4.4.0": {
+      "Newtonsoft.Json/13.0.3": {
         "runtime": {
-          "lib/netstandard2.0/System.CodeDom.dll": {
-            "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.6.25519.3"
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.3.27908"
+          }
+        }
+      },
+      "System.CodeDom/7.0.0": {
+        "runtime": {
+          "lib/net6.0/System.CodeDom.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51805"
           }
         }
       },
@@ -565,6 +632,25 @@
           "lib/net6.0/System.IdentityModel.Tokens.Jwt.dll": {
             "assemblyVersion": "6.24.0.0",
             "fileVersion": "6.24.0.31013"
+          }
+        }
+      },
+      "System.Management/7.0.2": {
+        "dependencies": {
+          "System.CodeDom": "7.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/System.Management.dll": {
+            "assemblyVersion": "7.0.0.2",
+            "fileVersion": "7.0.723.27404"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net6.0/System.Management.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "7.0.0.2",
+            "fileVersion": "7.0.723.27404"
           }
         }
       },
@@ -739,12 +825,47 @@
       "path": "azure.identity/1.7.0",
       "hashPath": "azure.identity.1.7.0.nupkg.sha512"
     },
+    "Google.Apis/1.66.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZNvwU3MaqRW6/FIpWK8S0KutaEQ20mdpUuV8TEGO4pZoxQPnakbwqTo103x+LEPW8BMTtXXHpSSCCojDIVF4Yg==",
+      "path": "google.apis/1.66.0",
+      "hashPath": "google.apis.1.66.0.nupkg.sha512"
+    },
+    "Google.Apis.Auth/1.66.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-q3ipLhn13U6f4RoAU/C7QJP8v9NTe0yZumy8hEmdR23LVZX70XwU8BDEbkexzc92uY7F1lbzp7mn/L15IAk52Q==",
+      "path": "google.apis.auth/1.66.0",
+      "hashPath": "google.apis.auth.1.66.0.nupkg.sha512"
+    },
+    "Google.Apis.Core/1.66.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QBUHjWbizj30donU51SsrDSFoL8rEmut+5El4GVPoMPDQwejJalaEWswrThc9EwZ6BcCGfxPbGE1iFR1FXiWWA==",
+      "path": "google.apis.core/1.66.0",
+      "hashPath": "google.apis.core.1.66.0.nupkg.sha512"
+    },
+    "Google.Apis.Gmail.v1/1.66.0.3287": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SZ2IannVnozE9VZP5k1EHabrMN06CNrjgVkDLkUb2Ee2NMc2B3FIJVl7x2PHi7nXFVj6UX1xUy1xu4PZiw1tKA==",
+      "path": "google.apis.gmail.v1/1.66.0.3287",
+      "hashPath": "google.apis.gmail.v1.1.66.0.3287.nupkg.sha512"
+    },
     "Humanizer.Core/2.14.1": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.Google/6.0.26": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jKHZ9qL7IcVtsxFRy7E4N+dAAgUTM6QhlGSCWS0GSNL0mU/JifQzDDMUOouY5NPnOH/idv+dJZRttDV/jEx6Dw==",
+      "path": "microsoft.aspnetcore.authentication.google/6.0.26",
+      "hashPath": "microsoft.aspnetcore.authentication.google.6.0.26.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Cryptography.Internal/2.2.0": {
       "type": "package",
@@ -1061,12 +1182,19 @@
       "path": "mono.texttemplating/2.2.1",
       "hashPath": "mono.texttemplating.2.2.1.nupkg.sha512"
     },
-    "System.CodeDom/4.4.0": {
+    "Newtonsoft.Json/13.0.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-2sCCb7doXEwtYAbqzbF/8UAeDRMNmPaQbU2q50Psg1J9KzumyVVCgKQY8s53WIPTufNT0DpSe9QRvVjOzfDWBA==",
-      "path": "system.codedom/4.4.0",
-      "hashPath": "system.codedom.4.4.0.nupkg.sha512"
+      "sha512": "sha512-HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
+      "path": "newtonsoft.json/13.0.3",
+      "hashPath": "newtonsoft.json.13.0.3.nupkg.sha512"
+    },
+    "System.CodeDom/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GLltyqEsE5/3IE+zYRP5sNa1l44qKl9v+bfdMcwg+M9qnQf47wK3H0SUR/T+3N4JEQXF3vV4CSuuo0rsg+nq2A==",
+      "path": "system.codedom/7.0.0",
+      "hashPath": "system.codedom.7.0.0.nupkg.sha512"
     },
     "System.Configuration.ConfigurationManager/6.0.1": {
       "type": "package",
@@ -1102,6 +1230,13 @@
       "sha512": "sha512-Qibsj9MPWq8S/C0FgvmsLfIlHLE7ay0MJIaAmK94ivN3VyDdglqReed5qMvdQhSL0BzK6v0Z1wB/sD88zVu6Jw==",
       "path": "system.identitymodel.tokens.jwt/6.24.0",
       "hashPath": "system.identitymodel.tokens.jwt.6.24.0.nupkg.sha512"
+    },
+    "System.Management/7.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/qEUN91mP/MUQmJnM5y5BdT7ZoPuVrtxnFlbJ8a3kBJGhe2wCzBfnPFtK2wTtEEcf3DMGR9J00GZZfg6HRI6yA==",
+      "path": "system.management/7.0.2",
+      "hashPath": "system.management.7.0.2.nupkg.sha512"
     },
     "System.Memory/4.5.4": {
       "type": "package",

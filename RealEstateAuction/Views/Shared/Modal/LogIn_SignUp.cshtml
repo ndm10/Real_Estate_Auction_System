@@ -1,0 +1,81 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div id="signupModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-title modal-title-text text-center">Create Your Account</div>
+        <div class="modal-subheader text-center">
+            Sign up to view your account and personalized
+            recommendations.
+        </div>
+        <input type="email" placeholder="Enter email address"
+               class="form-control space-top email-login" name="email">
+        <input type="password" placeholder="Password" class="form-control space-top email-login"
+               name="pwd">
+        <button class="btn btn-primary modal-login-btn space-top log-in-memory continue-btn"
+                style="background-color: #43c4eb;color: black;">
+            Sign Up
+        </button>
+        <div class="clearfix space-bottom text-center space-top-30">
+            <span class="dark-gray-text">Already have an account?</span>
+            <a href="/login/" id="logInBtn" class="create-acct-link">Log in</a>
+        </div>
+        <div class="clearfix space-bottom text-center" style="font-size: 12px;">
+            <span class="dark-gray-text">
+                By signing up with Google, you agree to Invaluable's <a href="/agreements/userTerms.cfm" target="_blank">terms of service</a> and <a href="/agreements/privacy.cfm" target="_blank">privacy policy</a>.
+                Invaluable may send you communications; you can set your preferences in your
+                account.
+            </span>
+        </div>
+    </div>
+</div>
+<div class="log-in-container inline-block">
+    <button id="notifOptionsBtn" type="button"
+            class="btn btn-modal-trigger btn-link bell-btn-sm right hidden-sm hidden-md hidden-lg"
+            data-direction="right" aria-expanded="false" aria-label="Notifications Flyout"
+            aria-hidden="true" data-modal-trigger="header-notifications">
+        <span id="headerUserIconMobile" class="fa fa-bell header-bell-sm"></span>
+    </button>
+    <button popover-placement="bottom" data-container="header" role="button"
+            class="btn btn-transparent login-link" id="loginLink">
+        Log In
+    </button>
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-title modal-title-text text-center">Enter Your Email</div>
+            <div class="modal-subheader text-center">
+                Log in to view your account and personalized
+                recommendations.
+            </div>
+            <input type="email" placeholder="Enter email address"
+                   class="form-control space-top email-login" name="email">
+            <input type="password" placeholder="Password" class="form-control space-top email-login"
+                   name="pwd">
+            <button class="btn btn-primary modal-login-btn space-top log-in-memory continue-btn"
+                    style="background-color: #43c4eb;color: black;">
+                Login
+            </button>
+
+            <div class="social-separator">
+                <div class="social-line"></div>
+                <span>OR</span>
+                <div class="social-line"></div>
+            </div>
+            <div class="clearfix space-bottom text-center space-top-30">
+                <span class="dark-gray-text">Don't have an account?</span>
+                <a href="/login/" id="signUpBtn" class="create-acct-link">Sign up</a>
+            </div>
+            <div class="clearfix space-bottom text-center" style="font-size: 12px;">
+                <span class="dark-gray-text">
+                    By continuing with Google, you agree to Invaluable's <a href="/agreements/userTerms.cfm" target="_blank">terms of service</a> and <a href="/agreements/privacy.cfm" target="_blank">privacy policy</a>.
+                    Invaluable may send you communications; you can set your preferences in your
+                    account.
+                </span>
+            </div>
+        </div>
+    </div>

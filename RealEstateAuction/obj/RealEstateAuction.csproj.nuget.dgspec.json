@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\RealEstateAuction.csproj": {}
+    "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\RealEstateAuction.csproj": {}
   },
   "projects": {
-    "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\RealEstateAuction.csproj": {
+    "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\RealEstateAuction.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\RealEstateAuction.csproj",
+        "projectUniqueName": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\RealEstateAuction.csproj",
         "projectName": "RealEstateAuction",
-        "projectPath": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\RealEstateAuction.csproj",
-        "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
-        "outputPath": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\obj\\",
+        "projectPath": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\RealEstateAuction.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -27,6 +27,7 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,6 +46,26 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Google.Apis": {
+              "target": "Package",
+              "version": "[1.66.0, )"
+            },
+            "Google.Apis.Auth": {
+              "target": "Package",
+              "version": "[1.66.0, )"
+            },
+            "Google.Apis.Gmail.v1": {
+              "target": "Package",
+              "version": "[1.66.0.3287, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[6.0.26, )"
+            },
+            "Microsoft.AspNetCore.Session": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -73,24 +94,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.26, 6.0.26]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[6.0.26, 6.0.26]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.26, 6.0.26]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.26, 6.0.26]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -99,7 +102,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }
