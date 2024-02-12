@@ -22,14 +22,17 @@ namespace RealEstateAuction.Controllers
         [Route("profile")]
         public IActionResult Profile()
         {
+            //check if user is authenticated
             if (!User.Identity.IsAuthenticated)
             {
                 TempData["Message"] = "Please login to view profile!";
                 return RedirectToAction("Index", "Home");
             }
+
             string email = User.FindFirstValue("Email");
             User user = userDAO.GetUserByEmail(email);
 
+            //map user to user data model
             UserDatalModel userData = _mapper.Map<User, UserDatalModel>(user);
 
             return View(userData);

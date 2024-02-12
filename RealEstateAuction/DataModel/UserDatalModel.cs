@@ -7,6 +7,7 @@ namespace RealEstateAuction.DataModel
     public class UserDatalModel
     {
         [Required(ErrorMessage = "Tên không được để trống")]
+        [RegularExpression(@"^[^\d]+$", ErrorMessage = "Tên không được chứa số")]
         public string FullName { get; set; }
 
         public string Email { get; set; }

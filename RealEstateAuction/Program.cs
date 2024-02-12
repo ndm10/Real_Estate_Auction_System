@@ -11,6 +11,7 @@ internal class Program
         builder.Services.AddAutoMapper(typeof(DataModelToModel).Assembly, typeof(ModelToDataModel).Assembly);
 
         builder.Services.AddTransient<IEmailSender, EmailSender>();
+        
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
