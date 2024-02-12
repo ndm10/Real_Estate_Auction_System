@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "UcQ9vJAQm9czqytSFQqBASFcNZHIqWJkN5V04sZQKmo=",
+  "Hash": "JtDnd7cbkNrWAXyTJTBeaaZQBVWcY0tMJzYmHsu2rfg=",
   "Source": "RealEstateAuction",
   "BasePath": "_content/RealEstateAuction",
   "Mode": "Default",
@@ -55,6 +55,25 @@
       "OriginalItemSpec": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\RealEstateAuction.bundle.scp.css"
     },
     {
+      "Identity": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\css\\EnterOtp.css",
+      "SourceId": "RealEstateAuction",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\",
+      "BasePath": "_content/RealEstateAuction",
+      "RelativePath": "css/EnterOtp.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\EnterOtp.css"
+    },
+    {
       "Identity": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\css\\site.css",
       "SourceId": "RealEstateAuction",
       "SourceType": "Discovered",
@@ -72,25 +91,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
-    },
-    {
-      "Identity": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\css\\style.css",
-      "SourceId": "RealEstateAuction",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\",
-      "BasePath": "_content/RealEstateAuction",
-      "RelativePath": "css/style.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
       "Identity": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\favicon.ico",
