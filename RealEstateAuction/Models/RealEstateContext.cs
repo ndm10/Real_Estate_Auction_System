@@ -17,13 +17,13 @@ public partial class RealEstateContext : DbContext
 
     public virtual DbSet<Auction> Auctions { get; set; }
 
-    public virtual DbSet<AuctionImage> AuctionImages { get; set; }
-
     public virtual DbSet<AuctionParticipant> AuctionParticipants { get; set; }
 
     public virtual DbSet<Banking> Bankings { get; set; }
 
     public virtual DbSet<Category> Categories { get; set; }
+
+    public virtual DbSet<Image> Images { get; set; }
 
     public virtual DbSet<Notification> Notifications { get; set; }
 
@@ -86,16 +86,6 @@ public partial class RealEstateContext : DbContext
                     });
         });
 
-        modelBuilder.Entity<AuctionImage>(entity =>
-        {
-            entity.HasNoKey();
-
-            entity.HasOne(d => d.Auction).WithMany()
-                .HasForeignKey(d => d.AuctionId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_AuctionImages_Auction");
-        });
-
         modelBuilder.Entity<AuctionParticipant>(entity =>
         {
             entity.ToTable("AuctionParticipant");
@@ -128,6 +118,28 @@ public partial class RealEstateContext : DbContext
             entity.ToTable("Category");
 
             entity.Property(e => e.Name).HasMaxLength(255);
+        });
+
+        modelBuilder.Entity<Image>(entity =>
+        {
+            entity.Property(e => e.Url).HasColumnType("ntext");
+
+            entity.HasMany(d => d.Auctions).WithMany(p => p.Images)
+                .UsingEntity<Dictionary<string, object>>(
+                    "AuctionImage",
+                    r => r.HasOne<Auction>().WithMany()
+                        .HasForeignKey("AuctionId")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK_AuctionImage_Auction"),
+                    l => l.HasOne<Image>().WithMany()
+                        .HasForeignKey("ImageId")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK_Auction_Image_Images"),
+                    j =>
+                    {
+                        j.HasKey("ImageId", "AuctionId");
+                        j.ToTable("Auction_Image");
+                    });
         });
 
         modelBuilder.Entity<Notification>(entity =>

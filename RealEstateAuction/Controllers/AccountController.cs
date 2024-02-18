@@ -113,5 +113,29 @@ namespace RealEstateAuction.Controllers
             }
             return View();
         }
+
+        [HttpGet]
+        [Route("create-auction")]
+        public IActionResult CreateAuction()
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                TempData["Message"] = "Please login to manage auction!";
+                return RedirectToAction("Index", "Home");
+            }
+            return View();
+        }
+
+        [HttpPost]
+        [Route("create-auction")]
+        public IActionResult CreateAuction(Auction auction)
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                TempData["Message"] = "Please login to manage auction!";
+                return RedirectToAction("Index", "Home");
+            }
+            return View();
+        }
     }
 }
