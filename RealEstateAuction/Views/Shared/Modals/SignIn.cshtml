@@ -1,0 +1,64 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!--Login modal-->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="register" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">Welcome back</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="modal-subheader text-center">
+                        Log in to view your account and personalized
+                        recommendations.
+                    </div>
+                    <form action="/login" method="post">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" placeholder="Enter email address"
+                                   class="form-control" name="email" id="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="pwd" class="form-label">Password</label>
+                            <input type="password" placeholder="Password"
+                                   class="form-control" name="pwd" id="pwd">
+                        </div>                 
+                        <div class="text-center">
+                            <button class="btn btn-primary">
+                                Login
+                            </button>
+                        </div>                     
+                    </form>
+
+                    <div class="social-separator">
+                        <div class="social-line"></div>
+                        <span>OR</span>
+                        <div class="social-line"></div>
+                    </div>
+                    <div class="clearfix space-bottom text-center space-top-30">
+                        <span class="dark-gray-text">Don't have an account?</span>
+                        <a data-bs-toggle="modal"
+                           data-bs-target="#registerModal" href="#">Sign up</a>
+                    </div>
+                    <div class="clearfix space-bottom text-center space-top-30">
+                        <span class="dark-gray-text">Or you forgot password?</span>
+                        <a data-bs-toggle="modal"
+                           data-bs-target="#forgotModal" href="#">Forgot password</a>
+                    </div>
+                    <div class="clearfix space-bottom text-center" style="font-size: 12px;">
+                        <span class="dark-gray-text">
+                            By continuing with Google, you agree to Invaluable's <a href="/agreements/userTerms.cfm" target="_blank">terms of service</a> and <a href="/agreements/privacy.cfm" target="_blank">privacy policy</a>.
+                            Invaluable may send you communications; you can set your preferences in your
+                            account.
+                        </span>
+                    </div>
+                </div>              
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ubaERzwyU9k8744ETNjrMw8UeTj48LN0dMB1NPZxku4=",
+  "Hash": "zYnXnWIC1OQRhI0npwHJqL2wd2UBWrnoLlPTEpcz2o4=",
   "Source": "RealEstateAuction",
   "BasePath": "_content/RealEstateAuction",
   "Mode": "Default",
@@ -91,6 +91,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\css\\styles.css",
+      "SourceId": "RealEstateAuction",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\",
+      "BasePath": "_content/RealEstateAuction",
+      "RelativePath": "css/styles.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\styles.css"
     },
     {
       "Identity": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\favicon.ico",
