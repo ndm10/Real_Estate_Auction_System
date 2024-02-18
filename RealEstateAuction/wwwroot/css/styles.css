@@ -1,146 +1,154 @@
 /* common css */
 :root {
-  --primary-background-color: white;
-  --primary-color: #e4002b;
-  --primary-gray: #f2f3f4;
+    --primary-background-color: white;
+    --primary-color: #e4002b;
+    --primary-gray: #f2f3f4;
 }
 
 .primary-color {
-  color: var(--primary-color) !important;
+    color: var(--primary-color) !important;
 }
 
 .background-color {
-  background-color: var(--primary-background-color);
+    background-color: var(--primary-background-color);
 }
 
 .sub-background {
-  background-color: var(--primary-gray);
+    background-color: var(--primary-gray);
 }
 
 .h-screen {
-  height: 100vh;
+    height: 100vh;
 }
 
 .cursor-pointer {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .truncate-2-line {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 /* End section */
 
 /* Dropdown hover  */
 @media (min-width: 576px) {
-  .dropdown:hover .dropdown-menu {
-    display: block;
-    opacity: 1;
-    margin-top: 0;
-  }
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        opacity: 1;
+        margin-top: 0;
+    }
 
-  .dropdown-menu {
-    display: block;
-    opacity: 0;
-    transition: all 0.2s;
-  }
+    .dropdown-menu {
+        display: block;
+        opacity: 0;
+        transition: all 0.2s;
+    }
 }
+
 .dropdown-menu::after {
-  display: none !important;
+    display: none !important;
 }
 /* End section */
 
 /* search input  */
 .input-search-wrapper {
-  position: relative;
-  width: 100%;
+    position: relative;
+    width: 100%;
 }
 
 .input-search {
-  height: 40px;
-  width: 100%;
-  padding-left: 14px;
+    height: 40px;
+    width: 100%;
+    padding-left: 14px;
 }
 /* end section  */
 
 /* separated line  */
 .separated-line {
-  width: 1px;
-  height: 32px;
-  background-color: #333333;
+    width: 1px;
+    height: 32px;
+    background-color: #333333;
 }
+
 .section-line {
-  width: 100%;
-  height: 1px;
-  background-color: #bac4c9;
+    width: 100%;
+    height: 1px;
+    background-color: #bac4c9;
 }
 /* end seciton */
 
 /* custom btn-danger */
 .btn-danger-secondary {
-  background-color: #720107 !important;
-  border: 1px solid #720107 !important;
-  border-radius: 0px !important;
-  color: white;
+    background-color: #720107 !important;
+    border: 1px solid #720107 !important;
+    border-radius: 0px !important;
+    color: white;
 }
 /* end seciton */
 
 /* Banner-home */
 .responsive-banner-home {
-  position: absolute;
-  top: 50%;
-  left: 15%;
-  transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    transform: translateY(-50%);
 }
+
 @media (max-width: 576px) {
-  .responsive-banner-home {
-    left: 0;
-    right: 0;
-  }
+    .responsive-banner-home {
+        left: 0;
+        right: 0;
+    }
 }
 
 .max-width-section {
-  max-width: 1258px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 12px;
-  padding-right: 12px;
-  @media screen and (max-width: 992px) {
-    max-width: 960px;
-  }
-  @media screen and (max-width: 768px) {
-    max-width: 772px;
-  }
-  @media screen and (max-width: 576px) {
-    max-width: 540px;
-  }
+    max-width: 1258px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 12px;
+    padding-right: 12px;
+
+    @media screen and (max-width: 992px) {
+        max-width: 960px;
+    }
+
+    @media screen and (max-width: 768px) {
+        max-width: 772px;
+    }
+
+    @media screen and (max-width: 576px) {
+        max-width: 540px;
+    }
 }
 
 /* for slick  */
 .slider .slick-prev:before,
 .slider .slick-next:before {
-  color: var(--primary-color);
-  font-size: 26px;
+    color: var(--primary-color);
+    font-size: 26px;
 }
 
 .slider-nav {
-  margin: 0 -8px;
+    margin: 0 -8px;
 }
+
 .slick-slide {
-  margin: 0 8px;
+    margin: 0 8px;
 }
 
 .head-title {
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
 }
+
 .head-detail {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 20px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
 }
 
 #snackbar {
@@ -235,3 +243,5 @@
     .social-separator span {
         padding: 0 20px
     }
+
+    

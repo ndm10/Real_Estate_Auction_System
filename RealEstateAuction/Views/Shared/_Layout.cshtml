@@ -43,51 +43,27 @@
 
             <div class="col-md-auto justify-content-end d-flex align-items-center gap-3">
                 <div class="gap-4 d-flex align-items-center">
-                    
-                    @if (!User.Identity.IsAuthenticated)
-                    {
-                        <button type="button" class="btn btn-outline-none text-nowrap"
-                                data-bs-toggle="modal"
-                                data-bs-target="#loginModal">
-                            >
-                            <i class="fa-solid fa-heart primary-color me-1"></i>
-                            Saved
-                        </button>
-                        <button type="button" class="btn btn-outline-none text-nowrap"
-                                data-bs-toggle="modal"
-                                data-bs-target="#loginModal">
-                            >
-                            <i class="fa-solid fa-bell primary-color me-1"></i>
-                            Notifications
-                        </button>
-                    }
-                    else
-                    {
-                        <button type="button" class="btn btn-outline-none text-nowrap"
-                                href="">
-                            >
-                            <i class="fa-solid fa-heart primary-color me-1"></i>
-                            Saved
-                        </button>
-                        <button type="button" class="btn btn-outline-none text-nowrap"
-                            href="">
-                            <i class="fa-solid fa-bell primary-color me-1"></i>
-                            Notifications
-                        </button>
-                    }                                        
+                    <button type="button" class="btn btn-outline-none text-nowrap">
+                        <i class="fa-solid fa-heart primary-color me-1"></i>
+                        Lưu trữ
+                    </button>
+                    <button type="button" class="btn btn-outline-none text-nowrap">
+                        <i class="fa-solid fa-bell primary-color me-1"></i>
+                        Thông báo
+                    </button>
                 </div>
                 <div class="d-flex align-items-center gap-3">
                     <!-- If DO NOT login, show this   -->
                     @if (!User.Identity.IsAuthenticated)
                     {
                         <button type="button" class="btn btn-outline-none text-nowrap" data-bs-toggle="modal"
-                        data-bs-target="#loginModal">
-                            Log in
+                                data-bs-target="#loginModal">
+                            Đăng nhập
                         </button>
 
                         <button type="button" class="btn btn-outline-secondary text-nowrap" data-bs-toggle="modal"
-                        data-bs-target="#registerModal">
-                            Sign up
+                                data-bs-target="#registerModal">
+                            Đăng ký
                         </button>
                     }
                     else
@@ -95,27 +71,27 @@
                         <!-- If login, show this -->
                         <div class="dropdown">
                             <a href="#" class="d-flex align-items-center link-dark text-decoration-none cursor-pointer dropdown-toggle"
-                                id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                               id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa-solid fa-user me-2 primary-color"></i>
                                 Hello:&ensp;<strong>@fullName</strong>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><button class="dropdown-item" type="button">Action</button></li>
-                                <li><button class="dropdown-item" type="button">Another action</button></li>
-                                <li><button class="dropdown-item" type="button">Something else here</button></li>
+                                <li><a class="dropdown-item" href="/profile">Thông tin cá nhân</a></li>
+                                <li><a class="dropdown-item" href="/manage-auction">Quản lý đấu giá</a></li>
+                                <li><a class="dropdown-item" href="/change-password">Đổi mật khẩu</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <form action="/logout">
-                                    <li><button class="text-danger dropdown-item">Sign out</button></li>
+                                <li><a class="dropdown-item" href="/logout">Đăng xuất</a></li>
                                 </form>
                             </ul>
                         </div>
                     }
-                </div>                
-                
+                </div>
+
             </div>
         </header>
 
-        <section class="px-5 py-2 d-md-block d-none" id="menu">
+        <section class="px-5 py-2 d-md-block d-none" id="menu" style="background-color: #43c4eb">
             <div class="d-flex justify-content-between align-items-center">
                 <a class="text-decoration-none cursor-pointer text-danger" href="/auctions">AUCTIONS</a>
                 <a class="text-decoration-none cursor-pointer text-danger" href="/auctions-house">AUCTION HOUSE</a>
@@ -126,147 +102,47 @@
                          data-bs-toggle="dropdown" aria-expanded="false">
                         FINE ART
                     </div>
-                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-                        <li>
-                            <div class="dropdown-item">View All Fine Art</div>
-                        </li>
-                        <li>
-                            <div class="dropdown-item">Drawing(200)</div>
-                        </li>
-                        <li>
-                            <div class="dropdown-item">Wringting(400)</div>
-                        </li>
-                    </ul>
                 </div>
                 <div class="dropdown">
                     <div class="link-dark text-decoration-none cursor-pointer cursor-pointer" id="dropdownUser2"
                          data-bs-toggle="dropdown" aria-expanded="false">
                         DECORATION ART
                     </div>
-                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-                        <li>
-                            <div class="dropdown-item">View All Fine Art</div>
-                        </li>
-                        <li>
-                            <div class="dropdown-item">Drawing(200)</div>
-                        </li>
-                        <li>
-                            <div class="dropdown-item">Wringting(400)</div>
-                        </li>
-                    </ul>
                 </div>
                 <div class="dropdown">
                     <div class="link-dark text-decoration-none cursor-pointer cursor-pointer" id="dropdownUser2"
                          data-bs-toggle="dropdown" aria-expanded="false">
                         JEWELRY
                     </div>
-                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-                        <li>
-                            <div class="dropdown-item">View All Fine Art</div>
-                        </li>
-                        <li>
-                            <div class="dropdown-item">Drawing(200)</div>
-                        </li>
-                        <li>
-                            <div class="dropdown-item">Wringting(400)</div>
-                        </li>
-                    </ul>
                 </div>
                 <div class="dropdown">
                     <div class="link-dark text-decoration-none cursor-pointer cursor-pointer" id="dropdownUser2"
                          data-bs-toggle="dropdown" aria-expanded="false">
                         COLLECTIBLES
                     </div>
-                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-                        <li>
-                            <div class="dropdown-item">View All Fine Art</div>
-                        </li>
-                        <li>
-                            <div class="dropdown-item">Drawing(200)</div>
-                        </li>
-                        <li>
-                            <div class="dropdown-item">Wringting(400)</div>
-                        </li>
-                    </ul>
                 </div>
                 <div class="dropdown">
                     <div class="link-dark text-decoration-none cursor-pointer cursor-pointer" id="dropdownUser2"
                          data-bs-toggle="dropdown" aria-expanded="false">
                         FURNITURES
                     </div>
-                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-                        <li>
-                            <div class="dropdown-item">View All Fine Art</div>
-                        </li>
-                        <li>
-                            <div class="dropdown-item">Drawing(200)</div>
-                        </li>
-                        <li>
-                            <div class="dropdown-item">Wringting(400)</div>
-                        </li>
-                    </ul>
                 </div>
                 <div class="dropdown">
                     <div class="link-dark text-decoration-none cursor-pointer cursor-pointer" id="dropdownUser2"
                          data-bs-toggle="dropdown" aria-expanded="false">
                         ASIAN ARTS
                     </div>
-                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-                        <li>
-                            <div class="dropdown-item">View All Fine Art</div>
-                        </li>
-                        <li>
-                            <div class="dropdown-item">Drawing(200)</div>
-                        </li>
-                        <li>
-                            <div class="dropdown-item">Wringting(400)</div>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </section>
     </div>
     <div id="body">
-        @if(!User.Identity.IsAuthenticated)
+        @if (!User.Identity.IsAuthenticated)
         {
             @await Html.PartialAsync("Modals/ForgotPassword")
             @await Html.PartialAsync("Modals/SignIn")
             @await Html.PartialAsync("Modals/SignUp")
         }
-        <!-- USED FOR SELECTION MENU, COPY THIS TO SEPARATED FILE TO USE LATER -->
-        @* <!-- NAV BAR -->
-        <nav class="navbar hidden-xs">
-            <div class="navbar-container container-fluid" style="background-color: #43c4eb;">
-                <div class="navbar-nav-links">
-                    <a href="/auctions/" class="artists-link">Nhà riêng</a>
-                    <a href="/auction-house" class="artists-link">Nhà mặt phố</a>
-                    <a href="/artists/" class="artists-link notranslate">Nhà chung cư</a>
-                    <span class="divider" style="background-color: black;"></span>
-                    <a popover-placement="bottom" data-toggle="popover" data-container="nav"
-                       class="fine-art-link notranslate" data-popover="fine-art-link" data-num-cols="1"
-                       href="/fine-art/pc-SG2BIX3JPJ/" aria-expanded="false">Nhà biệt thự liền kề</a>
-                    <a popover-placement="bottom" data-toggle="popover" data-container="nav"
-                       class="decorate-art-link notranslate" data-popover="decorate-art-link" data-num-cols="1"
-                       href="/decorative-art/pc-HV9SJ0PETO/" aria-expanded="false">Đất</a>
-                    <a popover-placement="bottom" data-toggle="popover" data-container="nav"
-                       class="jewelry-link notranslate" data-popover="jewelry-link" data-num-cols="2"
-                       href="/jewelry/pc-YKGNZXS2MH/" aria-expanded="false">Đất nền dự án</a>
-                    <a popover-placement="bottom" data-toggle="popover" data-container="nav"
-                       class="collectibles-link hidden-sm notranslate" data-popover="collectibles-link" data-num-cols="2"
-                       href="/collectibles/pc-BQWOG3FLWY/" aria-expanded="false">Cửa hàng, ki ốt</a>
-                    <a popover-placement="bottom" data-toggle="popover" data-container="nav"
-                       class="furniture-link hidden-sm notranslate" data-popover="furniture-link" data-num-cols="2"
-                       href="/furniture/pc-66MNH3RVXU/" aria-expanded="false">
-                        <span class>Văn phòng</span>
-                    </a>
-                    <button popover-placement="bottom" data-toggle="popover" aria-label="More Categories"
-                            data-container="nav" class="btn more-link notranslate" data-popover="more-link"
-                            aria-expanded="false">
-                        <span class="fa fa-bars"></span>
-                    </button>
-                </div>
-            </div>
-        </nav> *@
 
         <section id="banner">
             <!-- Carousel wrapper -->
@@ -369,7 +245,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center align-items-center gap-4 px-2 py-4"
-                 style="background-color: #720107;">
+                 style="background-color: #43c4eb;">
                 <a target="_blank" rel="noreferrer" href="https://www.facebook.com/InvaluableOfficial/">
                     <i class="fa fa-facebook" style="color: white; font-size: 24px;"></i>
                 </a>
@@ -443,7 +319,7 @@
                         <div class="col-12 col-md-7 col-lg-7">
                             <div class="">
                                 <img class="_logo-img_a506i_11"
-                                     src="https://image.invaluable.com/static/invaluable/footer/logo.svg"
+                                     src="~/img/logo.jpg"
                                      alt="Invaluable Logo">
                                 <p class="mt-4">
                                     As the world's leading online auction marketplace, thousands of auction
@@ -458,7 +334,7 @@
                                     <label for="floatingInput" style="color: #222222;">Email</label>
                                 </div>
                                 <button id="signup-button" type="button" class="btn"
-                                        style="background-color: #720107; color: white;">
+                                        style="background-color: #43c4eb; color: white;">
                                     Sign Up
                                 </button>
                             </form>
@@ -472,7 +348,7 @@
                 <div class="d-flex align-items-center justify-content-center p-3"
                      style="border-top: 1px solid #555555;">
                     <p class="mb-0 text-white">
-                        © 1986-2024 Invaluable, LLC. and participating auction houses. All Rights
+                        © 1986-2024 F4Land, LLC. and participating auction houses. All Rights
                         Reserved.
                     </p>
                 </div>
@@ -496,10 +372,29 @@
     <script>
         $(document).ready(function () {
             $('#carousel-starter').carousel({
-                interval: 5000 
+                interval: 5000
             });
         });
     </script>
-    
+    <script>
+        $(document).ready(function () {
+            $('#forgotModal').on('show.bs.modal', function () {
+                $('#loginModal').modal('hide');
+                $('#registerModal').modal('hide');
+            });
+
+            $('#loginModal').on('show.bs.modal', function () {
+                $('#forgotModal').modal('hide');
+                $('#registerModal').modal('hide');
+            });
+
+            $('#registerModal').on('show.bs.modal', function () {
+                $('#forgotModal').modal('hide');
+                $('#loginModal').modal('hide');
+            });
+        });
+    </script>
+
     @await RenderSectionAsync("Scripts", required: false)
-</body>  
+</body>
+</html>

@@ -52,8 +52,6 @@ namespace RealEstateAuction.Controllers
                     //new Claim("Phone", user.Phone),
                     //new Claim("Dob", user.Dob.ToString()),
                     //new Claim("Address", user.Address),
-                    new Claim("Avatar", user.Avatar==null?"":"oke"),
-                    //new Claim("Description", user.Description==null?"":"oke"),
                 };
 
 
