@@ -19,13 +19,13 @@ public partial class Auction
 
     public double Facade { get; set; }
 
-    public string Drirection { get; set; } = null!;
+    public string Direction { get; set; } = null!;
 
     public string Description { get; set; } = null!;
 
     public int UserId { get; set; }
 
-    public int? ApproverId { get; set; }
+    public int ApproverId { get; set; }
 
     public byte Status { get; set; }
 
@@ -39,7 +39,7 @@ public partial class Auction
 
     public DateTime? UpdatedTime { get; set; }
 
-    public virtual User? Approver { get; set; }
+    public virtual User Approver { get; set; } = null!;
 
     public virtual ICollection<AuctionParticipant> AuctionParticipants { get; set; } = new List<AuctionParticipant>();
 

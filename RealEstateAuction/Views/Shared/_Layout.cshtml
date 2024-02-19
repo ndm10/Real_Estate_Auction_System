@@ -358,7 +358,7 @@
     <script src="https://kit.fontawesome.com/8d39de38b8.js" crossorigin="anonymous"></script>
     <script>
         // Check if TempData contains a message
-        var message = '@TempData["Message"]';
+        var message = '@Html.Raw(TempData["Message"])';
 
         if (message) {
             var x = document.getElementById("snackbar");
