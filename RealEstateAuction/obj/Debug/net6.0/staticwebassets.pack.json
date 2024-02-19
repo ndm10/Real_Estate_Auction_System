@@ -25,12 +25,24 @@
       "PackagePath": "staticwebassets\\img\\0b9c5845-c9ab-4f43-91a4-ad5c0d175ef4.png"
     },
     {
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\img\\14a92aeb-5b4f-43df-ba46-a826679834d3.png",
+      "PackagePath": "staticwebassets\\img\\14a92aeb-5b4f-43df-ba46-a826679834d3.png"
+    },
+    {
       "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\img\\15827018-7cb9-4514-aedb-af616a721385.png",
       "PackagePath": "staticwebassets\\img\\15827018-7cb9-4514-aedb-af616a721385.png"
     },
     {
       "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\img\\1c993e1a-210b-403c-b19f-0cd82a1b4448.png",
       "PackagePath": "staticwebassets\\img\\1c993e1a-210b-403c-b19f-0cd82a1b4448.png"
+    },
+    {
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\img\\1e999a1e-c96f-4672-8487-863fd796da61.png",
+      "PackagePath": "staticwebassets\\img\\1e999a1e-c96f-4672-8487-863fd796da61.png"
+    },
+    {
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\img\\23d64b10-c03f-4fc7-8d89-d07c479f9367.png",
+      "PackagePath": "staticwebassets\\img\\23d64b10-c03f-4fc7-8d89-d07c479f9367.png"
     },
     {
       "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\img\\2ea84178-b1fd-411d-a647-e6cc467ea508.png",
@@ -45,12 +57,28 @@
       "PackagePath": "staticwebassets\\img\\5bf21e05-7388-4be6-8d81-1b71715dd08d.png"
     },
     {
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\img\\70b823e7-dffd-4da2-ae70-3f3caf6d9431.png",
+      "PackagePath": "staticwebassets\\img\\70b823e7-dffd-4da2-ae70-3f3caf6d9431.png"
+    },
+    {
       "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\img\\72398478-fac7-4911-b3f5-2cedf19e243e.png",
       "PackagePath": "staticwebassets\\img\\72398478-fac7-4911-b3f5-2cedf19e243e.png"
     },
     {
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\img\\73413fbe-6176-493a-9872-4e746e3e883a.png",
+      "PackagePath": "staticwebassets\\img\\73413fbe-6176-493a-9872-4e746e3e883a.png"
+    },
+    {
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\img\\7bf0a775-001a-4c6a-81d7-79315d057f11.png",
+      "PackagePath": "staticwebassets\\img\\7bf0a775-001a-4c6a-81d7-79315d057f11.png"
+    },
+    {
       "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\img\\95a5d6c2-cdd0-4347-a83c-2815dac03f14.png",
       "PackagePath": "staticwebassets\\img\\95a5d6c2-cdd0-4347-a83c-2815dac03f14.png"
+    },
+    {
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\img\\ad4b372e-a1f5-4a0f-bd55-d4820b86ae53.png",
+      "PackagePath": "staticwebassets\\img\\ad4b372e-a1f5-4a0f-bd55-d4820b86ae53.png"
     },
     {
       "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\img\\b55c57ef-40dc-4d6a-9011-8cee5ea34875.png",
@@ -77,8 +105,16 @@
       "PackagePath": "staticwebassets\\img\\e616e29c-d6f7-4a28-a8cd-fdd2361d8df6.png"
     },
     {
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\img\\e6e09f24-ca81-44cf-bb1b-84b5c166ae74.png",
+      "PackagePath": "staticwebassets\\img\\e6e09f24-ca81-44cf-bb1b-84b5c166ae74.png"
+    },
+    {
       "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\img\\f3e4a610-502f-4bbe-868e-66d826563a4a.png",
       "PackagePath": "staticwebassets\\img\\f3e4a610-502f-4bbe-868e-66d826563a4a.png"
+    },
+    {
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\img\\fd371d26-88ff-4a0e-a251-453ec95b4abb.png",
+      "PackagePath": "staticwebassets\\img\\fd371d26-88ff-4a0e-a251-453ec95b4abb.png"
     },
     {
       "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\img\\logo.jpg",

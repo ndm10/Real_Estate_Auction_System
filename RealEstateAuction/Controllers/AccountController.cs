@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using RealEstateAuction.DAL;
@@ -7,6 +8,7 @@ using RealEstateAuction.Enums;
 using RealEstateAuction.Models;
 using RealEstateAuction.Services;
 using System;
+using System.Reflection.Metadata;
 using System.Security.Claims;
 using System.Text;
 
@@ -18,9 +20,11 @@ namespace RealEstateAuction.Controllers
         private readonly UserDAO userDAO;
         private readonly AuctionDAO auctionDAO;
         private IMapper _mapper;
+        private Pagination pagination;
 
         public AccountController(IMapper mapper)
         {
+            pagination = new Pagination();
             auctionDAO = new AuctionDAO();
             userDAO = new UserDAO();
             _mapper = mapper;
@@ -118,7 +122,7 @@ namespace RealEstateAuction.Controllers
 
         [HttpGet]
         [Route("manage-auction")]
-        public IActionResult ManageAuction()
+        public IActionResult ManageAuction(int? pageNumber)
         {
             //check user login or not
             if (!User.Identity.IsAuthenticated)
@@ -126,7 +130,25 @@ namespace RealEstateAuction.Controllers
                 TempData["Message"] = "Vui lòng đăng nhập để quản lý đấu giá!";
                 return RedirectToAction("Index", "Home");
             }
-            return View();
+
+            //get current user id
+            int userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+            if (pageNumber.HasValue)
+            {
+                pagination.PageNumber = pageNumber.Value;
+            }
+
+            //get auction by user id
+            List<Auction> auctions = auctionDAO.GetAuctionByUserId(userId, pagination);
+
+            int auctionCount = auctionDAO.CountAuctionByUserId(userId);
+            int pageSize = (int)Math.Ceiling((double)auctionCount / pagination.RecordPerPage);
+
+            ViewBag.currentPage = pagination.PageNumber;
+            ViewBag.pageSize = pageSize;
+
+            return View(auctions);
         }
 
         [HttpGet]
@@ -346,6 +368,36 @@ namespace RealEstateAuction.Controllers
                     return View(auctionData);
                 }
             }
+        }
+
+        [HttpGet]
+        [Route("delete-auction")]
+        public IActionResult DeleteAuction(int id)
+        {
+            //check user login or not
+            if (!User.Identity.IsAuthenticated)
+            {
+                TempData["Message"] = "Vui lòng đăng nhập để quản lý đấu giá!";
+                return RedirectToAction("Index", "Home");
+            }
+            //get current user id
+            int userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+            //Find Auction by id
+            Auction auction = auctionDAO.GetAuctionById(id);
+
+            //check if auction belong to this user
+            if (!(auction.UserId == userId))
+            {
+                TempData["Message"] = "Bạn không thể xóa phiên đấu giá người khác!";
+            }
+            else
+            {
+                bool flag = auctionDAO.DeleteAuction(auction);
+                TempData["Message"] = flag ? "Xoá đấu giá thành công!" : "Xoá đấu giá thất bại!";
+            }
+
+            return Redirect("manage-auction");
         }
 
         private bool ValidateAuction(AuctionDataModel auctionData)
