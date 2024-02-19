@@ -11,25 +11,25 @@
         <div class="col-6">
             <div class="input-group mt-3">
                 <span class="input-group-text">Tiêu đề</span>
-                <input asp-for=Title type="text" class="form-control">
+                <input asp-for=Title type="text" class="form-control" placeholder="Tiêu đề tối thiểu 15 ký tự.">
             </div>
             @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
 
             <div class="input-group mt-3">
                 <span class="input-group-text">Giá khời điểm (VNĐ)</span>
-                <input asp-for=StartPrice type="text" class="form-control" />
+                <input asp-for=StartPrice type="text" class="form-control" placeholder="Giá khởi điểm phải lớn hơn 0." />
             </div>
             @Html.ValidationMessageFor(model => model.StartPrice, "", new { @class = "text-danger" })
 
             <div class="input-group mt-3">
                 <span class="input-group-text">Giá kết thúc (VNĐ)</span>
-                <input asp-for=EndPrice type="text" class="form-control" >
+                <input asp-for=EndPrice type="text" class="form-control" placeholder="Giá kết thúc phải lớn hơn 0.">
             </div>
             @Html.ValidationMessageFor(model => model.EndPrice, "", new { @class = "text-danger" })
 
             <div class="input-group mt-3">
                 <span class="input-group-text">Diện tích (m2)</span>
-                <input asp-for=Area type="text" class="form-control">
+                <input asp-for=Area type="text" class="form-control" placeholder="Diện tích phải lớn hơn 0.">
             </div>
             @Html.ValidationMessageFor(model => model.Area, "", new { @class = "text-danger" })
 
@@ -43,7 +43,7 @@
                 <span class="input-group-text">
                     Mặt tiền (m)
                 </span>
-                <input asp-for=Facade type="text" class="form-control">
+                <input asp-for=Facade type="text" class="form-control" placeholder="Mặt tiền phải lớn hơn 0.">
             </div>
             @Html.ValidationMessageFor(model => model.Facade, "", new { @class = "text-danger" })
 

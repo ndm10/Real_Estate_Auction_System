@@ -12,22 +12,22 @@ namespace RealEstateAuction.DataModel
         public string Title { get; set; }
 
         [Required(ErrorMessage = "Vui lòng nhập giá khởi điểm")]
-        [Range(0, double.MaxValue, ErrorMessage = "Giá khởi điểm phải lớn hơn 0.")]
+        [Range(0.1, double.MaxValue, ErrorMessage = "Giá khởi điểm phải lớn hơn 0.")]
         public decimal StartPrice { get; set; }
 
         [Required(ErrorMessage = "Vui lòng nhập giá kết thúc")]
-        [Range(0, double.MaxValue, ErrorMessage = "Giá khởi điểm phải lớn hơn 0.")]
+        [Range(0.1, double.MaxValue, ErrorMessage = "Giá kết thúc phải lớn hơn 0.")]
         public decimal EndPrice { get; set; }
 
         [Required(ErrorMessage = "Vui lòng nhập diện tích")]
-        [Range(0, double.MaxValue, ErrorMessage = "Giá khởi điểm phải lớn hơn 0.")]
+        [Range(0.1, double.MaxValue, ErrorMessage = "Diện tích phải lớn hơn 0.")]
         public double Area { get; set; }
 
         [Required(ErrorMessage = "Vui lòng nhập địa chỉ")]
         public string Address { get; set; }
 
         [Required(ErrorMessage = "Vui lòng nhập mặt tiền")]
-        [Range(0, double.MaxValue, ErrorMessage = "Diện tích mặt tiền phải lớn hơn 0.")]
+        [Range(0.1, double.MaxValue, ErrorMessage = "Diện tích mặt tiền phải lớn hơn 0.")]
         public double Facade { get; set; }
 
         [Required(ErrorMessage = "Vui lòng chọn hướng")]

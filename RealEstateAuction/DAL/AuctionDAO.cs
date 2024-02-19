@@ -55,7 +55,7 @@ namespace RealEstateAuction.DAL
 
         public int CountAuctionByUserId(int userId)
         {
-            return context.Auctions.Where(a => a.DeleteFlag == false).Count();
+            return context.Auctions.Where(a => a.UserId == userId && a.DeleteFlag == false).Count();
         }
 
         public bool DeleteAuction(Auction auction)
@@ -70,6 +70,21 @@ namespace RealEstateAuction.DAL
             {
                 return false;
             }
+        }
+
+        public List<Auction> GetAuctionByStaffId(int staffId, Pagination pagination)
+        {
+            return context.Auctions.Where(a => a.ApproverId == staffId && a.DeleteFlag == false)
+                                   .Include(a => a.Images)
+                                   .OrderBy(a => a.Status)
+                                   .Skip((pagination.PageNumber - 1) * pagination.RecordPerPage)
+                                   .Take(pagination.RecordPerPage)
+                                   .ToList();
+        }
+
+        public int CountAuctionByStaffId(int staffId)
+        {
+            return context.Auctions.Where(a => a.ApproverId == staffId && a.DeleteFlag == false).Count();
         }
     }
 }
