@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<RealEstateAuction.Models.Auction>
+@{
     ViewData["Title"] = "Home Page";
 }
 <div class="max-width-section">
@@ -71,175 +72,91 @@
         </div>
     </div>
     <div class="d-flex gap-4 align-items-center mt-5">
-        <h3 class="fw-lighter mb-0">Promoted Auctions</h3>
+        <h3 class="fw-lighter mb-0">Phiên đấu giá gợi ý</h3>
     </div>
     <div class="mt-2 pt-3" style="border-top: 1px solid #dde2e4;">
         <div class="row">
-            <div class="col-xs-12 col-sm-4 py-2">
-                <div class="row" style="border: 1px solid #bac4c9;">
-                    <div class="col-6 position-relative">
-                        <img style="max-height: 180px;" class=""
-                             src="https://image.invaluable.com/housePhotos/Potter_Potter/14/761614/H4052-L359265632_mid.jpg"
-                             alt="">
-                    </div>
-                    <div class="col-6">
-                        <div class="fs-6 fw-semibold truncate-2-line">
-                            DAF HAR YRYR AYRYR YRYR DAF HAR YRYR AYRYR YRYR DAF HAR YRYR AYRYR YRYR
+            @foreach (var item in Model)
+            {
+                <div class="col-xs-12 col-sm-4 py-2">
+                    <div class="row" style="border: 1px solid #bac4c9;">
+                        <div class="col-6 position-relative">
+                            <img style="max-width: 100%; max-height: 180px;" class=""
+                                 src="@Url.Content(item.Images.ElementAt(0).Url)"
+                                 alt="">
                         </div>
-                        <div class="fs-6 fw-lighter truncate-2-line mt-1">
-                            By: Potter
+                        <div class="col-6">
+                            <div class="fs-6 fw-semibold truncate-2-line">
+                                @if (item.Title.Length > 20)
+                                {
+                                    item.Title = item.Title.Substring(0, 20) + "...";
+                                }
+                                @item.Title
+                            </div>
+                            <div class="fs-6 fw-lighter truncate-2-line mt-1">
+                                By: @item.User.FullName
+                            </div>
+                            <div class="fs-6 fw-light truncate-2-line mt-2">
+                                @item.StartTime
+                            </div>
+                            <button class="btn btn-danger-secondary mt-3 w-100">
+                                Chi tiết
+                            </button>
                         </div>
-                        <div class="fs-6 fw-light truncate-2-line mt-2">
-                            FEB 15:20
-                        </div>
-                        <button class="btn btn-danger-secondary mt-3 w-100">
-                            View Items
-                        </button>
                     </div>
                 </div>
-            </div>
-            <div class="col-xs-12 col-sm-4 py-2">
-                <div class="row" style="border: 1px solid #bac4c9;">
-                    <div class="col-6 position-relative">
-                        <img style="max-height: 180px;" class=""
-                             src="https://image.invaluable.com/housePhotos/Potter_Potter/14/761614/H4052-L359265632_mid.jpg"
-                             alt="">
-                        <div style="position: absolute; top: 0px; left: 12px;">
-                            <img style="height: 54px; width: 40px; object-fit: contain;"
-                                 src="https://cdn.evergage.com/evergage-content/invaluable/BP_Badge.png"
+            }
+        </div>
+    </div>
+    <h2 class="mt-5 mb-2 fw-light">Phiên đấu giá mới đăng</h2>
+    <div>
+        <!-- Array of upcomming auctions -->
+        @foreach (var item in Model)
+        {
+            <div class="pt-3" style="border-top: 1px solid #dde2e4;">
+                <div class="row pb-3">
+                    <div class="col-md-3 col-sm-2 col-xs-3">
+                        <div class="w-100 ratio ratio-1x1" style="border: 1px solid #dde2e4;">
+                            <img class="object-fit-contain"
+                                 src="@Url.Content(item.Images.ElementAt(0).Url)"
                                  alt="">
                         </div>
                     </div>
-                    <div class="col-6 position-relative">
-                        <div class="fs-6 fw-semibold truncate-2-line">
-                            DAF HAR YRYR AYRYR YRYR DAF HAR YRYR AYRYR YRYR DAF HAR YRYR AYRYR YRYR
-                        </div>
-                        <div class="fs-6 fw-lighter truncate-2-line mt-1">
-                            By: Potter
-                        </div>
-                        <div class="fs-6 fw-light truncate-2-line mt-2">
-                            FEB 15:20
-                        </div>
-                        <button class="btn btn-danger-secondary mt-3 w-100">
-                            View Items
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-4 py-2">
-                <div class="row" style="border: 1px solid #bac4c9;">
-                    <div class="col-6">
-                        <img style="max-height: 180px;" class=""
-                             src="https://image.invaluable.com/housePhotos/Potter_Potter/14/761614/H4052-L359265632_mid.jpg"
-                             alt="">
-                    </div>
-                    <div class="col-6">
-                        <div class="fs-6 fw-semibold truncate-2-line">
-                            DAF HAR YRYR AYRYR YRYR DAF HAR YRYR AYRYR YRYR DAF HAR YRYR AYRYR YRYR
-                        </div>
-                        <div class="fs-6 fw-lighter truncate-2-line mt-1">
-                            By: Potter
-                        </div>
-                        <div class="fs-6 fw-light truncate-2-line mt-2">
-                            FEB 15:20
-                        </div>
-                        <button class="btn btn-danger-secondary mt-3 w-100">
-                            View Items
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <h2 class="mt-5 mb-2 fw-light">Upcoming Online Auctions</h2>
-    <div>
-        <!-- Array of upcomming auctions -->
-        <div class="pt-3" style="border-top: 1px solid #dde2e4;">
-            <div class="row pb-3">
-                <div class="col-md-3 col-sm-2 col-xs-3">
-                    <div class="w-100 ratio ratio-1x1" style="border: 1px solid #dde2e4;">
-                        <img class="object-fit-contain"
-                             src="https://image.invaluable.com/housePhotos/RosesAntiques/84/764984/H21800-C363114226.jpg"
-                             alt="">
-                    </div>
-                </div>
-                <div class="col-md-9 col-sm-10 col-xs-9">
-                    <div class="row">
-                        <div class="col-md-8 col-sm-8 col-xs-12">
-                            <div class="fs-6 fw-semibold truncate-2-line">
-                                DAF HAR YRYR AYRYR YRYR DAF HAR YRYR AYRYR YRYR DAF HAR YRYR AYRYR YRYR
-                            </div>
-                            <div class="fs-6 fw-lighter truncate-2-line mt-1">
-                                By: Potter
-                            </div>
-                            <div class="fs-6 fw-light truncate-2-line mt-2">
-                                FEB 15:20
-                            </div>
-                            <div class="fs-6 fw-light truncate-2-line mt-2">
-                                Potomac, MD, US
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-4">
-                            <div class="d-flex align-items-center">
-                                <i class="fa-regular fa-clock"></i>
-                                <div class="fs-6 fw-light truncate-2-line">
-                                    Timed Auction
+                    <div class="col-md-9 col-sm-10 col-xs-9">
+                        <div class="row">
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class="fs-6 fw-semibold truncate-2-line">
+                                    @item.Title
+                                </div>
+                                <div class="fs-6 fw-lighter truncate-2-line mt-1">
+                                    By: @item.User.FullName
+                                </div>
+                                <div class="fs-6 fw-light truncate-2-line mt-2">
+                                    @item.StartTime
+                                </div>
+                                <div class="fs-6 fw-light truncate-2-line mt-2">
+                                    @item.Address
                                 </div>
                             </div>
-                            <button class="btn btn-danger mt-3 w-100">
-                                Happening Now
-                            </button>
-                            <a class="text-decoration-none cursor-pointer mt-3">
-                                Register to bid
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="pt-3" style="border-top: 1px solid #dde2e4;">
-            <div class="row pb-3">
-                <div class="col-md-3 col-sm-2 col-xs-3">
-                    <div class="w-100 ratio ratio-1x1" style="border: 1px solid #dde2e4;">
-                        <img class="object-fit-contain"
-                             src="https://image.invaluable.com/housePhotos/hildas/24/765024/H23015-C362955358.jpg"
-                             alt="">
-                    </div>
-                </div>
-                <div class="col-md-9 col-sm-10 col-xs-9">
-                    <div class="row">
-                        <div class="col-md-8 col-sm-8 col-xs-12">
-                            <div class="fs-6 fw-semibold truncate-2-line">
-                                DAF HAR YRYR AYRYR YRYR DAF HAR YRYR AYRYR YRYR DAF HAR YRYR AYRYR YRYR
-                            </div>
-                            <div class="fs-6 fw-lighter truncate-2-line mt-1">
-                                By: Potter
-                            </div>
-                            <div class="fs-6 fw-light truncate-2-line mt-2">
-                                FEB 15:20
-                            </div>
-                            <div class="fs-6 fw-light truncate-2-line mt-2">
-                                Potomac, MD, US
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-4">
-                            <div class="d-flex align-items-center">
-                                <i class="fa-solid fa-wifi"></i>
-                                <div class="fs-6 fw-light truncate-2-line">
-                                    Live Auction
+                            <div class="col-md-4 col-sm-4">
+                                <div class="d-flex align-items-center">
+                                    <i class="fa-solid fa-wifi"></i>
+                                    <div class="fs-6 fw-light truncate-2-line">
+                                        Live Auction
+                                    </div>
                                 </div>
+                                <button class="btn btn-danger mt-3 w-100">
+                                    Happening Now
+                                </button>
+                                <a class="text-decoration-none cursor-pointer mt-3">
+                                    Register to bid
+                                </a>
                             </div>
-                            <button class="btn btn-danger mt-3 w-100">
-                                Enter Live Auction
-                            </button>
-                            <a class="text-decoration-none cursor-pointer mt-3">
-                                Register to bid
-                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        }
     </div>
     <div class="pt-3 d-flex justify-content-center align-items-center"
          style="border-top: 1px solid #dde2e4;">

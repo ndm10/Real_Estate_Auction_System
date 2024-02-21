@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RealEstateAuction.DAL;
 using RealEstateAuction.Models;
 using System.Diagnostics;
 
@@ -7,9 +8,11 @@ namespace RealEstateAuction.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly AuctionDAO auctionDAO;
 
         public HomeController(ILogger<HomeController> logger)
         {
+            auctionDAO = new AuctionDAO();
             _logger = logger;
         }
 
@@ -17,7 +20,10 @@ namespace RealEstateAuction.Controllers
         [Route("home")]
         public IActionResult Index()
         {
-            return View();
+            //get 5 auction recently to display on hompage
+            List<Auction> auctionRecent = auctionDAO.GetAuctionRecently(5);
+
+            return View(auctionRecent);
         }
 
         public IActionResult Privacy()
