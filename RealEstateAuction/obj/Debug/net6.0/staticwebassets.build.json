@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "EtnyZg1U2LCM88rIesA+2bC60r/YYijwiTGVN8gAMJw=",
+  "Hash": "nlxV5fX/Qee+wgf1tTNwMK/NoQZXVPVHuGdGzax/WSQ=",
   "Source": "RealEstateAuction",
   "BasePath": "_content/RealEstateAuction",
   "Mode": "Default",
@@ -129,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\img\\072cdd28-fca0-4cba-acd5-25d8b74a608c.png",
+      "SourceId": "RealEstateAuction",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\",
+      "BasePath": "_content/RealEstateAuction",
+      "RelativePath": "img/072cdd28-fca0-4cba-acd5-25d8b74a608c.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\072cdd28-fca0-4cba-acd5-25d8b74a608c.png"
     },
     {
       "Identity": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\img\\0b9c5845-c9ab-4f43-91a4-ad5c0d175ef4.png",
@@ -492,6 +511,25 @@
       "OriginalItemSpec": "wwwroot\\img\\853cc69c-aaf7-4357-a0ee-81c078a079d2.png"
     },
     {
+      "Identity": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\img\\884a7202-52f3-4007-9cec-7e1454d652f0.png",
+      "SourceId": "RealEstateAuction",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\",
+      "BasePath": "_content/RealEstateAuction",
+      "RelativePath": "img/884a7202-52f3-4007-9cec-7e1454d652f0.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\884a7202-52f3-4007-9cec-7e1454d652f0.png"
+    },
+    {
       "Identity": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\img\\95a5d6c2-cdd0-4347-a83c-2815dac03f14.png",
       "SourceId": "RealEstateAuction",
       "SourceType": "Discovered",
@@ -530,6 +568,25 @@
       "OriginalItemSpec": "wwwroot\\img\\9bbe489e-76db-4f17-8c48-72bb67a61595.png"
     },
     {
+      "Identity": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\img\\a7b0f8ba-525a-4970-998e-04df1dfc288a.png",
+      "SourceId": "RealEstateAuction",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\",
+      "BasePath": "_content/RealEstateAuction",
+      "RelativePath": "img/a7b0f8ba-525a-4970-998e-04df1dfc288a.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\a7b0f8ba-525a-4970-998e-04df1dfc288a.png"
+    },
+    {
       "Identity": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\img\\ad4b372e-a1f5-4a0f-bd55-d4820b86ae53.png",
       "SourceId": "RealEstateAuction",
       "SourceType": "Discovered",
@@ -547,6 +604,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\ad4b372e-a1f5-4a0f-bd55-d4820b86ae53.png"
+    },
+    {
+      "Identity": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\img\\ade93d03-ac1d-4e89-a06e-c47669af3e00.png",
+      "SourceId": "RealEstateAuction",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\",
+      "BasePath": "_content/RealEstateAuction",
+      "RelativePath": "img/ade93d03-ac1d-4e89-a06e-c47669af3e00.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\ade93d03-ac1d-4e89-a06e-c47669af3e00.png"
     },
     {
       "Identity": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\SourceCode\\RealEstateAuction\\wwwroot\\img\\b55c57ef-40dc-4d6a-9011-8cee5ea34875.png",

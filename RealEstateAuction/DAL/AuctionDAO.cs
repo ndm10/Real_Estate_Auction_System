@@ -52,6 +52,17 @@ namespace RealEstateAuction.DAL
             }
         }
 
+        public Auction? GetAuctionStaffById(int id)
+        {
+            return context.Auctions
+                .Include(a => a.Images)
+                .Include(a => a.User)
+                .Include(a => a.Users)
+                .Include(a => a.Approver)
+                .FirstOrDefault(a => a.Id == id
+                                && a.DeleteFlag == false);
+        }
+
         public Auction? GetAuctionById(int id)
         {
             return context.Auctions

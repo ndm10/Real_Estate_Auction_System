@@ -140,7 +140,7 @@ namespace RealEstateAuction.Controllers
             int userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
             //get auction by Id
-            Auction auction = auctionDAO.GetAuctionById(auctionId);
+            Auction auction = auctionDAO.GetAuctionStaffById(auctionId);
 
             //check if staff manage this auction or not
             if (auction.ApproverId == userId)
@@ -170,7 +170,7 @@ namespace RealEstateAuction.Controllers
             int userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
             //get auction by Id
-            Auction auction = auctionDAO.GetAuctionById(auctionId);
+            Auction auction = auctionDAO.GetAuctionStaffById(auctionId);
 
             //check if staff manage this auction or not
             if (auction.ApproverId == userId)
