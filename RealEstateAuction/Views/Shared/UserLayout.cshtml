@@ -2,6 +2,19 @@
 @using Microsoft.AspNetCore.Authentication.Cookies
 @{
     var fullName = User.FindFirstValue("FullName");
+    var homePage = "";
+    @if (User.IsInRole("Admin"))
+    {
+        homePage = "/admin";
+    }
+    else if (User.IsInRole("Staff"))
+    {
+        homePage = "/staff";
+    }
+    else
+    {
+        homePage = "/home";
+    }
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +34,7 @@
 
     <div class="sticky-top background-color">
         <header class="px-5 py-3 row justify-content-between border-bottom">
-            <a href="/home"
+            <a href="@homePage"
                class="d-flex align-items-center col-md-2 mb-2 mb-md-0 text-dark text-decoration-none cursor-pointer">
                 <!-- LOGO -->
                 <img src="~/img/logo.jpg" alt="Invaluable" />
@@ -155,6 +168,16 @@
                         <li class="nav-item item-user-sidebar">
                             <a href="/list-auction-staff" class="nav-link link-dark" aria-current="page">
                                 Phê duyệt đấu giá
+                            </a>
+                        </li>
+                        <li class="nav-item item-user-sidebar">
+                            <a href="/list-payment" class="nav-link link-dark" aria-current="page">
+                                Phê duyệt thanh toán 
+                            </a>
+                        </li>
+                        <li class="nav-item item-user-sidebar">
+                            <a href="/list-ticket" class="nav-link link-dark" aria-current="page">
+                                Phê duyệt yêu cầu hỗ trợ
                             </a>
                         </li>
                     }

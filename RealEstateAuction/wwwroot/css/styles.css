@@ -34,8 +34,8 @@
 /* End section */
 
 /* Dropdown hover  */
-@media (min-width: 576px) {
-    .dropdown:hover .dropdown-menu {
+/*@media (min-width: 576px) {
+    .dropdown:hover {
         display: block;
         opacity: 1;
         margin-top: 0;
@@ -46,7 +46,7 @@
         opacity: 0;
         transition: all 0.2s;
     }
-}
+}*/
 
 .dropdown-menu::after {
     display: none !important;
@@ -234,14 +234,14 @@
     user-select: none
 }
 
-    .social-separator .social-line {
-        height: 1px;
-        flex: 1;
-        background-color: #bdc5c9
-    }
+.social-separator .social-line {
+    height: 1px;
+    flex: 1;
+    background-color: #bdc5c9
+}
 
-    .social-separator span {
-        padding: 0 20px
-    }
+.social-separator span {
+    padding: 0 20px
+}
 
     
