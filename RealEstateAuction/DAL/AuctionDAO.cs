@@ -52,9 +52,15 @@ namespace RealEstateAuction.DAL
             }
         }
 
-        public Auction GetAuctionById(int id)
+        public Auction? GetAuctionById(int id)
         {
-            return context.Auctions.Include(a => a.Images).FirstOrDefault(a => a.Id == id);
+            return context.Auctions
+                .Include(a => a.Images)
+                .Include(a => a.User)
+                .Include(a => a.Users)
+                .FirstOrDefault(a => a.Id == id 
+                                && a.DeleteFlag == false
+                                && a.Status == (int)AuctionStatus.Chấp_nhân);
         }
 
         public List<Auction> GetAuctionByUserId(int userId, Pagination pagination)
@@ -103,11 +109,26 @@ namespace RealEstateAuction.DAL
         public List<Auction> GetAuctionRecently(int number)
         {
             return context.Auctions
+                .Where(a => a.Status == (int)AuctionStatus.Chấp_nhân && a.DeleteFlag == false)
                 .Include(a => a.Images)
                 .Include(a => a.User)
                 .OrderByDescending(a => a.CreatedTime)
                 .Take(number)
                 .ToList();
+        }
+
+        public int CountAuctionApproved()
+        {
+            //count all auction that have status is approved
+            return context.Auctions
+                .Where(a => a.Status == (int) AuctionStatus.Chấp_nhân && a.DeleteFlag == false)
+                .Count();
+        }
+
+        public bool IsUserJoinedAuction(User user, int id)
+        {
+            return context.Auctions.Where(a => a.Id == id)
+                .Any(a => a.Users.Contains(user));
         }
     }
 }

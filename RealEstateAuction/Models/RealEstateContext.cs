@@ -17,8 +17,6 @@ public partial class RealEstateContext : DbContext
 
     public virtual DbSet<Auction> Auctions { get; set; }
 
-    public virtual DbSet<AuctionParticipant> AuctionParticipants { get; set; }
-
     public virtual DbSet<Banking> Bankings { get; set; }
 
     public virtual DbSet<Category> Categories { get; set; }
@@ -45,7 +43,6 @@ public partial class RealEstateContext : DbContext
         IConfigurationRoot configuration = builder.Build();
         optionsBuilder.UseSqlServer(configuration.GetConnectionString("connection"));
     }
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Auction>(entity =>
@@ -91,28 +88,11 @@ public partial class RealEstateContext : DbContext
                     });
         });
 
-        modelBuilder.Entity<AuctionParticipant>(entity =>
-        {
-            entity.ToTable("AuctionParticipant");
-
-            entity.Property(e => e.BiddingPrice).HasColumnType("money");
-            entity.Property(e => e.BiddingTime).HasColumnType("datetime");
-
-            entity.HasOne(d => d.Auction).WithMany(p => p.AuctionParticipants)
-                .HasForeignKey(d => d.AuctionId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_AuctionParticipant_Auction");
-
-            entity.HasOne(d => d.User).WithMany(p => p.AuctionParticipants)
-                .HasForeignKey(d => d.UserId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_AuctionParticipant_User");
-        });
-
         modelBuilder.Entity<Banking>(entity =>
         {
             entity.ToTable("Banking");
 
+            entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.BankAccount).HasColumnType("ntext");
             entity.Property(e => e.BankName).HasColumnType("ntext");
         });
@@ -235,6 +215,23 @@ public partial class RealEstateContext : DbContext
                 .HasForeignKey(d => d.RoleId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_User_Role1");
+
+            entity.HasMany(d => d.Auctions).WithMany(p => p.Users)
+                .UsingEntity<Dictionary<string, object>>(
+                    "AuctionParticipant",
+                    r => r.HasOne<Auction>().WithMany()
+                        .HasForeignKey("AuctionId")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK_AuctionParticipant_Auction"),
+                    l => l.HasOne<User>().WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK_AuctionParticipant_User"),
+                    j =>
+                    {
+                        j.HasKey("UserId", "AuctionId").HasName("PK_AuctionParticipant_1");
+                        j.ToTable("AuctionParticipant");
+                    });
         });
 
         OnModelCreatingPartial(modelBuilder);

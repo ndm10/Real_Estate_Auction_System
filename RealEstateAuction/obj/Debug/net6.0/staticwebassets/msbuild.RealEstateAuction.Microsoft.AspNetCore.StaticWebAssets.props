@@ -64,7 +64,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico))</OriginalItemSpec>
     </StaticWebAsset>
-<<<<<<< HEAD
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\0b9c5845-c9ab-4f43-91a4-ad5c0d175ef4.png))">
       <SourceType>Package</SourceType>
       <SourceId>RealEstateAuction</SourceId>
@@ -593,8 +592,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\fd371d26-88ff-4a0e-a251-453ec95b4abb.png))</OriginalItemSpec>
     </StaticWebAsset>
-=======
->>>>>>> ae2bfcbbcd4eaac8e91d42d1c2c515bfefe4e985
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\img\logo.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>RealEstateAuction</SourceId>
