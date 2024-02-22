@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RealEstateAuction.DataModel;
+using RealEstateAuction.Enums;
 using RealEstateAuction.Models;
 
 namespace RealEstateAuction.DAL
@@ -11,6 +12,18 @@ namespace RealEstateAuction.DAL
         {
             context = new RealEstateContext();
         }
+
+        //get all auction that have status is approved
+        public List<Auction> GetAllAuctionApproved(Pagination pagination)
+        {
+            return context.Auctions.Where(a => a.Status == (int) AuctionStatus.Chấp_nhân && a.DeleteFlag == false)
+                                   .Include(a => a.Images)
+                                   .OrderByDescending(a => a.CreatedTime)
+                                   .Skip((pagination.PageNumber - 1) * pagination.RecordPerPage)
+                                   .Take(pagination.RecordPerPage)
+                                   .ToList();
+        }
+
         public bool AddAuction(Auction auction)
         {
             try

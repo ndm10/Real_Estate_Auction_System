@@ -370,7 +370,7 @@ namespace RealEstateAuction.Controllers
             }
         }
 
-        
+
         [HttpGet]
         [Route("delete-auction")]
         public IActionResult DeleteAuction(int id)
@@ -456,5 +456,6 @@ namespace RealEstateAuction.Controllers
 
             return flag;
         }
+
     }
 }

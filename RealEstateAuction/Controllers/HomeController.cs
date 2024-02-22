@@ -26,6 +26,15 @@ namespace RealEstateAuction.Controllers
             return View(auctionRecent);
         }
 
+        [Route("list-auction")]
+        public IActionResult ListAuction()
+        {
+            //get 5 auction recently to display on hompage
+            List<Auction> auctionRecent = auctionDAO.GetAuctionRecently(5);
+
+            return View(auctionRecent);
+        }
+
         public IActionResult Privacy()
         {
             return View();
