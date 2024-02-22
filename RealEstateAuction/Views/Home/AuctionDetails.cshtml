@@ -9,14 +9,10 @@
 @{
     ViewData["Title"] = "Chi tiết đấu giá";
 
-    UserDAO uDao = new UserDAO();
-    User user = new User();
-
+    int? userId = null;
     if (User.Identity.IsAuthenticated)
     {
-        //get user by id
-        int userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-        user = uDao.GetUserById(userId);
+        userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
     }
 }
 <!-- using library to display slider image -->
@@ -120,7 +116,7 @@
             @*check if user join auction or not*@
             @if (User.Identity.IsAuthenticated)
             {
-                if (Model.Users.Contains(user))
+                if (Model.Users.Any(u => u.Id == userId.Value))
                 {
                     <button class="btn btn-danger w-100" disabled>
                         Bạn đã tham gia đấu giá
