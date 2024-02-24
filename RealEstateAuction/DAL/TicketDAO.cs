@@ -20,6 +20,13 @@ namespace RealEstateAuction.DAL
                 .ToPagedList(page, 10);           
         }
 
+        public IPagedList<Ticket> listTicketByStaff(int staffId, int page)
+        {
+            return context.Tickets.Include(t => t.User)
+                .Where(t => t.StaffId == staffId)
+                .ToPagedList(page, 10);
+        }
+
         public bool createTicket(Ticket ticket)
         {
             try
@@ -37,7 +44,10 @@ namespace RealEstateAuction.DAL
 
         public Ticket ticketDetail(int id)
         {
-            return context.Tickets.SingleOrDefault(e => e.Id == id);
+            return context.Tickets.Include(t => t.User)
+                .Include(t => t.Staff)
+                .Include(t => t.TicketComments)
+                .SingleOrDefault(e => e.Id == id);
         }
 
         public bool update(Ticket ticket)

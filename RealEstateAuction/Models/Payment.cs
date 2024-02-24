@@ -15,6 +15,8 @@ public partial class Payment
 
     public string? Code { get; set; }
 
+    public DateTime? TransactionDate { get; set; }
+
     public int? BankId { get; set; }
 
     public virtual Banking? Bank { get; set; }

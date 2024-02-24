@@ -67,29 +67,102 @@ namespace RealEstateAuction.Controllers
         public IActionResult ListTicket(int? page)
         {
             int PageNumber = (page ?? 1);
-            var list = ticketDAO.listTicket(PageNumber);
+            var list = ticketDAO.listTicketByStaff(Int32.Parse(User.FindFirstValue("Id")), PageNumber);
+            if (list.PageCount != 0 && list.PageCount < PageNumber)
+            {
+                TempData["Message"] = "Sô trang không hợp lệ";
+                return Redirect("/list-ticket");
+            }
             return View(list);
         }
+
+        [Authorize(Roles = "Staff")]
+        [HttpPost("/list-ticket/update")]
+        public IActionResult UpdateTicket()
+        {
+            try
+            {
+                var ticket = ticketDAO.ticketDetail(Int32.Parse(Request.Form["id"].ToString()));
+                if (ticket != null 
+                    && ticket.Status == (int)TicketStatus.Opening 
+                    && ticket.StaffId == Int32.Parse(User.FindFirstValue("Id"))
+                    )
+                {
+                    ticket.Status = Byte.Parse(Request.Form["status"].ToString());
+                    ticketDAO.update(ticket);
+                    TempData["Message"] = "Cập nhật thành công";
+                }
+                else
+                {
+                    TempData["Message"] = "Yêu cầu hỗ trợ không tồn tại";
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["Message"] = "Lỗi hệ thống, vui lòng thử lại";
+            }
+
+            return RedirectToAction("listTicket");
+        }       
 
         [Authorize(Roles = "Staff")]
         [HttpGet("list-ticket/{id}")]
         public IActionResult TicketDetail(int id)
         {
             var ticket = ticketDAO.ticketDetail(id);
-            if (ticket == null)
+            if (ticket == null || ticket.StaffId != Int32.Parse(User.FindFirstValue("Id")))
             {
-                TempData["Message"] = "Ticket Not Found";
+                TempData["Message"] = "Yêu cầu hỗ trợ không tồn tại";
                 return RedirectToAction("listTicket");
             }
-            return View(ticket);
+            ViewData["Ticket"] = ticket;
+            ViewData["IdStaff"] = User.FindFirstValue("Id");
+            return View();
         }
 
         [Authorize(Roles = "Staff")]
         [HttpPost]
-        [Route("list-ticket/{id}reply")]
-        public IActionResult reply(Ticket ticket, int id)
+        [Route("staff/reply")]
+        public IActionResult reply([FromForm] TicketCommentDataModel commentData)
         {
-            return View();
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    TempData["Message"] = "Vui lòng kiểm tra lại thông tin";
+                    return RedirectToAction("TicketDetail", "Staff", new { Id = commentData.TicketId });
+                }
+                var ticket = ticketDAO.ticketDetail(commentData.TicketId);
+                var idStaff = Int32.Parse(User.FindFirstValue("Id"));
+                if (ticket == null || ticket.StaffId != idStaff)
+                {
+                    TempData["Message"] = "Yêu cầu hỗ trợ không tồn tại";
+                    return RedirectToAction("listTicket");
+                }
+                else
+                {
+                    TicketComment commentInsert = new TicketComment
+                    {
+                        UserId = idStaff,
+                        Comment = commentData.Comment,
+                        TicketId = commentData.TicketId,
+                    };
+                    ticketDAO.insertComment(commentInsert);
+                    TempData["Message"] = "Trả lời thành công";
+                    if (commentData.IsClosed == true)
+                    {
+                        ticket.Status = (byte)TicketStatus.Closed;
+                        ticketDAO.update(ticket);
+                        TempData["Message"] = "Đóng yêu cầu hỗ trợ thành công";
+                    }
+                }
+                return RedirectToAction("TicketDetail", "Staff", new { Id = commentData.TicketId });
+            } catch (Exception ex)
+            {
+                TempData["Message"] = "Lỗi hệ thống, xin vui lòng thử lại";
+                return RedirectToAction("listTicket");
+            }
+            
         }
 
         [Authorize(Roles = "Staff")]
