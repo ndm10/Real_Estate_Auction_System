@@ -10,8 +10,9 @@ namespace RealEstateAuction.Controllers
 {
     public class StaffController : Controller
     {
-        PaymentDAO paymentDAO = new PaymentDAO();
-        TicketDAO ticketDAO = new TicketDAO();
+        private readonly PaymentDAO paymentDAO;
+        private readonly TicketDAO ticketDAO;
+        private readonly UserDAO userDAO; 
         private Pagination pagination;
         private readonly AuctionDAO auctionDAO;
 
@@ -19,6 +20,9 @@ namespace RealEstateAuction.Controllers
         {
             auctionDAO = new AuctionDAO();
             pagination = new Pagination();
+            userDAO = new UserDAO();
+            ticketDAO = new TicketDAO();
+            paymentDAO = new PaymentDAO();
         }
 
         [Authorize(Roles = "Staff")]
@@ -47,7 +51,7 @@ namespace RealEstateAuction.Controllers
                 if (payment != null && payment.Status == (int) PaymentStatus.Pending)
                 {
                     payment.Status = Byte.Parse(Request.Form["status"].ToString());
-                    paymentDAO.update(payment);
+                    paymentDAO.topUp(payment, (int) payment.UserId);
                     TempData["Message"] = "Cập nhật thành công";
                 }
                 else
@@ -56,6 +60,7 @@ namespace RealEstateAuction.Controllers
                 }
             } catch (Exception ex)
             {
+                Console.Write(ex);
                 TempData["Message"] = "Lỗi hệ thống, vui lòng thử lại";
             }
             

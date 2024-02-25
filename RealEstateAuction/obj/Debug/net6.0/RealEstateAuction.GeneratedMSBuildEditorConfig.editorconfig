@@ -38,6 +38,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Studying/Clone-Project/Real_Estate_Auction_System/RealEstateAuction/Views/Account/TopUp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxUb3BVcC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Studying/Clone-Project/Real_Estate_Auction_System/RealEstateAuction/Views/Account/TopUpPost.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxUb3BVcFBvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Studying/Clone-Project/Real_Estate_Auction_System/RealEstateAuction/Views/Authentication/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aGVudGljYXRpb25cQWNjZXNzRGVuaWVkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -84,6 +92,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Studying/Clone-Project/Real_Estate_Auction_System/RealEstateAuction/Views/Shared/Modals/Payment/ConfirmStatus.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE1vZGFsc1xQYXltZW50XENvbmZpcm1TdGF0dXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Studying/Clone-Project/Real_Estate_Auction_System/RealEstateAuction/Views/Shared/Modals/Payment/CreatePayment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE1vZGFsc1xQYXltZW50XENyZWF0ZVBheW1lbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Studying/Clone-Project/Real_Estate_Auction_System/RealEstateAuction/Views/Shared/Modals/SignIn.cshtml]
