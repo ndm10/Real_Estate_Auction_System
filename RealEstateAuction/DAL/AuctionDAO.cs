@@ -140,5 +140,25 @@ namespace RealEstateAuction.DAL
             return context.Auctions.Where(a => a.Id == id)
                 .Any(a => a.Users.Contains(user));
         }
+
+        public decimal GetMaxPrice(int id)
+        {
+            //Check if auction have no bidding
+            bool isHaveBidding = context.AuctionBiddings.Where(ab => ab.AuctionId == id).Count() == 0;
+            if (isHaveBidding)
+            {
+                return context.Auctions.FirstOrDefault(a => a.Id == id).StartPrice;
+            }
+            return context.AuctionBiddings
+                .Where(ab => ab.AuctionId == id)
+                .Max(ab => ab.BiddingPrice);
+        }
+
+        public int GetNumberOfBidding(int id)
+        {
+            return context.AuctionBiddings
+                .Where(ab => ab.AuctionId == id)
+                .Count();
+        }
     }
 }
