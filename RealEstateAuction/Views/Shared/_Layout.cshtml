@@ -82,9 +82,15 @@
                     {
                         @if (User.FindFirstValue(ClaimTypes.Role) == "Member")
                         {
+                            <span class="fw-bold ">
+                                Số dư:&nbsp;
+                                <span class="text-danger">
+                                    @User.FindFirstValue("Wallet").Split(',')[0]
+                                </span>
+                            </span>
                             <a class="btn btn-outline-secondary text-nowrap" href="/top-up">
                                 Nạp tiền
-                            </a>
+                            </a>                           
                         }
                         <!-- If login, show this -->
                         <div class="dropdown">

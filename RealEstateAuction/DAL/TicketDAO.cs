@@ -17,6 +17,7 @@ namespace RealEstateAuction.DAL
         public IPagedList<Ticket> listTicket(int page) 
         {
             return context.Tickets.Include(t => t.User)
+                .Include(t => t.Staff)
                 .ToPagedList(page, 10);           
         }
 
@@ -27,17 +28,24 @@ namespace RealEstateAuction.DAL
                 .ToPagedList(page, 10);
         }
 
-        public bool createTicket(Ticket ticket)
+        public IPagedList<Ticket> listTicketByUser(int userId, int page)
+        {
+            return context.Tickets.Include(t => t.User)
+                .Where(t => t.UserId == userId)
+                .ToPagedList(page, 10);
+        }
+
+        public int createTicket(Ticket ticket)
         {
             try
             {
                 context.Tickets.Add(ticket);
                 context.SaveChanges();
-                return true;
+                return ticket.Id;
             }
             catch (Exception)
             {
-                return false;
+                return 0;
             }
             
         }
@@ -47,6 +55,7 @@ namespace RealEstateAuction.DAL
             return context.Tickets.Include(t => t.User)
                 .Include(t => t.Staff)
                 .Include(t => t.TicketComments)
+                .Include(t => t.TicketImages)
                 .SingleOrDefault(e => e.Id == id);
         }
 

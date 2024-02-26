@@ -85,6 +85,12 @@
                     {
                         @if (User.FindFirstValue(ClaimTypes.Role) == "Member")
                         {
+                            <span class="fw-bold ">
+                                Số dư:&nbsp;
+                                <span class="text-danger">
+                                    @User.FindFirstValue("Wallet").Split(',')[0]
+                                </span>
+                            </span>
                             <a class="btn btn-outline-secondary text-nowrap" href="/top-up">
                                 Nạp tiền
                             </a>
@@ -126,6 +132,16 @@
                                 Quản lý đấu giá
                             </a>
                         </li>
+                        <li class="nav-item item-user-sidebar">
+                            <a href="/top-up" class="nav-link link-dark" aria-current="page">
+                                Quản lý thanh toán
+                            </a>
+                        </li>
+                        <li class="nav-item item-user-sidebar">
+                            <a href="/member/list-ticket" class="nav-link link-dark" aria-current="page">
+                                Quản lý yêu cầu hỗ trợ
+                            </a>
+                        </li>
                     }
                     @if (User.FindFirstValue(ClaimTypes.Role) == "Staff")
                     {
@@ -142,6 +158,14 @@
                         <li class="nav-item item-user-sidebar">
                             <a href="/list-ticket" class="nav-link link-dark" aria-current="page">
                                 Phê duyệt yêu cầu hỗ trợ
+                            </a>
+                        </li>
+                    }
+                    @if (User.FindFirstValue(ClaimTypes.Role) == "Admin")
+                    {
+                        <li class="nav-item item-user-sidebar">
+                            <a href="/manage-ticket" class="nav-link link-dark" aria-current="page">
+                                Quản lý yêu cầu hỗ trợ
                             </a>
                         </li>
                     }

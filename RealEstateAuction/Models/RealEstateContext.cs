@@ -33,6 +33,8 @@ public partial class RealEstateContext : DbContext
 
     public virtual DbSet<TicketComment> TicketComments { get; set; }
 
+    public virtual DbSet<TicketImage> TicketImages { get; set; }
+
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -195,6 +197,20 @@ public partial class RealEstateContext : DbContext
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_TicketComment_User");
+        });
+
+        modelBuilder.Entity<TicketImage>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK_Table_1");
+
+            entity.ToTable("Ticket_Image");
+
+            entity.Property(e => e.Url).HasColumnType("ntext");
+
+            entity.HasOne(d => d.Ticket).WithMany(p => p.TicketImages)
+                .HasForeignKey(d => d.TicketId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Ticket_Image_Ticket");
         });
 
         modelBuilder.Entity<User>(entity =>

@@ -70,8 +70,7 @@ namespace RealEstateAuction.DAL
                 .Include(a => a.User)
                 .Include(a => a.Users)
                 .FirstOrDefault(a => a.Id == id 
-                                && a.DeleteFlag == false
-                                && a.Status == (int)AuctionStatus.Chấp_nhân);
+                                && a.DeleteFlag == false);
         }
 
         public List<Auction> GetAuctionByUserId(int userId, Pagination pagination)
