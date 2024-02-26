@@ -407,7 +407,6 @@ namespace RealEstateAuction.Controllers
             return Redirect("manage-auction");
         }
 
-
         [HttpGet("join-auction")]
         public IActionResult JoinAuction(int auctionId)
         {
@@ -466,6 +465,23 @@ namespace RealEstateAuction.Controllers
 
             return Redirect("/auction-details?auctionId=" + auctionId);
         }
+
+        [HttpPost("bidding-auction")]
+        [Authorize(Roles = "Member")]
+        public IActionResult Bidding(BiddingDataModel biddingDataModel)
+        {
+            //Get current url
+            string url = Request.Headers["Referer"];
+
+            //check user login or not
+            if (!User.Identity.IsAuthenticated)
+            {
+                TempData["Message"] = "Vui lòng đăng nhập để tham gia đấu giá!";
+                return Redirect(url);
+            }
+            return Ok();
+        }
+
         private bool ValidateAuction(AuctionDataModel auctionData)
         {
             var flag = true;

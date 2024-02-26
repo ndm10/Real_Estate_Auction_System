@@ -17,6 +17,8 @@ public partial class RealEstateContext : DbContext
 
     public virtual DbSet<Auction> Auctions { get; set; }
 
+    public virtual DbSet<AuctionBidding> AuctionBiddings { get; set; }
+
     public virtual DbSet<Banking> Bankings { get; set; }
 
     public virtual DbSet<Category> Categories { get; set; }
@@ -45,6 +47,7 @@ public partial class RealEstateContext : DbContext
         IConfigurationRoot configuration = builder.Build();
         optionsBuilder.UseSqlServer(configuration.GetConnectionString("connection"));
     }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Auction>(entity =>
@@ -88,6 +91,26 @@ public partial class RealEstateContext : DbContext
                         j.HasKey("AuctionId", "CategoryId");
                         j.ToTable("Auction_Category");
                     });
+        });
+
+        modelBuilder.Entity<AuctionBidding>(entity =>
+        {
+            entity.HasKey(e => e.BiddingId);
+
+            entity.ToTable("Auction_Bidding");
+
+            entity.Property(e => e.BiddingPrice).HasColumnType("money");
+            entity.Property(e => e.TimeBidding).HasColumnType("datetime");
+
+            entity.HasOne(d => d.Auction).WithMany(p => p.AuctionBiddings)
+                .HasForeignKey(d => d.AuctionId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Auction_Bidding_Auction");
+
+            entity.HasOne(d => d.Member).WithMany(p => p.AuctionBiddings)
+                .HasForeignKey(d => d.MemberId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Auction_Bidding_User");
         });
 
         modelBuilder.Entity<Banking>(entity =>

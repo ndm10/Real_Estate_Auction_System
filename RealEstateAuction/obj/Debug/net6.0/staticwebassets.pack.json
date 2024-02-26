@@ -1,279 +1,295 @@
 {
   "Files": [
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\RealEstateAuction.bundle.scp.css",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\RealEstateAuction.bundle.scp.css",
       "PackagePath": "staticwebassets\\RealEstateAuction.bundle.scp.css"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\css\\EnterOtp.css",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\css\\EnterOtp.css",
       "PackagePath": "staticwebassets\\css\\EnterOtp.css"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\css\\site.css",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\css\\styles.css",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\css\\styles.css",
       "PackagePath": "staticwebassets\\css\\styles.css"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\favicon.ico",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\img\\9923cba7-91c9-445c-b37a-3587a9c54cb4.png",
-      "PackagePath": "staticwebassets\\img\\9923cba7-91c9-445c-b37a-3587a9c54cb4.png"
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\img\\021f58f3-b955-4542-bb8b-60ee71abb736.png",
+      "PackagePath": "staticwebassets\\img\\021f58f3-b955-4542-bb8b-60ee71abb736.png"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\img\\998c3bf9-43d5-4100-b6af-b2995835433c.gif",
-      "PackagePath": "staticwebassets\\img\\998c3bf9-43d5-4100-b6af-b2995835433c.gif"
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\img\\18cef73a-41b1-4841-9dc9-e51e64c928b4.png",
+      "PackagePath": "staticwebassets\\img\\18cef73a-41b1-4841-9dc9-e51e64c928b4.png"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\img\\be04ac78-7601-4cce-8377-4fee5ca89d4f.png",
-      "PackagePath": "staticwebassets\\img\\be04ac78-7601-4cce-8377-4fee5ca89d4f.png"
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\img\\302c19f4-1379-47d1-82d5-213720b53a86.png",
+      "PackagePath": "staticwebassets\\img\\302c19f4-1379-47d1-82d5-213720b53a86.png"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\img\\bfe18a38-e043-4ba9-81e1-92a044504a33.gif",
-      "PackagePath": "staticwebassets\\img\\bfe18a38-e043-4ba9-81e1-92a044504a33.gif"
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\img\\648af0f2-aea1-4909-94e3-993bd6f0c194.png",
+      "PackagePath": "staticwebassets\\img\\648af0f2-aea1-4909-94e3-993bd6f0c194.png"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\img\\logo.jpg",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\img\\72a5b3c8-4625-4f8a-a444-dad65519bc32.png",
+      "PackagePath": "staticwebassets\\img\\72a5b3c8-4625-4f8a-a444-dad65519bc32.png"
+    },
+    {
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\img\\8886b4c7-ef01-4890-be73-0e6a015fe0bb.png",
+      "PackagePath": "staticwebassets\\img\\8886b4c7-ef01-4890-be73-0e6a015fe0bb.png"
+    },
+    {
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\img\\a99d9ca9-c045-4a12-89ee-badb346fce2b.png",
+      "PackagePath": "staticwebassets\\img\\a99d9ca9-c045-4a12-89ee-badb346fce2b.png"
+    },
+    {
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\img\\df024f5d-6c24-4baf-a25e-84800ad158cc.png",
+      "PackagePath": "staticwebassets\\img\\df024f5d-6c24-4baf-a25e-84800ad158cc.png"
+    },
+    {
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\img\\logo.jpg",
       "PackagePath": "staticwebassets\\img\\logo.jpg"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\js\\myJs.js",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\js\\myJs.js",
       "PackagePath": "staticwebassets\\js\\myJs.js"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\js\\site.js",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "D:\\Work\\FU_Support\\Quang_Minh\\Fall2024\\Source_Final\\RealEstateAuction\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {

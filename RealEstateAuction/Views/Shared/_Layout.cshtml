@@ -85,7 +85,11 @@
                             <span class="fw-bold ">
                                 Số dư:&nbsp;
                                 <span class="text-danger">
-                                    @User.FindFirstValue("Wallet").Split(',')[0]
+                                    @{
+                                        string walletValue = User.FindFirstValue("Wallet").Split(',')[0];
+                                        string formattedWalletValue = decimal.Parse(walletValue).ToString("N0")+"đ";
+                                    }
+                                    @formattedWalletValue
                                 </span>
                             </span>
                             <a class="btn btn-outline-secondary text-nowrap" href="/top-up">
