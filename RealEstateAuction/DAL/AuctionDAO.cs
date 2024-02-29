@@ -76,8 +76,8 @@ namespace RealEstateAuction.DAL
         public List<Auction> GetAuctionByUserId(int userId, Pagination pagination)
         {
             return context.Auctions.Where(a => a.UserId == userId && a.DeleteFlag == false)
-                .OrderByDescending(a => a.Id)
-                .Include(a => a.Images)
+                                    .OrderByDescending(a => a.Id)
+                                    .Include(a => a.Images)
                                     .Skip((pagination.PageNumber - 1) * pagination.RecordPerPage)
                                     .Take(pagination.RecordPerPage)
                                     .ToList();
