@@ -18,8 +18,8 @@ internal class Program
         builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(options =>
             {
-                options.LoginPath = "/home";
-                options.AccessDeniedPath = "/access-denied";
+                options.LoginPath = "/denied";
+                options.AccessDeniedPath = "/denied";
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
             });
         builder.Services.AddSession(options =>

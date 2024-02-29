@@ -17,19 +17,28 @@
 
             <div class="input-group mt-3">
                 <span class="input-group-text">Giá khời điểm (VNĐ)</span>
-                <input asp-for=StartPrice type="text" class="form-control" placeholder="Giá khởi điểm phải lớn hơn 0." />
+                <input asp-for=StartPrice type="text" class="form-control" placeholder="Giá khởi điểm phải lớn hơn 0."
+                       pattern="[0-9]+(\.[0-9]+)?" required
+                       oninvalid="this.setCustomValidity('Vui lòng nhập số!')"
+                       oninput="this.setCustomValidity('')" />
             </div>
             @Html.ValidationMessageFor(model => model.StartPrice, "", new { @class = "text-danger" })
 
             <div class="input-group mt-3">
                 <span class="input-group-text">Giá kết thúc (VNĐ)</span>
-                <input asp-for=EndPrice type="text" class="form-control" placeholder="Giá kết thúc phải lớn hơn 0.">
+                <input asp-for=EndPrice type="text" class="form-control" placeholder="Giá kết thúc phải lớn hơn 0."
+                       pattern="[0-9]+(\.[0-9]+)?" required
+                       oninvalid="this.setCustomValidity('Vui lòng nhập số!')"
+                       oninput="this.setCustomValidity('')" />
             </div>
             @Html.ValidationMessageFor(model => model.EndPrice, "", new { @class = "text-danger" })
 
             <div class="input-group mt-3">
                 <span class="input-group-text">Diện tích (m2)</span>
-                <input asp-for=Area type="text" class="form-control" placeholder="Diện tích phải lớn hơn 0.">
+                <input asp-for=Area type="text" class="form-control" placeholder="Diện tích phải lớn hơn 0."
+                       pattern="[0-9]+(\.[0-9]+)?" required
+                       oninvalid="this.setCustomValidity('Vui lòng nhập số!')"
+                       oninput="this.setCustomValidity('')" />
             </div>
             @Html.ValidationMessageFor(model => model.Area, "", new { @class = "text-danger" })
 
@@ -43,7 +52,10 @@
                 <span class="input-group-text">
                     Mặt tiền (m)
                 </span>
-                <input asp-for=Facade type="text" class="form-control" placeholder="Mặt tiền phải lớn hơn 0.">
+                <input asp-for=Facade type="text" class="form-control" placeholder="Mặt tiền phải lớn hơn 0."
+                       pattern="[0-9]+(\.[0-9]+)?" required
+                       oninvalid="this.setCustomValidity('Vui lòng nhập số!')"
+                       oninput="this.setCustomValidity('')" />
             </div>
             @Html.ValidationMessageFor(model => model.Facade, "", new { @class = "text-danger" })
 

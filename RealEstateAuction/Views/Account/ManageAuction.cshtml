@@ -68,7 +68,14 @@
                         @statusName
                     </td>
                     <td>
-                        <a href="/edit-auction?id=@item.Id" class="btn btn-info">Cập nhật</a>
+                        @if (DateTime.Now.CompareTo(item.StartTime) < 0)
+                        {
+                            <a href="/edit-auction?id=@item.Id" class="btn btn-info">Cập nhật</a>
+                        }
+                        else
+                        {
+                            <a href="/list-participant?auctionId=@item.Id" class="btn btn-info">Danh sách người đấu giá</a>
+                        }
                         <a href="/delete-auction?id=@item.Id" class="btn btn-danger">Xóa</a>
                     </td>
                 </tr>

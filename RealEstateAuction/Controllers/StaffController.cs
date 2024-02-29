@@ -253,7 +253,29 @@ namespace RealEstateAuction.Controllers
             //check if staff manage this auction or not
             if (auction.ApproverId == userId)
             {
-                auction.Status = Byte.Parse(status.ToString());
+                auction.Status = byte.Parse(status.ToString());
+
+                //check if auction is rejected
+                if (status == (int)AuctionStatus.Từ_chối)
+                {
+                    //get owner auction id
+                    var ownerAuction = auctionDAO.GetAuctionById(auctionId);
+
+                    //get owner
+                    var owner = userDAO.GetUserById(ownerAuction.User.Id);
+                    owner.Wallet += Constant.Fee;
+
+                    //update user
+                    var isSuccess = userDAO.UpdateUser(owner);
+                    //check if update user wallet success
+                    if (!isSuccess)
+                    {
+                        TempData["Message"] = "Đã có lỗi xảy ra khi cập nhật ví người đăng đấu giá!";
+                        return Redirect("list-auction-staff");
+                    }
+                }
+
+
                 bool flag = auctionDAO.EditAuction(auction);
                 if (flag)
                 {

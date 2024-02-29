@@ -82,6 +82,15 @@ namespace RealEstateAuction.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("denied")]
+        public IActionResult AccessDenied()
+        {
+            TempData["Message"] = "Bạn không có quyền truy cập trang này";
+            return Redirect("/home");
+        }
+
+
         public IActionResult Privacy()
         {
             return View();

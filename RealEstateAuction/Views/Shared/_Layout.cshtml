@@ -1,8 +1,15 @@
 ﻿@using System.Security.Claims
 @using Microsoft.AspNetCore.Authentication.Cookies
+@using RealEstateAuction.DAL
 
 @{
-    var fullName = User.FindFirstValue("FullName");
+    var user = new User();
+    @if (User.Identity.IsAuthenticated)
+    {
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        user = new UserDAO().GetUserById(int.Parse(userId));
+    }
+
     var homePage = "";
     @if (User.IsInRole("Admin"))
     {
@@ -86,8 +93,7 @@
                                 Số dư:&nbsp;
                                 <span class="text-danger">
                                     @{
-                                        string walletValue = User.FindFirstValue("Wallet").Split(',')[0];
-                                        string formattedWalletValue = decimal.Parse(walletValue).ToString("N0")+"đ";
+                                        string formattedWalletValue = user.Wallet.ToString("N1") + "đ";
                                     }
                                     @formattedWalletValue
                                 </span>
@@ -101,7 +107,7 @@
                             <a href="#" class="d-flex align-items-center link-dark text-decoration-none cursor-pointer dropdown-toggle"
                                id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa-solid fa-user me-2 primary-color"></i>
-                                Hello:&ensp;<strong>@fullName</strong>
+                                Hello:&ensp;<strong>@user.FullName</strong>
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="/profile">Thông tin cá nhân</a></li>
@@ -279,7 +285,7 @@
                                      alt="Invaluable Logo">
                                 <p class="mt-4">
                                     As the world's leading online auction marketplace, thousands of auction
-                                    houses use Invaluable to deepen relationships with millions of clients
+                                    houses use F4Land to deepen relationships with millions of clients
                                     around the world. Stay connected to the things you love with curated items
                                     and auctions sent to your inbox.
                                 </p>
