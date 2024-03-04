@@ -12,39 +12,49 @@
     var maxPrice = Model.Max(a => a.BiddingPrice);
     <!--Get the user with highest price-->
     var winner = Model.FirstOrDefault(a => a.BiddingPrice == maxPrice);
-    <div class="d-flex justify-content-center">
-        <h3 class="text-success">Người chiến thắng: @Model.FirstOrDefault().Member.FullName</h3>
+    <div class="winner-bg w-100 border border-2 rounded-3">
+        <div class="d-flex justify-content-center">
+            <h3 class="text-danger">Người chiến thắng: @Model.FirstOrDefault().Member.FullName</h3>
+        </div>
+        <table class="table mb-3">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Họ và tên</th>
+                    <th>Số điện thoại</th>
+                    <th>Số tiền đặt</th>
+                    <th>Thời gian đặt</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <!--Get the first image of auciton-->
+                        <img src="https://st3.depositphotos.com/9998432/13335/v/450/depositphotos_133352156-stock-illustration-default-placeholder-profile-icon.jpg" height="100" width="100">
+                    </td>
+                    <td>
+                            @winner.Member.FullName
+                    </td>
+                    <td>
+                            @winner.Member.Phone
+                    </td>
+                    <td>
+                            @winner.BiddingPrice.ToString("N1")đ
+                    </td>
+                    <td>
+                            @winner.TimeBidding
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <table class="table mb-3">
-        <thead>
-        <tbody>
-            <tr>
-                <td>
-                    <!--Get the first image of auciton-->
-                    <img src="https://st3.depositphotos.com/9998432/13335/v/450/depositphotos_133352156-stock-illustration-default-placeholder-profile-icon.jpg" height="100" width="100">
-                </td>
-                <td>
-                        @winner.Member.FullName
-                </td>
-                <td>
-                        @winner.Member.Phone
-                </td>
-                <td>
-                        @winner.BiddingPrice
-                </td>
-                <td>
-                        @winner.TimeBidding
-                </td>
-            </tr>
-        </tbody>
-    </table>
 }
 
 <!-- display list auction -->
 <table class="table mb-3">
     <thead>
         <tr>
-            <th>Ảnh</th>
+            <th></th>
             <th>Họ và tên</th>
             <th>Số điện thoại</th>
             <th>Số tiền đặt</th>
@@ -74,7 +84,7 @@
                         @item.Member.Phone
                     </td>
                     <td>
-                        @item.BiddingPrice
+                        @item.BiddingPrice.ToString("N1")đ
                     </td>
                     <td>
                         @item.TimeBidding

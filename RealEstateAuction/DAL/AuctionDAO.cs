@@ -16,8 +16,12 @@ namespace RealEstateAuction.DAL
         //get all auction that have status is approved
         public List<Auction> GetAllAuctionApproved(Pagination pagination)
         {
-            return context.Auctions.Where(a => a.Status == (int)AuctionStatus.Chấp_nhân && a.DeleteFlag == false)
+            return context.Auctions.Where(a => a.Status == (int)AuctionStatus.Chấp_nhân
+                                    && a.DeleteFlag == false
+                                    && a.StartTime <= DateTime.Now
+                                    && DateTime.Now <= a.EndTime)
                                    .Include(a => a.Images)
+                                   .Include(a => a.User)
                                    .OrderByDescending(a => a.CreatedTime)
                                    .Skip((pagination.PageNumber - 1) * pagination.RecordPerPage)
                                    .Take(pagination.RecordPerPage)
@@ -120,7 +124,10 @@ namespace RealEstateAuction.DAL
         public List<Auction> GetAuctionRecently(int number)
         {
             return context.Auctions
-                .Where(a => a.Status == (int)AuctionStatus.Chấp_nhân && a.DeleteFlag == false)
+                .Where(a => a.Status == (int)AuctionStatus.Chấp_nhân
+                && a.DeleteFlag == false
+                && a.StartTime <= DateTime.Now
+                && DateTime.Now <= a.EndTime)
                 .Include(a => a.Images)
                 .Include(a => a.User)
                 .OrderByDescending(a => a.CreatedTime)
@@ -132,7 +139,10 @@ namespace RealEstateAuction.DAL
         {
             //count all auction that have status is approved
             return context.Auctions
-                .Where(a => a.Status == (int)AuctionStatus.Chấp_nhân && a.DeleteFlag == false)
+                .Where(a => a.Status == (int)AuctionStatus.Chấp_nhân
+                && a.DeleteFlag == false
+                && a.StartTime <= DateTime.Now
+                && DateTime.Now <= a.EndTime)
                 .Count();
         }
 
@@ -178,6 +188,20 @@ namespace RealEstateAuction.DAL
                                    .FirstOrDefault(a => a.Id == auctionId)
                                    .Users
                                    .Count();
+        }
+
+        public Auction? GetAuctionBiddingById(int id)
+        {
+            return context.Auctions
+                .Where(a => a.StartTime <= DateTime.Now
+                && DateTime.Now <= a.EndTime
+                && a.Status == (int)AuctionStatus.Chấp_nhân
+                && a.DeleteFlag == false)
+                .Include(a => a.Images)
+                .Include(a => a.User)
+                .Include(a => a.AuctionBiddings.OrderByDescending(ab => ab.BiddingPrice))
+                .FirstOrDefault(a => a.Id == id
+                                && a.DeleteFlag == false);
         }
     }
 }

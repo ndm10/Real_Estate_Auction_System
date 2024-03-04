@@ -12,6 +12,8 @@ internal class Program
 
         builder.Services.AddTransient<IEmailSender, EmailSender>();
         
+        //refresh page after 1 second
+        builder.Services.AddSignalR();
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();

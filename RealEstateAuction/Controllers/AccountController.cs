@@ -259,13 +259,41 @@ namespace RealEstateAuction.Controllers
             }
 
             AuctionEditDataModel auctionData = _mapper.Map<Auction, AuctionEditDataModel>(auction);
-            Console.WriteLine(auction.UserId);
             //check if auction belong to this user
             if (!(auction.UserId == userId))
             {
                 TempData["Message"] = "Bạn không thể quản lý phiên đấu giá người khác!";
                 return Redirect("manage-auction");
             }
+
+            return View(auctionData);
+        }
+
+        [HttpGet]
+        [Route("my-auction-details")]
+        public IActionResult MyAuctionDetails(int id)
+        {
+            //get current user id
+            int userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+            //Find Auction by id
+            Auction? auction = auctionDAO.GetAuctionById(id);
+
+            //Check if auction is exist
+            if (auction == null)
+            {
+                TempData["Message"] = "Không tìm thấy phiên đấu giá này!";
+                return Redirect("manage-auction");
+            }
+
+            //check if auction belong to this user
+            if (!(auction.UserId == userId))
+            {
+                TempData["Message"] = "Bạn không thể xem chi tiết phiên đấu giá người khác!";
+                return Redirect("manage-auction");
+            }
+
+            AuctionEditDataModel auctionData = _mapper.Map<Auction, AuctionEditDataModel>(auction);
 
             return View(auctionData);
         }
