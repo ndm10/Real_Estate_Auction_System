@@ -506,19 +506,33 @@ namespace RealEstateAuction.Controllers
             //Get current url
             string url = Request.Headers["Referer"];
 
-            //check user login or not
-            if (!User.Identity.IsAuthenticated)
-            {
-                TempData["Message"] = "Vui lòng đăng nhập để tham gia đấu giá!";
-                return Redirect(url);
-            }
-
             //get user by id
             User user = userDAO.GetUserById(biddingDataModel.MemberId);
 
             //Get Auction by id
-            Auction auction = auctionDAO.GetAuctionById(biddingDataModel.AuctionId);
+            Auction? auction = auctionDAO.GetAuctionById(biddingDataModel.AuctionId);
 
+
+            //Check if auction is exist
+            if (auction == null)
+            {
+                TempData["Message"] = "Phiên đấu giá không tồn tại!";
+                return Redirect(url);
+            }
+
+            //Check is user is owner of auction
+            if (auction.UserId == user.Id)
+            {
+                TempData["Message"] = "Bạn không thể đấu giá phiên đấu giá của mình!";
+                return Redirect(url);
+            }
+
+            //Check if auction is started
+            if (auction.StartTime.CompareTo(DateTime.Now) > 0)
+            {
+                TempData["Message"] = "Phiên đấu giá chưa bắt đầu!";
+                return Redirect(url);
+            }
 
             //Check if auction is expired
             if (auction.EndTime.CompareTo(DateTime.Now) < 0)
@@ -563,10 +577,23 @@ namespace RealEstateAuction.Controllers
                 }
             }
 
-            //Update wallet of user
+            //Get the last bidding of user for this auction
+            AuctionBidding? lastBidding = auctionBiddingDAO.GetLastBiddingByUser(biddingDataModel.AuctionId, biddingDataModel.MemberId);
+
+            //Get the last bidding of user for this auction if exist
+            if (lastBidding != null)
+            {
+                //Get the last bidding price of user for this auction
+                decimal lastBiddingPrice = lastBidding.BiddingPrice;
+                
+                //Refund the price of bidding to user
+                user.Wallet += lastBiddingPrice;
+            }
+
+            //Minus the price of bidding from user wallet
             user.Wallet -= biddingDataModel.BiddingPrice;
             
-            //Wallet of user is not enough to bidding
+            //Check if user wallet is enough to bidding
             if(user.Wallet < 0)
             {
                 TempData["Message"] = "Ví của bạn không đủ để đấu giá!";
@@ -582,7 +609,9 @@ namespace RealEstateAuction.Controllers
                 bool isSuccess = auctionDAO.EditAuction(auction);
             }
 
+            //Update wallet of user
             bool updateWallet = userDAO.UpdateUser(user);
+            //Check if update wallet successfull
             if (!updateWallet)
             {
                 TempData["Message"] = "Có lỗi khi xử lý ví!";
@@ -596,7 +625,6 @@ namespace RealEstateAuction.Controllers
                 auctionBidding.TimeBidding = DateTime.Now;
 
                 bool isSuccess = auctionBiddingDAO.AddAuctionBidding(auctionBidding);
-
                 //Check user bidding successfull
                 if (isSuccess)
                 {

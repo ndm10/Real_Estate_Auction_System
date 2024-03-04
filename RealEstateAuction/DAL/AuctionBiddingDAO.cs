@@ -57,5 +57,16 @@ namespace RealEstateAuction.DAL
                     .Count();
             }
         }
+
+        public AuctionBidding? GetLastBiddingByUser(int auctionId, int memberId)
+        {
+            using(var context = new RealEstateContext())
+            {
+                return context.AuctionBiddings
+                    .Where(ab => ab.AuctionId == auctionId && ab.MemberId == memberId)
+                    .OrderByDescending(ab => ab.BiddingPrice)
+                    .FirstOrDefault();
+            }
+        }
     }
 }

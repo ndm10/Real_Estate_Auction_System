@@ -114,7 +114,7 @@
                            oninvalid="this.setCustomValidity('Vui lòng nhập số!')"
                            oninput="this.setCustomValidity('')" />
 
-                    <button type="submit" class="btn btn-secondary mt-2 w-100"
+                    <button id="btn-bidding" type="submit" class="btn btn-secondary mt-2 w-100"
                     @*Disable button if user is not logged in*@
                     @if (!User.Identity.IsAuthenticated)
                     {
@@ -132,7 +132,7 @@
                         </span>
                     </div>
                     <a href="#" class="text-decoration-none cursor-pointer">
-                        Tham gia đấu giá ngay
+                        Phiên đấu giá kết thúc sau:
                     </a>
                 </form>
                 <div class="mt-4 d-flex justify-content-center">
@@ -293,6 +293,7 @@
         if (distance < 0) {
             clearInterval(x);
             document.getElementById("timerCounter").innerHTML = "Phiên đấu giá đã kết thúc!";
+            document.getElementById("btn-bidding").disabled = true;
         }
     }, 1000);
 </script>
