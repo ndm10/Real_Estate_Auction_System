@@ -9,13 +9,11 @@ namespace RealEstateAuction.Services
     {
         private readonly TimerService _timerService;
         private ILogger logger;
-        private ILogger logger2;
         private readonly AuctionDAO auctionDAO;
 
-        public BackgroundWokerService(ILogger<TimerService> logger, ILogger<BackgroundService> logger2)
+        public BackgroundWokerService(ILogger<TimerService> logger)
         {
             this.logger = logger;
-            this.logger2 = logger2;
             _timerService = new TimerService(logger);
             auctionDAO = new AuctionDAO();
         }
@@ -24,9 +22,10 @@ namespace RealEstateAuction.Services
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                // End the auctions that are ending in 1 hour
+                // End the auctions that are ending in 1 minutes
                 Task endAuctionsTask = Task.Run(() =>
                 {
+                    //Get all auctions that are ending in 1 minute
                     List<Auction> ending = auctionDAO.GetAuctionsEndingIn1Minute();
                     //Change status of auction to ended that incomming in 1 minutes
                     _timerService.EndAuction(ending);
