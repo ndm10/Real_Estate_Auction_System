@@ -1,6 +1,7 @@
 ﻿using Microsoft.DotNet.Scaffolding.Shared.Messaging;
 using RealEstateAuction.Enums;
 using RealEstateAuction.Models;
+using X.PagedList;
 
 namespace RealEstateAuction.DAL
 {
@@ -21,7 +22,7 @@ namespace RealEstateAuction.DAL
         }
         public User GetUserByEmailAndPassword(string email, string password)
         {
-            return context.Users.SingleOrDefault(u => u.Email.Equals(email) && u.Password.Equals(password));
+            return context.Users.SingleOrDefault(u => u.Email.Equals(email) && u.Password.Equals(password) && u.Status == (Byte)Status.Active);
         }
         public bool AddUser(User user)
         {
@@ -103,6 +104,21 @@ namespace RealEstateAuction.DAL
         public List<User> GetStaff()
         {
             return context.Users.Where(x => x.RoleId == (int)Roles.Staff).ToList();
+        }
+
+        public IPagedList<User> GetStaff(int page)
+        {
+            return context.Users.Where(x => x.RoleId == (int)Roles.Staff).ToPagedList(page, 10);
+        }
+
+        public User GetStaffDetail(int id)
+        {
+            return context.Users.Where(x => x.Id == id).SingleOrDefault();
+        }
+
+        public IPagedList<User> GetMember(int page)
+        {
+            return context.Users.Where(x => x.RoleId == (int)Roles.Member).ToPagedList(page, 10);
         }
     }
 }
