@@ -11,6 +11,9 @@ internal class Program
         builder.Services.AddAutoMapper(typeof(DataModelToModel).Assembly, typeof(ModelToDataModel).Assembly);
 
         builder.Services.AddTransient<IEmailSender, EmailSender>();
+
+        // Add background worker service
+        builder.Services.AddHostedService<BackgroundWokerService>();
         
         //refresh page after 1 second
         builder.Services.AddSignalR();
