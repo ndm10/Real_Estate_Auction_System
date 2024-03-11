@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.IdentityModel.Tokens;
 using RealEstateAuction.DAL;
 using RealEstateAuction.DataModel;
@@ -24,6 +25,7 @@ namespace RealEstateAuction.Controllers
         private readonly PaymentDAO paymentDAO;
         private readonly TicketDAO ticketDAO;
         private readonly AuctionBiddingDAO auctionBiddingDAO;
+        private readonly CategoryDAO categoryDAO;
         private IMapper _mapper;
         private Pagination pagination;
 
@@ -37,6 +39,7 @@ namespace RealEstateAuction.Controllers
             paymentDAO = new PaymentDAO();
             ticketDAO = new TicketDAO();
             auctionBiddingDAO = new AuctionBiddingDAO();
+            categoryDAO = new CategoryDAO();
         }
 
         [HttpGet]
@@ -214,6 +217,7 @@ namespace RealEstateAuction.Controllers
                     //map to Auction model
                     Auction auction = _mapper.Map<AuctionDataModel, Auction>(auctionData);
                     //add Auction to database
+                    
                     bool isSuccess = auctionDAO.AddAuction(auction);
 
                     //check if add acution successfull
@@ -711,69 +715,64 @@ namespace RealEstateAuction.Controllers
         [Authorize(Roles = "Member")]
         public IActionResult TopUpPost([FromForm] PaymentDataModel paymentData)
         {
-            if (ModelState.IsValid)
+            try
             {
-                Payment payment;
-                switch (paymentData.Action)
+                if (ModelState.IsValid)
                 {
-                    case PaymentType.TopUp:
-                        payment = new Payment()
-                        {
-                            BankId = paymentData.BankId,
-                            Amount = paymentData.Amount,
-                            UserBankAccount = paymentData.UserAccountNumber,
-                            Code = $"NAP_{DateTime.Now.ToShortTimeString()}",
-                            TransactionDate = DateTime.Now,
-                            Status = (int)PaymentStatus.Pending,
-                            UserId = Int32.Parse(User.FindFirstValue("Id")),
-                            Type = (byte)paymentData.Action,
-                        };
-                        paymentDAO.insert(payment);
-                        payment.Bank = bankDAO.bankDetail(paymentData.BankId);
-                        TempData["Message"] = "Tạo yêu cầu thành công, vui lòng giao dịch theo nội dung hiển thị bên dưới";
+                    Payment payment;
+                    switch (paymentData.Action)
+                    {
+                        case PaymentType.TopUp:
+                            payment = new Payment()
+                            {
+                                BankId = paymentData.BankId,
+                                Amount = paymentData.Amount,
+                                UserBankName = paymentData.UserBankName,
+                                UserBankAccount = paymentData.UserAccountNumber,
+                                Code = $"NAP_{DateTime.Now.ToShortTimeString()}",
+                                TransactionDate = DateTime.Now,
+                                Status = (int)PaymentStatus.Pending,
+                                UserId = Int32.Parse(User.FindFirstValue("Id")),
+                                Type = (byte)paymentData.Action,
+                            };
+                            paymentDAO.insert(payment);
+                            payment.Bank = bankDAO.bankDetail(paymentData.BankId);
 
-                        return View(payment);
-                    case PaymentType.Withdraw:
-                        var user = userDAO.GetUserById(Int32.Parse(User.FindFirstValue("Id")));
-                        Console.Write(user.Id);
-                        if (user.Wallet < paymentData.Amount)
-                        {
-                            TempData["Message"] = "Không thể tạo yêu cầu do số tiền rút cao hơn số tiền trong ví";
+                            break;
+                        case PaymentType.Withdraw:
+                            var user = userDAO.GetUserById(Int32.Parse(User.FindFirstValue("Id")));
+                            Console.Write(user.Id);
+                            if (user.Wallet < paymentData.Amount)
+                            {
+                                TempData["Message"] = "Không thể tạo yêu cầu do số tiền rút cao hơn số tiền trong ví";
 
-                            return RedirectToAction("TopUp");
-                        }
-                        payment = new Payment()
-                        {
-                            Amount = paymentData.Amount,
-                            UserBankAccount = paymentData.UserAccountNumber,
-                            Code = $"RUT_{DateTime.Now.ToShortTimeString()}",
-                            TransactionDate = DateTime.Now,
-                            Status = (int)PaymentStatus.Pending,
-                            UserId = Int32.Parse(User.FindFirstValue("Id")),
-                            Type = (byte)paymentData.Action,
-                        };
-                        paymentDAO.insert(payment);
-                        TempData["Message"] = "Tạo yêu cầu thành công";
+                                return RedirectToAction("TopUp");
+                            }
+                            payment = new Payment()
+                            {
+                                Amount = paymentData.Amount,
+                                UserBankAccount = paymentData.UserAccountNumber,
+                                Code = $"RUT_{DateTime.Now.ToShortTimeString()}",
+                                TransactionDate = DateTime.Now,
+                                Status = (int)PaymentStatus.Pending,
+                                UserId = Int32.Parse(User.FindFirstValue("Id")),
+                                Type = (byte)paymentData.Action,
+                            };
+                            paymentDAO.insert(payment);
 
-                        return RedirectToAction("TopUp");
-                    default:
-                        payment = new Payment()
-                        {
-                            Amount = paymentData.Amount,
-                            UserBankAccount = paymentData.UserAccountNumber,
-                            Code = $"RUT_{DateTime.Now.ToShortTimeString()}",
-                            TransactionDate = DateTime.Now,
-                            Status = (int)PaymentStatus.Pending,
-                            UserId = Int32.Parse(User.FindFirstValue("Id")),
-                            Type = (byte)paymentData.Action,
-                        };
-                        paymentDAO.insert(payment);
-                        TempData["Message"] = "Tạo yêu cầu thành công";
-
-                        return RedirectToAction("TopUp");
+                            break;
+                    }
+                    TempData["Message"] = "Tạo yêu cầu thành công";
+                } 
+                else
+                {
+                    TempData["Message"] = "Tạo yêu cầu thất bại";
                 }
-            }
-            TempData["Message"] = "Tạo yêu cầu thất bại";
+            } catch (Exception ex)
+            {
+                Console.WriteLine(ex.InnerException);
+                TempData["Message"] = "Tạo yêu cầu thất bại";
+            }          
 
             return RedirectToAction("TopUp");
         }

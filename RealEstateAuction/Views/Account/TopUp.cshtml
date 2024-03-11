@@ -87,7 +87,7 @@ Page @(list.PageCount < list.PageNumber ? 0 : list.PageNumber) of @(list.PageCou
                     <td class="text-center">@item.UserBankAccount</td>
                     <td class="text-center">
                         <a class="btn btn-primary btn-sm" style="width: 75px" href="#" data-bs-toggle="modal"
-                            data-bs-target="#modalPayment_@item.Id">Chi tiết</a>                   
+                            data-bs-target="#modalPayment_@item.Id">Chi tiết</a>                                   
                         <div class="modal fade" id="modalPayment_@item.Id" tabindex="-1">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
@@ -135,6 +135,10 @@ Page @(list.PageCount < list.PageNumber ? 0 : list.PageNumber) of @(list.PageCou
                                             <tr>
                                                 <td class="text-start fw-bold">Mã số ngân hàng khách hàng</td>
                                                 <td>@item.UserBankAccount</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-start fw-bold">Ngân hàng khách hàng</td>
+                                                <td>@item.UserBankName</td>
                                             </tr>
                                             <tr>
                                                 <td class="text-start fw-bold">Mã số ngân hàng nhận</td>

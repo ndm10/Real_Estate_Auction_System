@@ -15,6 +15,8 @@ namespace RealEstateAuction.Controllers
         private readonly UserDAO userDAO; 
         private Pagination pagination;
         private readonly AuctionDAO auctionDAO;
+        private readonly NotificationDAO notificationDAO;
+        private readonly CategoryDAO categoryDAO;
 
         public StaffController()
         {
@@ -23,6 +25,8 @@ namespace RealEstateAuction.Controllers
             userDAO = new UserDAO();
             ticketDAO = new TicketDAO();
             paymentDAO = new PaymentDAO();
+            notificationDAO = new NotificationDAO();
+            categoryDAO = new CategoryDAO();
         }
 
         [Authorize(Roles = "Staff")]
@@ -48,10 +52,54 @@ namespace RealEstateAuction.Controllers
             try
             {
                 var payment = paymentDAO.getPayment(Int32.Parse(Request.Form["id"].ToString()));
+
                 if (payment != null && payment.Status == (int) PaymentStatus.Pending)
                 {
-                    payment.Status = Byte.Parse(Request.Form["status"].ToString());
-                    paymentDAO.topUp(payment, (int) payment.UserId);
+                    payment.Status = Byte.Parse(Request.Form["status"].ToString());                   
+                    if (payment.Status == (int)PaymentStatus.Reject) {                        
+                        notificationDAO.insert(new Notification()
+                        {
+                            Description = $"Yêu cầu thanh toán bị từ chối",
+                            ToUser = payment.UserId,
+                            Link = $"/top-up",
+                            IsRead = false,
+                        });
+                    }
+                    
+                    else
+                    {
+                        paymentDAO.topUp(payment, (int)payment.UserId, Int32.Parse(User.FindFirstValue("Id")));
+                        switch (payment.Type)
+                        {
+                            case (int)PaymentType.TopUp:
+                                notificationDAO.insert(new Notification()
+                                {
+                                    Description = $"Nạp thành công {(int)payment.Amount} vào ví",
+                                    ToUser = payment.UserId,
+                                    Link = $"/top-up",
+                                    IsRead = false,
+                                });
+                                break;
+                            case (int)PaymentType.Withdraw:
+                                notificationDAO.insert(new Notification()
+                                {
+                                    Description = $"Rút thành công {(int)payment.Amount} khỏi ví",
+                                    ToUser = payment.UserId,
+                                    Link = $"/top-up",
+                                    IsRead = false,
+                                });
+                                break;
+                            case (int)PaymentType.Refund:
+                                notificationDAO.insert(new Notification()
+                                {
+                                    Description = $"Hoàn tiền thành công",
+                                    ToUser = payment.UserId,
+                                    Link = $"/top-up",
+                                    IsRead = false,
+                                });
+                                break;
+                        }
+                    }           
                     TempData["Message"] = "Cập nhật thành công";
                 }
                 else
@@ -60,7 +108,7 @@ namespace RealEstateAuction.Controllers
                 }
             } catch (Exception ex)
             {
-                Console.Write(ex);
+                Console.WriteLine(ex.Message);
                 TempData["Message"] = "Lỗi hệ thống, vui lòng thử lại";
             }
             
@@ -160,6 +208,13 @@ namespace RealEstateAuction.Controllers
                         ticketDAO.update(ticket);
                         TempData["Message"] = "Đóng yêu cầu hỗ trợ thành công";
                     }
+                    notificationDAO.insert(new Notification()
+                    {
+                        Description = $"Yêu cầu hỗ trợ đã được trả lời",
+                        ToUser = ticket.UserId,
+                        Link = $"/member/list-ticket/{ticket.Id}",
+                        IsRead = false,
+                    });
                 }
                 return RedirectToAction("TicketDetail", "Staff", new { Id = commentData.TicketId });
             } catch (Exception ex)
@@ -175,6 +230,7 @@ namespace RealEstateAuction.Controllers
         [Route("list-auction-staff")]
         public IActionResult ListAuction(int? pageNumber)
         {
+            ViewData["categories"] = categoryDAO.GetCategories();
             //check user login or not
             if (!User.Identity.IsAuthenticated)
             {
@@ -237,6 +293,7 @@ namespace RealEstateAuction.Controllers
         [Route("approve-auction")]
         public IActionResult ListAuction(int auctionId, int status)
         {
+            ViewData["categories"] = categoryDAO.GetCategories();
             //check user login or not
             if (!User.Identity.IsAuthenticated)
             {
@@ -258,6 +315,7 @@ namespace RealEstateAuction.Controllers
                 //check if auction is rejected
                 if (status == (int)AuctionStatus.Từ_chối)
                 {
+                    auction.Reason = Request.Query["reason"];
                     //get owner auction id
                     var ownerAuction = auctionDAO.GetAuctionById(auctionId);
 
@@ -273,17 +331,31 @@ namespace RealEstateAuction.Controllers
                         TempData["Message"] = "Đã có lỗi xảy ra khi cập nhật ví người đăng đấu giá!";
                         return Redirect("list-auction-staff");
                     }
+                    notificationDAO.insert(new Notification()
+                    {
+                        Description = $"Phiên đấu giá {auction.Title} bị từ chối",
+                        ToUser = auction.User.Id,
+                        Link = $"/manage-auction",
+                        IsRead = false,
+                    });
                 }
 
-
+                auction.Categories.Add(categoryDAO.GetCategoryById(Int32.Parse(Request.Query["categoryId"])));
                 bool flag = auctionDAO.EditAuction(auction);
                 if (flag)
                 {
                     TempData["Message"] = "Phê duyệt thành công!";
+                    notificationDAO.insert(new Notification()
+                    {
+                        Description = $"Phiên đấu giá {auction.Title} đã được phê duyệt",
+                        ToUser = auction.User.Id,
+                        Link = $"/manage-auction",
+                        IsRead = false,
+                    });
                 }
                 else
                 {
-                    TempData["Message"] = "Phê duyệt thất b";
+                    TempData["Message"] = "Phê duyệt thất bại";
                 }
             }
             else

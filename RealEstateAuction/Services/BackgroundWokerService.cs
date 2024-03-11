@@ -1,4 +1,7 @@
 ﻿
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.Logging;
 using RealEstateAuction.DAL;
 using RealEstateAuction.Models;
@@ -11,10 +14,10 @@ namespace RealEstateAuction.Services
         private ILogger logger;
         private readonly AuctionDAO auctionDAO;
 
-        public BackgroundWokerService(ILogger<TimerService> logger)
+        public BackgroundWokerService(ILogger<TimerService> logger, IUrlHelperFactory urlHelperFactory)
         {
             this.logger = logger;
-            _timerService = new TimerService(logger);
+            _timerService = new TimerService(logger, urlHelperFactory);
             auctionDAO = new AuctionDAO();
         }
 

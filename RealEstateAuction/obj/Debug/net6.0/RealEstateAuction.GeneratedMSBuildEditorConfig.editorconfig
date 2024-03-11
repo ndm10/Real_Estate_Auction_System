@@ -114,6 +114,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Studying/Clone-Project/Real_Estate_Auction_System/RealEstateAuction/Views/Shared/Components/Notification/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTm90aWZpY2F0aW9uXERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Studying/Clone-Project/Real_Estate_Auction_System/RealEstateAuction/Views/Shared/EnterOtpLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVudGVyT3RwTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -128,6 +132,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Studying/Clone-Project/Real_Estate_Auction_System/RealEstateAuction/Views/Shared/Modals/Admin/CreateStaff.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE1vZGFsc1xBZG1pblxDcmVhdGVTdGFmZi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Studying/Clone-Project/Real_Estate_Auction_System/RealEstateAuction/Views/Shared/Modals/Auction/ApproveConfirm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE1vZGFsc1xBdWN0aW9uXEFwcHJvdmVDb25maXJtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Studying/Clone-Project/Real_Estate_Auction_System/RealEstateAuction/Views/Shared/Modals/Auction/RejectConfirm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE1vZGFsc1xBdWN0aW9uXFJlamVjdENvbmZpcm0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Studying/Clone-Project/Real_Estate_Auction_System/RealEstateAuction/Views/Shared/Modals/ForgotPassword.cshtml]
