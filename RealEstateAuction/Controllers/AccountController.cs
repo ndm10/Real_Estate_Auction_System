@@ -161,6 +161,9 @@ namespace RealEstateAuction.Controllers
                 return Redirect("manage-auction");
             }
 
+            //set the fee of create auction
+            ViewBag.Fee = DataModel.Constant.Fee;
+
             return View();
         }
 
@@ -217,7 +220,7 @@ namespace RealEstateAuction.Controllers
                     //map to Auction model
                     Auction auction = _mapper.Map<AuctionDataModel, Auction>(auctionData);
                     //add Auction to database
-                    
+
                     bool isSuccess = auctionDAO.AddAuction(auction);
 
                     //check if add acution successfull
@@ -443,16 +446,6 @@ namespace RealEstateAuction.Controllers
                 return Redirect("manage-auction");
             }
 
-            //User need pay fee by 40% of start price
-            user.Wallet -= auction.StartPrice * 0.4m;
-
-            //Check wallet of user is enough to join auction
-            if (user.Wallet < 0)
-            {
-                TempData["Message"] = "Ví của bạn không đủ để tham gia phiên đấu giá này!";
-                return Redirect("/auction-details?auctionId=" + auctionId);
-            }
-
             //check if auction belong to this user
             if (auction.UserId == userId)
             {
@@ -474,32 +467,22 @@ namespace RealEstateAuction.Controllers
                 return Redirect("/auction-details?auctionId=" + auctionId);
             }
 
-            //update wallet of user
-            user.Wallet -= auction.StartPrice;
-            bool updateWallet = userDAO.UpdateUser(user);
-            if (!updateWallet)
+            //add new user to list user join auction
+            auction.Users.Add(user);
+
+            //update Auction to database
+            bool isSuccess = auctionDAO.EditAuction(auction);
+
+            //check if join acution successfull
+            if (isSuccess)
             {
-                TempData["Message"] = "Có lỗi khi xử lý ví!";
+                TempData["Message"] = "Tham gia đấu giá thành công!";
             }
             else
             {
-
-                //add new user to list user join auction
-                auction.Users.Add(user);
-
-                //update Auction to database
-                bool isSuccess = auctionDAO.EditAuction(auction);
-
-                //check if join acution successfull
-                if (isSuccess)
-                {
-                    TempData["Message"] = "Tham gia đấu giá thành công!";
-                }
-                else
-                {
-                    TempData["Message"] = "Tham gia đấu giá thất bại!";
-                }
+                TempData["Message"] = "Tham gia đấu giá thất bại!";
             }
+
             return Redirect("/auction-details?auctionId=" + auctionId);
         }
 
@@ -589,16 +572,16 @@ namespace RealEstateAuction.Controllers
             {
                 //Get the last bidding price of user for this auction
                 decimal lastBiddingPrice = lastBidding.BiddingPrice;
-                
+
                 //Refund the price of bidding to user
                 user.Wallet += lastBiddingPrice;
             }
 
             //Minus the price of bidding from user wallet
             user.Wallet -= biddingDataModel.BiddingPrice;
-            
+
             //Check if user wallet is enough to bidding
-            if(user.Wallet < 0)
+            if (user.Wallet < 0)
             {
                 TempData["Message"] = "Ví của bạn không đủ để đấu giá!";
                 return Redirect(url);
@@ -763,16 +746,17 @@ namespace RealEstateAuction.Controllers
                             break;
                     }
                     TempData["Message"] = "Tạo yêu cầu thành công";
-                } 
+                }
                 else
                 {
                     TempData["Message"] = "Tạo yêu cầu thất bại";
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.InnerException);
                 TempData["Message"] = "Tạo yêu cầu thất bại";
-            }          
+            }
 
             return RedirectToAction("TopUp");
         }

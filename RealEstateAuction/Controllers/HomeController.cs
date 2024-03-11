@@ -44,8 +44,10 @@ namespace RealEstateAuction.Controllers
                 pagination.PageNumber = pageNumber.Value;
             }
             
+            //check query string is null or not
             if (Request.Query.Count > 0)
             {
+                //get all category id from query string
                 List<int> checkboxValues = new List<int>();
                 var values = Request.Query["categoryId"];
                 foreach (var key in values)
