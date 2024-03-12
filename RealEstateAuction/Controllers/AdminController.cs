@@ -15,12 +15,14 @@ namespace RealEstateAuction.Controllers
         private readonly UserDAO userDAO;
         private readonly BankDAO bankDAO;
         private readonly TicketDAO ticketDAO;
+        private readonly AuctionDAO auctionDAO;
 
         public AdminController(IMapper mapper)
         {
             userDAO = new UserDAO();
             bankDAO = new BankDAO();
             ticketDAO = new TicketDAO();
+            auctionDAO = new AuctionDAO();
         }
         public IActionResult Index()
         {
@@ -61,6 +63,51 @@ namespace RealEstateAuction.Controllers
                 TempData["Message"] = "Bàn giao yêu cầu thất bại";
             }
             return RedirectToAction("ManageTicket");
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet("manage-auction-admin")]
+        public IActionResult ManageAuctionAdmin(int? page)
+        {
+            int PageNumber = page ?? 1;
+            ViewData["List"] = auctionDAO.GetAuctions(PageNumber);
+            ViewData["Staffs"] = userDAO.GetStaff();
+
+            return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet("manage-auction-admin/{id}")]
+        public IActionResult AuctionDetailAdmin(int id)
+        {
+            ViewData["Auction"] = auctionDAO.GetAuctionByIdAdmin(id);
+            ViewData["Staffs"] = userDAO.GetStaff();
+
+            return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPost("assign-auction")]
+        public IActionResult AssignAuction([FromForm] AssignAuctionDataModel assignAuctionData)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var auction = auctionDAO.GetAuctionById(assignAuctionData.AuctionId);
+                    auction.ApproverId = assignAuctionData.StaffId;
+                    auctionDAO.EditAuction(auction);
+                    TempData["Message"] = "Bàn giao thành công";
+                }
+                else
+                {
+                    TempData["Message"] = "Bàn giao thất bại";
+                }
+            } catch (Exception ex) {
+                TempData["Message"] = "Bàn giao thất bại";
+            }
+            
+            return RedirectToAction("ManageAuctionAdmin");
         }
 
         [Authorize(Roles = "Admin")]

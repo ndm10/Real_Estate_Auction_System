@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.IdentityModel.Tokens;
+using NuGet.Protocol;
 using RealEstateAuction.DAL;
 using RealEstateAuction.DataModel;
 using RealEstateAuction.Enums;
@@ -185,16 +186,12 @@ namespace RealEstateAuction.Controllers
                 bool validateModel = ValidateAuction(auctionData);
                 if (validateModel)
                 {
-                    //get random staff to approve
-                    User staff = userDAO.GetRandomStaff();
-
                     //get user by id
                     int userId = Int32.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
                     User user = userDAO.GetUserById(userId);
 
                     auctionData.UserId = user.Id;
                     auctionData.Status = 1;
-                    auctionData.ApproverId = staff.Id;
                     auctionData.Status = (int)AuctionStatus.Chờ_phê_duyệt;
                     auctionData.DeleteFlag = false;
                     auctionData.CreatedTime = DateTime.Now;
@@ -843,18 +840,22 @@ namespace RealEstateAuction.Controllers
                     Description = ticketData.Description,
                     Status = (byte)TicketStatus.Opening,
                 };
-                List<TicketImage> images = new List<TicketImage>();
-                foreach (var file in ticketData.ImageFiles)
+                if (ticketData.ImageFiles != null)
                 {
-                    var pathImage = FileUpload.UploadImageProduct(file);
-                    if (pathImage != null)
+                    List<TicketImage> images = new List<TicketImage>();
+                    foreach (var file in ticketData.ImageFiles)
                     {
-                        TicketImage image = new TicketImage();
-                        image.Url = pathImage;
-                        images.Add(image);
+                        var pathImage = FileUpload.UploadImageProduct(file);
+                        if (pathImage != null)
+                        {
+                            TicketImage image = new TicketImage();
+                            image.Url = pathImage;
+                            images.Add(image);
+                        }
                     }
+                    ticket.TicketImages = images;
+
                 }
-                ticket.TicketImages = images;
 
                 ticketDAO.createTicket(ticket);
                 TempData["Message"] = "Tạo yêu cầu thành công";

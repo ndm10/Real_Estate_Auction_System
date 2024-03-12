@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+K/U9g4xNj1OQ+PW/4emi+szD4fXYQ/u6AegDsR4nss=",
+  "Hash": "oMsvJDLrlTTihdhat5PmsygdiSU7r1WKPvWIz0DUsbU=",
   "Source": "RealEstateAuction",
   "BasePath": "_content/RealEstateAuction",
   "Mode": "Default",
@@ -205,6 +205,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\052df3d2-b598-48ee-a0d7-6885fd87fa51.gif"
+    },
+    {
+      "Identity": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\img\\092dbe68-03b1-4640-ae80-1db55b826465.png",
+      "SourceId": "RealEstateAuction",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\",
+      "BasePath": "_content/RealEstateAuction",
+      "RelativePath": "img/092dbe68-03b1-4640-ae80-1db55b826465.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\092dbe68-03b1-4640-ae80-1db55b826465.png"
     },
     {
       "Identity": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\img\\0a0f2b6b-8b8a-46a1-a1c0-4c906eee38b3.gif",
@@ -853,6 +872,25 @@
       "OriginalItemSpec": "wwwroot\\img\\6230df97-621b-4136-83c4-11f510a4a193.gif"
     },
     {
+      "Identity": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\img\\664c351d-ad8a-4a55-ba92-b391114e26e5.gif",
+      "SourceId": "RealEstateAuction",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\",
+      "BasePath": "_content/RealEstateAuction",
+      "RelativePath": "img/664c351d-ad8a-4a55-ba92-b391114e26e5.gif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\664c351d-ad8a-4a55-ba92-b391114e26e5.gif"
+    },
+    {
       "Identity": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\img\\66c9f138-2aaa-4fc6-a7c4-70ab8d77c511.gif",
       "SourceId": "RealEstateAuction",
       "SourceType": "Discovered",
@@ -946,6 +984,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\6f169a61-351b-4979-baa7-9b9dd8dbf32a.gif"
+    },
+    {
+      "Identity": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\img\\70f7ffb5-1f6c-49f2-bc8a-01316261611e.gif",
+      "SourceId": "RealEstateAuction",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\",
+      "BasePath": "_content/RealEstateAuction",
+      "RelativePath": "img/70f7ffb5-1f6c-49f2-bc8a-01316261611e.gif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\70f7ffb5-1f6c-49f2-bc8a-01316261611e.gif"
     },
     {
       "Identity": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\img\\747b28c0-666e-473a-8656-ed84f2c08b1c.gif",
@@ -1060,6 +1117,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\86a19e84-b6bf-47b2-b650-52e45c797966.gif"
+    },
+    {
+      "Identity": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\img\\8d8ca679-5746-40cb-a3dd-7d0fdff760ab.png",
+      "SourceId": "RealEstateAuction",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\",
+      "BasePath": "_content/RealEstateAuction",
+      "RelativePath": "img/8d8ca679-5746-40cb-a3dd-7d0fdff760ab.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\8d8ca679-5746-40cb-a3dd-7d0fdff760ab.png"
     },
     {
       "Identity": "D:\\Studying\\Clone-Project\\Real_Estate_Auction_System\\RealEstateAuction\\wwwroot\\img\\8fba5689-a127-4d77-a658-877a581ccdca.png",
