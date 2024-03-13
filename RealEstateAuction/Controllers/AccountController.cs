@@ -308,95 +308,100 @@ namespace RealEstateAuction.Controllers
         {
 
             //get auction by id
-            Auction auction = auctionDAO.GetAuctionById(auctionData.Id.Value);
-
-            if (DateTime.Now.CompareTo(auction.StartTime) > 0)
+            Auction auction = auctionDAO.GetApprovedAuction(auctionData.Id.Value);
+            if (auction != null)
             {
-                TempData["Message"] = "Không thể chỉnh sửa phiên đấu giá đã bắt đầu!";
-                return Redirect("manage-auction");
-            }
-
-            //if value of user enter is not valid
-            if (!ModelState.IsValid)
-            {
-                TempData["Message"] = "Vui lòng kiểm tra lại thông tin";
-                ValidateAuction(auctionData);
-
-                auctionData.Images = auction.Images;
-                return View(auctionData);
-            }
-            //if value of user enter is valid
-            else
-            {
-                //validate the value of user enter
-                bool validateModel = ValidateAuction(auctionData);
-                if (validateModel)
+                if (DateTime.Now.CompareTo(auction.StartTime) > 0)
                 {
+                    TempData["Message"] = "Không thể chỉnh sửa phiên đấu giá đã bắt đầu!";
+                    return Redirect("manage-auction");
+                }
 
-                    //update status of auction
-                    auctionData.Status = (int)AuctionStatus.Chờ_phê_duyệt;
-                    auctionData.UpdatedTime = DateTime.Now;
+                //if value of user enter is not valid
+                if (!ModelState.IsValid)
+                {
+                    TempData["Message"] = "Vui lòng kiểm tra lại thông tin";
+                    ValidateAuction(auctionData);
 
-                    //update new information
-                    auction.Title = auctionData.Title;
-                    auction.StartPrice = auctionData.StartPrice;
-                    auction.EndPrice = auctionData.EndPrice;
-                    auction.Area = auctionData.Area;
-                    auction.Address = auctionData.Address;
-                    auction.Facade = auctionData.Facade;
-                    auction.Direction = auctionData.Direction;
-                    auction.StartTime = auctionData.StartTime;
-                    auction.EndTime = auctionData.EndTime;
-
-                    auction.Status = auctionData.Status.Value;
-                    auction.UpdatedTime = auctionData.UpdatedTime;
-
-
-                    //check user update image or not
-                    if (!auctionData.ImageFiles.IsNullOrEmpty())
+                    auctionData.Images = auction.Images;
+                    return View(auctionData);
+                }
+                //if value of user enter is valid
+                else
+                {
+                    //validate the value of user enter
+                    bool validateModel = ValidateAuction(auctionData);
+                    if (validateModel)
                     {
-                        //create list Image
-                        List<Image> images = new List<Image>();
 
-                        foreach (var file in auctionData.ImageFiles)
+                        //update status of auction
+                        auctionData.Status = (int)AuctionStatus.Chờ_phê_duyệt;
+                        auctionData.UpdatedTime = DateTime.Now;
+
+                        //update new information
+                        auction.Title = auctionData.Title;
+                        auction.StartPrice = auctionData.StartPrice;
+                        auction.EndPrice = auctionData.EndPrice;
+                        auction.Area = auctionData.Area;
+                        auction.Address = auctionData.Address;
+                        auction.Facade = auctionData.Facade;
+                        auction.Direction = auctionData.Direction;
+                        auction.StartTime = auctionData.StartTime;
+                        auction.EndTime = auctionData.EndTime;
+
+                        auction.Status = auctionData.Status.Value;
+                        auction.UpdatedTime = auctionData.UpdatedTime;
+
+
+                        //check user update image or not
+                        if (!auctionData.ImageFiles.IsNullOrEmpty())
                         {
-                            //save image to folder and get url
-                            var pathImage = FileUpload.UploadImageProduct(file);
-                            if (pathImage != null)
+                            //create list Image
+                            List<Image> images = new List<Image>();
+
+                            foreach (var file in auctionData.ImageFiles)
                             {
-                                Image image = new Image();
-                                image.Url = pathImage;
-                                images.Add(image);
+                                //save image to folder and get url
+                                var pathImage = FileUpload.UploadImageProduct(file);
+                                if (pathImage != null)
+                                {
+                                    Image image = new Image();
+                                    image.Url = pathImage;
+                                    images.Add(image);
+                                }
                             }
+                            auction.Images = images;
                         }
-                        auction.Images = images;
-                    }
 
-                    //update Auction to database
-                    bool isSuccess = auctionDAO.EditAuction(auction);
+                        //update Auction to database
+                        bool isSuccess = auctionDAO.EditAuction(auction);
 
-                    //check if add acution successfull
-                    if (isSuccess)
-                    {
-                        TempData["Message"] = "Cập nhật phiên đấu giá thành công!";
-                        return Redirect("manage-auction");
+                        //check if add acution successfull
+                        if (isSuccess)
+                        {
+                            TempData["Message"] = "Cập nhật phiên đấu giá thành công!";
+                            return Redirect("manage-auction");
+                        }
+                        else
+                        {
+                            TempData["Message"] = "Cập nhật phiên đấu giá thất bại!";
+
+                            auctionData.Images = auction.Images;
+                            return View(auctionData);
+                        }
                     }
                     else
                     {
-                        TempData["Message"] = "Cập nhật phiên đấu giá thất bại!";
+                        TempData["Message"] = "Vui lòng kiểm tra lại thông tin";
 
                         auctionData.Images = auction.Images;
                         return View(auctionData);
                     }
                 }
-                else
-                {
-                    TempData["Message"] = "Vui lòng kiểm tra lại thông tin";
-
-                    auctionData.Images = auction.Images;
-                    return View(auctionData);
-                }
             }
+            TempData["Message"] = "Cập nhật phiên đấu giá thất bại!";
+
+            return Redirect("manage-auction");
         }
 
 
@@ -408,18 +413,26 @@ namespace RealEstateAuction.Controllers
             int userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
             //Find Auction by id
-            Auction auction = auctionDAO.GetAuctionById(id);
+            Auction auction = auctionDAO.GetApprovedAuction(id);
 
             //check if auction belong to this user
-            if (!(auction.UserId == userId))
+            if (auction != null)
             {
-                TempData["Message"] = "Bạn không thể xóa phiên đấu giá người khác!";
+                if (!(auction.UserId == userId))
+                {
+                    TempData["Message"] = "Bạn không thể xóa phiên đấu giá người khác!";
+                }
+                else
+                {
+                    bool flag = auctionDAO.DeleteAuction(auction);
+                    TempData["Message"] = flag ? "Xoá đấu giá thành công!" : "Xoá đấu giá thất bại!";
+                }
             }
             else
             {
-                bool flag = auctionDAO.DeleteAuction(auction);
-                TempData["Message"] = flag ? "Xoá đấu giá thành công!" : "Xoá đấu giá thất bại!";
+                TempData["Message"] = "Xoá đấu giá thất bại!";
             }
+            
 
             return Redirect("manage-auction");
         }

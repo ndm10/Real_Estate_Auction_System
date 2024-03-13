@@ -87,17 +87,20 @@
                     }
                     else
                     {
-                        @if (User.FindFirstValue(ClaimTypes.Role) == "Member")
+                        @if (User.FindFirstValue(ClaimTypes.Role) != "Admin")
                         {
                             <span class="fw-bold ">
                                 Số dư:&nbsp;
                                 <span class="text-danger">
                                     @{
-                                        string formattedWalletValue = user.Wallet.ToString("N1") + "đ";
+                                        string formattedWalletValue = user.Wallet.ToString("N1").TrimEnd('0').TrimEnd(',') + "đ";
                                     }
                                     @formattedWalletValue
                                 </span>
                             </span>
+                        }
+                        @if (User.FindFirstValue(ClaimTypes.Role) == "Member")
+                        {
                             <a class="btn btn-outline-secondary text-nowrap" href="/top-up">
                                 Nạp tiền
                             </a>
@@ -170,6 +173,12 @@
                     }
                     @if (User.FindFirstValue(ClaimTypes.Role) == "Admin")
                     {
+                        <li class="nav-item item-user-sidebar">
+                            <a href="/manage-auction-admin" class="nav-link link-dark" aria-current="page">
+                                Quản lý phiên đấu giá
+                            </a>
+                        </li>
+
                         <li class="nav-item item-user-sidebar">
                             <a href="/manage-ticket" class="nav-link link-dark" aria-current="page">
                                 Quản lý yêu cầu hỗ trợ

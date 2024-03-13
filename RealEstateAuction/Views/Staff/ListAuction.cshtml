@@ -45,8 +45,8 @@
 
                         @item.Title
                     </td>
-                    <td>@item.StartPrice.ToString("N1", System.Globalization.CultureInfo.InvariantCulture)đ</td>
-                    <td>@item.EndPrice.ToString("N1", System.Globalization.CultureInfo.InvariantCulture)đ</td>
+                    <td>@item.StartPrice.ToString("N1").TrimEnd('0').TrimEnd(',')đ</td>
+                    <td>@item.EndPrice.ToString("N1").TrimEnd('0').TrimEnd(',')đ</td>
                     <td>@item.StartTime</td>
                     <td>@item.EndTime</td>
                     <td>

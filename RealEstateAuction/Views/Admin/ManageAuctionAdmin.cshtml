@@ -52,7 +52,14 @@ Page @(list.PageCount < list.PageNumber ? 0 : list.PageNumber) of @list.PageCoun
                                 <option value=""> --Chọn nhân viên-- </option>
                                 @foreach (var i in staff)
                                 {
-                                    <option value="@i.Id" selected="@(i.Id == item.ApproverId ? "selected" : "")"> @i.FullName </option>
+                                    if (i.Id == item.ApproverId)
+                                    {
+                                        <option value="@i.Id" selected> @i.FullName </option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@i.Id" > @i.FullName </option>
+                                    }
                                 }
                             </select>
                         </td>

@@ -1,6 +1,23 @@
 ﻿@model IEnumerable<RealEstateAuction.Models.Auction>
+@using RealEstateAuction.DataModel
+@using RealEstateAuction.Enums
 @{
     ViewData["Title"] = "Danh sách các phiên đấu giá";
+    var DataSearch = (SearchDataModel)ViewData["DataSearch"];
+    var categoryId = DataSearch.DataCategory;
+    var sort = DataSearch.DataSort;
+    var sortList = new Dictionary<int, string> {
+        { (int)AuctionSort.TitleAsc, "Tiêu Đề A-Z"  },
+        { (int)AuctionSort.TitleDes, "Tiêu Đề Z-A"  },
+        { (int)AuctionSort.StartTimeAsc, "Thời gian bắt đầu tăng dần"  },
+        { (int)AuctionSort.StartTimeDes, "Thời gian bắt đầu giảm dần"  },
+        { (int)AuctionSort.EndTimeAsc, "Thời gian kết thúc tăng dần"  },
+        { (int)AuctionSort.EndTimeDes, "Thời gian kết thúc tăng dần"  },
+        { (int)AuctionSort.StartPriceAsc, "Giá khởi điểm tăng dần"  },
+        { (int)AuctionSort.StartPriceDes, "Giá khởi điểm giảm dần"  },
+        { (int)AuctionSort.EndPriceAsc, "Giá kết thúc tăng dần"  },
+        { (int)AuctionSort.EndPriceDes, "Giá kết thúc giảm dần"  },
+    };
 }
 <div class="section-line"></div>
 <section id="list-auctions">
@@ -20,16 +37,17 @@
                         Sắp xếp
                     </div>
                     <select class="form-select" name="sort">
-                        <option value="1">Tiêu đề A-Z</option>
-                        <option value="2">Tiêu đề Z-A</option>
-                        <option value="3">Thời gian bắt đầu tăng dần</option>
-                        <option value="4">Thời gian bắt đầu giảm dần</option>
-                        <option value="5">Thời gian kết thúc tăng dần</option>
-                        <option value="6">Thời gian kết thúc giảm dần</option>
-                        <option value="7">Giá khởi điểm tăng dần</option>
-                        <option value="8">Giá khởi điểm giảm dần</option>
-                        <option value="9">Giá kết thúc tăng dần</option>
-                        <option value="10">Giá kết thúc giảm dần</option>
+                        @foreach(var i in sortList)
+                        {
+                            if (i.Key == sort)
+                            {
+                                <option value="@i.Key" selected>@i.Value</option>
+                            }
+                            else
+                            {
+                                <option value="@i.Key">@i.Value</option>
+                            }
+                        }
                     </select>
                     <div class="py-4" style="border-bottom: 1px solid #bac4c9;">
                         <div style="font-weight: 600; font-size: 16px;">
@@ -40,6 +58,7 @@
                             <div class="d-flex flex-column gap-2 mt-2">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="categoryId" value="@item.Id"
+                                        checked="@(categoryId.Contains(item.Id))"
                                            id="flexRadioDefault-@item.Id">
                                     <label class="form-check-label" for="flexRadioDefault-@item.Id">
                                         @item.Name
@@ -131,7 +150,7 @@
                                 }
                                 else
                                 {
-                                    <li class="page-item mx-1"><a class="page-link" href='/list-auction?pageNumber=@i'>@i</a></li>
+                                    <li class="page-item mx-1"><a class="page-link" href="@Url.Action("ListAuction", "Home", new { pageNumber = i , sort , categoryId })">@i</a></li>
                                 }
                             }
                             @if (ViewBag.currentPage < ViewBag.pageSize)

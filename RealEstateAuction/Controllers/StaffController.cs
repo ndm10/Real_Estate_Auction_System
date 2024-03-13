@@ -342,6 +342,7 @@ namespace RealEstateAuction.Controllers
                 }
 
                 auction.Categories.Add(categoryDAO.GetCategoryById(Int32.Parse(Request.Query["categoryId"])));
+                auction.Approver.Wallet += Constant.Fee;
                 bool flag = auctionDAO.EditAuction(auction);
                 if (flag)
                 {
