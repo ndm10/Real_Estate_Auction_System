@@ -752,6 +752,7 @@ namespace RealEstateAuction.Controllers
                             {
                                 Amount = paymentData.Amount,
                                 UserBankAccount = paymentData.UserAccountNumber,
+                                UserBankName = paymentData.UserBankName,
                                 Code = $"RUT_{DateTime.Now.ToShortTimeString()}",
                                 TransactionDate = DateTime.Now,
                                 Status = (int)PaymentStatus.Pending,
@@ -761,17 +762,42 @@ namespace RealEstateAuction.Controllers
                             paymentDAO.insert(payment);
 
                             break;
+                        case PaymentType.Refund:
+                            int paymentId = Int32.Parse(Request.Form["PaymentId"]);
+                            var paymentRefund = paymentDAO.getPayment(paymentId);
+                            var newPayment = new Payment()
+                            {
+                                Amount = paymentRefund.Amount,
+                                UserBankAccount = paymentRefund.UserBankAccount,
+                                UserBankName = paymentRefund.UserBankName,
+                                Code = $"HOAN_{DateTime.Now.ToShortTimeString()}",
+                                TransactionDate = DateTime.Now,
+                                Status = (int)PaymentStatus.Pending,
+                                UserId = Int32.Parse(User.FindFirstValue("Id")),
+                                Type = (byte)paymentData.Action,
+                            };
+                            paymentDAO.insert(newPayment);
+                            break;
                     }
                     TempData["Message"] = "Tạo yêu cầu thành công";
                 }
                 else
                 {
+                    Console.WriteLine(1);
+                    foreach (var modelStateEntry in ModelState.Values)
+                    {
+                        foreach (var error in modelStateEntry.Errors)
+                        {
+                            Console.WriteLine(error.ErrorMessage);
+                        }
+                    }
                     TempData["Message"] = "Tạo yêu cầu thất bại";
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.InnerException);
+                Console.WriteLine(2);
+
                 TempData["Message"] = "Tạo yêu cầu thất bại";
             }
 
