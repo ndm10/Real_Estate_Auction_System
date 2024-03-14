@@ -55,7 +55,8 @@ namespace RealEstateAuction.Controllers
 
                 if (payment != null && payment.Status == (int) PaymentStatus.Pending)
                 {
-                    payment.Status = Byte.Parse(Request.Form["status"].ToString());                   
+                    payment.Status = Byte.Parse(Request.Form["status"].ToString());
+                    paymentDAO.topUp(payment, (int)payment.UserId, Int32.Parse(User.FindFirstValue("Id")));
                     if (payment.Status == (int)PaymentStatus.Reject) {                        
                         notificationDAO.insert(new Notification()
                         {
@@ -64,11 +65,9 @@ namespace RealEstateAuction.Controllers
                             Link = $"/top-up",
                             IsRead = false,
                         });
-                    }
-                    
+                    }                 
                     else
-                    {
-                        paymentDAO.topUp(payment, (int)payment.UserId, Int32.Parse(User.FindFirstValue("Id")));
+                    {                      
                         switch (payment.Type)
                         {
                             case (int)PaymentType.TopUp:
