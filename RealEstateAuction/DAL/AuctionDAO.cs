@@ -311,5 +311,29 @@ namespace RealEstateAuction.DAL
                                 && a.DeleteFlag == false
                                 && a.Status == (int) AuctionStatus.Chờ_phê_duyệt);
         }
+
+        public IPagedList<Auction>? GetAuctionHistoryByUser(int id, int page)
+        {
+            return context.Auctions
+                .Include(a => a.Images)
+                .Include(a => a.Users)
+                .Include(a => a.AuctionBiddings)
+                .Include(a => a.User)
+                .Include(a => a.Categories)
+                .Where(a => a.Users.Any(x => x.Id == id)
+                                && a.DeleteFlag == false)
+                .ToPagedList(page, 10);
+        }
+
+        public AuctionBidding GetMaxBiddingForAuction(int auctionId)
+        {
+            AuctionBidding maxBidding = context.AuctionBiddings
+                .Where(ab => ab.AuctionId == auctionId)
+                .OrderByDescending(ab => ab.BiddingPrice)
+                .FirstOrDefault();
+
+            return maxBidding;
+        }
+
     }
 }

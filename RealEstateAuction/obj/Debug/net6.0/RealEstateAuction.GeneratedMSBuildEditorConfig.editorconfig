@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Studying\Clone-Project\Real_Estate_Auction_System\RealEstateAuction
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Studying/Clone-Project/Real_Estate_Auction_System/RealEstateAuction/Views/Account/AuctionHistory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBdWN0aW9uSGlzdG9yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Studying/Clone-Project/Real_Estate_Auction_System/RealEstateAuction/Views/Account/ChangePassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

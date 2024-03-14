@@ -74,7 +74,7 @@ namespace RealEstateAuction.Controllers
                             case (int)PaymentType.TopUp:
                                 notificationDAO.insert(new Notification()
                                 {
-                                    Description = $"Nạp thành công {(int)payment.Amount} vào ví",
+                                    Description = $"Nạp thành công {payment.Amount} vào ví",
                                     ToUser = payment.UserId,
                                     Link = $"/top-up",
                                     IsRead = false,
@@ -83,7 +83,7 @@ namespace RealEstateAuction.Controllers
                             case (int)PaymentType.Withdraw:
                                 notificationDAO.insert(new Notification()
                                 {
-                                    Description = $"Rút thành công {(int)payment.Amount} khỏi ví",
+                                    Description = $"Rút thành công {payment.Amount} khỏi ví",
                                     ToUser = payment.UserId,
                                     Link = $"/top-up",
                                     IsRead = false,

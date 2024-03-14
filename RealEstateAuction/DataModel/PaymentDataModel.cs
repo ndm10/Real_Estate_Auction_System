@@ -8,7 +8,7 @@ namespace RealEstateAuction.DataModel
     {
         [Required( ErrorMessage = "Vui lòng nhập dữ liệu")]
         [Range(0, double.MaxValue, ErrorMessage = "Giá trị phải lớn hơn hoặc bằng 0.")]
-        public int Amount { get; set; }
+        public decimal Amount { get; set; }
 
         [RequiredIfAction(PaymentType.TopUp, ErrorMessage = "Tài khoản nhận là bắt buộc")]
         public int BankId { get; set; }

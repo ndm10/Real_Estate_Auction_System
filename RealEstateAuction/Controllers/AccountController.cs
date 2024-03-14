@@ -10,6 +10,7 @@ using RealEstateAuction.Enums;
 using RealEstateAuction.Models;
 using RealEstateAuction.Services;
 using System;
+using System.Reflection;
 using System.Reflection.Metadata;
 using System.Security.Claims;
 using System.Text;
@@ -938,6 +939,41 @@ namespace RealEstateAuction.Controllers
             ViewBag.pageSize = pageSize;
 
             return View(list);
+        }
+
+        [HttpGet("auction-histories")]
+        [Authorize(Roles = "Member")]
+        public IActionResult AuctionHistory(int? pageNumber)
+        {
+            int page = pageNumber ?? 1;
+            var userId = Int32.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var list = auctionDAO.GetAuctionHistoryByUser(userId, page);
+            List<AuctionBidding> winners = new List<AuctionBidding>();
+            foreach(var i in list)
+            {
+                winners.Add(auctionDAO.GetMaxBiddingForAuction(i.Id));
+            }
+
+            // Tạo danh sách kết hợp từ list và winners
+            var combinedList = new List<dynamic>();
+            foreach (var auction in list)
+            {
+                var winner = new AuctionBidding();
+                try
+                {
+                    winner = winners.SingleOrDefault(w => w.AuctionId == auction.Id && w.MemberId == userId);
+
+                } catch
+                {
+                    winner = null;
+                }
+
+                combinedList.Add(new { Auction = auction, Winner = winner });
+            }
+
+            ViewData["AuctionList"] = list;
+
+            return View(combinedList);
         }
     }
 }
