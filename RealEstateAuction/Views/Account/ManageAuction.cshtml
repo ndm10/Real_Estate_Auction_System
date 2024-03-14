@@ -79,12 +79,14 @@
                         {
                             <a href="/edit-auction?id=@item.Id" class="btn btn-warning">Cập nhật</a>
                             <a href="/delete-auction?id=@item.Id" class="btn btn-danger">Xóa</a>
+                            <a href="/my-auction-details?id=@item.Id" class="btn btn-info">Xem</a>
                         }
                         else 
                         {
                             <a href="/list-participant?auctionId=@item.Id" class="btn btn-warning">Danh sách người đấu giá</a>
+                            <a href="/list-joining?auctionId=@item.Id" class="btn btn-warning mt-2">Danh sách người tham gia</a>
+                            <a href="/my-auction-details?id=@item.Id" class="btn btn-info mt-2">Xem</a>
                         }
-                        <a href="/my-auction-details?id=@item.Id" class="btn btn-info">Xem</a>
                         
                     </td>
                 </tr>

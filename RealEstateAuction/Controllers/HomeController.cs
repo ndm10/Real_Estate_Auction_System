@@ -27,8 +27,8 @@ namespace RealEstateAuction.Controllers
         [Route("home")]
         public IActionResult Index()
         {
-            //get 5 auction recently to display on hompage
-            List<Auction> auctionRecent = auctionDAO.GetAuctionRecently(5);
+            //get 6 auction recently to display on hompage
+            List<Auction> auctionRecent = auctionDAO.GetAuctionRecently(6);
 
             return View(auctionRecent);
         }
