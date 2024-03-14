@@ -93,7 +93,7 @@ namespace RealEstateAuction.Services
             var price = _auctionDAO.GetMaxPrice(auctionId);
 
             //keep 10% of the price as a deposit
-            var deposit = price * 0.1m;
+            var deposit = Math.Round(price * 0.1m);
 
             //return the rest of the price to the winner
             winner.Wallet += price - deposit;

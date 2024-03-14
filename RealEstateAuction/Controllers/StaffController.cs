@@ -339,9 +339,13 @@ namespace RealEstateAuction.Controllers
                         IsRead = false,
                     });
                 }
+                else
+                {
+                    auction.Categories.Add(categoryDAO.GetCategoryById(Int32.Parse(Request.Query["categoryId"])));
+                    auction.Approver.Wallet += Constant.Fee;
+                }
 
-                auction.Categories.Add(categoryDAO.GetCategoryById(Int32.Parse(Request.Query["categoryId"])));
-                auction.Approver.Wallet += Constant.Fee;
+                
                 bool flag = auctionDAO.EditAuction(auction);
                 if (flag)
                 {
@@ -377,6 +381,20 @@ namespace RealEstateAuction.Controllers
             //check status
             if (status == 5)
             {
+                //get the price of winner
+                var price = auctionDAO.GetMaxPrice(auctionId);
+
+                var winnerId = auctionDAO.GetWinnerId(auction);
+
+                //get the winner
+                var winner = userDAO.GetUserById(winnerId);
+
+                //return the 10% of winner price fee
+                winner.Wallet += Math.Round(price * 0.1m);
+
+                //update user
+                userDAO.UpdateUser(winner);
+
                 //update status of auction
                 auction.Status = byte.Parse(status.ToString());
 
@@ -399,11 +417,11 @@ namespace RealEstateAuction.Controllers
                 var price = auctionDAO.GetMaxPrice(auctionId);
 
                 //take 10% of the price as a deposit
-                var deposit = price * 0.1m;
-
+                var deposit = Math.Round(price * 0.1m);
+                
                 //keep 5% of deposit for the system
-                var systemFee = deposit * 0.05m;
-
+                var systemFee = Math.Round(deposit * 0.05m);
+                Console.WriteLine(price + " " + deposit);
                 //get the winner id
                 var winnerId = auctionDAO.GetWinnerId(auction);
 

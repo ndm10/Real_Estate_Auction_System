@@ -1,8 +1,10 @@
 ﻿@model IEnumerable<RealEstateAuction.Models.Auction>
+@using RealEstateAuction.Enums
 @{
     ViewData["Title"] = "Home Page";
     var auctionStatus = "";
     var btnType = "";
+    var startPrice = "";
 }
 <section id="banner">
     <!-- Carousel wrapper -->
@@ -166,7 +168,15 @@
                                         Thời gian đấu giá: @item.StartTime - @item.EndTime
                                     </div>
                                     <div class="fs-6 fw-light truncate-2-line mt-2">
-                                        Giá: @item.StartPrice.ToString("N1", System.Globalization.CultureInfo.InvariantCulture)đ - @item.EndPrice.ToString("N1", System.Globalization.CultureInfo.InvariantCulture)đ
+                                        @if (item.StartPrice > 0)
+                                        {
+                                            startPrice = item.StartPrice.ToString("N1", System.Globalization.CultureInfo.InvariantCulture) + "đ";
+                                        }
+                                        else
+                                        {
+                                            startPrice = "Chưa xác định";
+                                        }
+                                        Giá: @startPrice - @item.EndPrice.ToString("N1", System.Globalization.CultureInfo.InvariantCulture)đ
                                     </div>
                                     <div class="fs-6 fw-light truncate-2-line mt-2">
                                         @item.Address
@@ -191,9 +201,18 @@
                                         auctionStatus = "Đang diễn ra";
                                         btnType = "btn-danger";
                                     }
-                                    <a class="btn @btnType mt-3 w-100">
-                                        @auctionStatus
-                                    </a>
+                                    @if(item.Status == (int) AuctionStatus.Chấp_nhân)
+                                    {
+                                        <a class="btn @btnType mt-3 w-100">
+                                            @auctionStatus
+                                        </a>
+                                    } else
+                                    {
+                                        <a class="btn btn-secondary mt-3 w-100">
+                                            Kết thúc
+                                        </a>
+                                    }
+
                                     <a class="text-decoration-none cursor-pointer mt-3" href="/auction-details?auctionId=@item.Id">
                                         Tham gia đấu giá
                                     </a>

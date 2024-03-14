@@ -9,11 +9,15 @@
         {
             { AuctionStatus.Chấp_nhân, "Đang diễn ra" },
             { AuctionStatus.Kết_thúc, "Đã kết thúc" },
+            { AuctionStatus.Thành_công, "Thành công" },
+            { AuctionStatus.Thất_bại, "Thất bại" },
         };
     var statusStyle = new Dictionary<AuctionStatus, string>
     {
             { AuctionStatus.Chấp_nhân, "badge bg-primary" },
             { AuctionStatus.Kết_thúc, "badge bg-secondary" },
+            { AuctionStatus.Thành_công, "badge bg-success" },
+            { AuctionStatus.Thất_bại, "badge bg-danger" },
         };
     var auctions = (X.PagedList.IPagedList<Auction>)ViewData["AuctionList"];
 
@@ -54,7 +58,7 @@ Page @(auctions.PageCount < auctions.PageNumber ? 0 : auctions.PageNumber) of @(
                     </td>
                     <td>@item.Auction.StartTime</td>
                     <td>@item.Auction.EndTime</td>
-                    <td>@item.Auction.StartPrice - @item.Auction.EndPrice</td>
+                    <td>@item.Auction.StartPrice.ToString("N1").TrimEnd('0').TrimEnd(',')đ - @item.Auction.EndPrice.ToString("N1").TrimEnd('0').TrimEnd(',')đ</td>
                     <td class="text-center">
                         <span class="@statusStyle[(AuctionStatus)item.Auction.Status]" style="width: 100px">
                             @status[(AuctionStatus)item.Auction.Status]
@@ -82,7 +86,9 @@ Page @(auctions.PageCount < auctions.PageNumber ? 0 : auctions.PageNumber) of @(
                                                 {
                                                     @foreach (var i in item.Auction.AuctionBiddings)
                                                     {
-                                                        @if (item.Winner != null && i.MemberId == item.Winner.MemberId && i.Auction.Status == (int)AuctionStatus.Kết_thúc)
+                                                        @if (item.Winner != null && i.MemberId == item.Winner.MemberId 
+                                                        && item.Winner.BiddingPrice == i.BiddingPrice
+                                                        && i.Auction.Status == (int)AuctionStatus.Kết_thúc)
                                                         {
                                                             <tr class="bg-success bg-opacity-75 text-white">
                                                                 <td>@String.Format("{0:N0}", @i.BiddingPrice)đ (Chiến Thắng)</td>

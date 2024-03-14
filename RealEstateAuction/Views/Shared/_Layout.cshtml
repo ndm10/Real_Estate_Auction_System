@@ -93,7 +93,7 @@
                                 Số dư:&nbsp;
                                 <span class="text-danger">
                                     @{
-                                        string formattedWalletValue = user.Wallet.ToString("N1") + "đ";
+                                        string formattedWalletValue = user.Wallet.ToString("N1").TrimEnd('0').TrimEnd(',') + "đ";
                                     }
                                     @formattedWalletValue
                                 </span>

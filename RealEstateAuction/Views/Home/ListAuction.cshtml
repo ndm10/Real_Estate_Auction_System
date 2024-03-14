@@ -18,6 +18,9 @@
         { (int)AuctionSort.EndPriceAsc, "Giá kết thúc tăng dần"  },
         { (int)AuctionSort.EndPriceDes, "Giá kết thúc giảm dần"  },
     };
+    var auctionStatus = "";
+    var btnType = "";
+    var startPrice = "";
 }
 <div class="section-line"></div>
 <section id="list-auctions">
@@ -107,7 +110,14 @@
                                                 Thời gian đấu giá: @item.StartTime - @item.EndTime
                                             </div>
                                             <div class="fs-6 fw-light truncate-2-line mt-2">
-                                                Giá: @item.StartPrice.ToString("N1", System.Globalization.CultureInfo.InvariantCulture)đ - @item.EndPrice.ToString("N1", System.Globalization.CultureInfo.InvariantCulture)đ
+                                                @if (item.StartPrice > 0)
+                                                {
+                                                    startPrice = item.StartPrice.ToString("N1", System.Globalization.CultureInfo.InvariantCulture)+"đ";
+                                                } else
+                                                {
+                                                    startPrice = "Chưa xác định";
+                                                }
+                                                Giá: @startPrice - @item.EndPrice.ToString("N1", System.Globalization.CultureInfo.InvariantCulture)đ
                                             </div>
                                             <div class="fs-6 fw-light truncate-2-line mt-1">
                                                 @item.Address
@@ -123,10 +133,30 @@
                                                     Đấu giá trực tiếp
                                                 </div>
                                             </div>
-                                            <a class="btn btn-danger mt-3 w-100" href="/auction-details?auctionId=@item.Id">
-                                                Đang diễn ra
-                                            </a>
-                                            <a class="text-decoration-none cursor-pointer mt-3">
+                                            @if (item.StartTime > DateTime.Now)
+                                            {
+                                                auctionStatus = "Sắp diễn ra";
+                                                btnType = "btn-warning";
+                                            }
+                                            else
+                                            {
+                                                auctionStatus = "Đang diễn ra";
+                                                btnType = "btn-danger";
+                                            }
+                                            @if (item.Status == (int)AuctionStatus.Chấp_nhân)
+                                            {
+                                                <a class="btn @btnType mt-3 w-100">
+                                                    @auctionStatus
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <a class="btn btn-secondary mt-3 w-100">
+                                                    Kết thúc
+                                                </a>
+                                            }
+
+                                            <a class="text-decoration-none cursor-pointer mt-3" href="/auction-details?auctionId=@item.Id">
                                                 Tham gia đấu giá
                                             </a>
                                         </div>

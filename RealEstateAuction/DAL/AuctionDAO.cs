@@ -35,6 +35,7 @@ namespace RealEstateAuction.DAL
                                    .Include(a => a.Users)
                                    .Include(a => a.Categories)
                                    .Where(a => a.Status == (int)AuctionStatus.Chấp_nhân
+                                   || a.Status == (int)AuctionStatus.Kết_thúc
                                     && a.DeleteFlag == false
                                     );
             if (searchData.DataCategory.Any() && searchData.DataCategory != null)
@@ -182,6 +183,7 @@ namespace RealEstateAuction.DAL
         {
             return context.Auctions
                 .Where(a => a.Status == (int)AuctionStatus.Chấp_nhân
+                || a.Status == (int)AuctionStatus.Kết_thúc
                 && a.DeleteFlag == false
                 && DateTime.Now <= a.EndTime)
                 .Include(a => a.Images)
@@ -250,8 +252,8 @@ namespace RealEstateAuction.DAL
         public Auction? GetAuctionBiddingById(int id)
         {
             return context.Auctions
-                .Where(a => DateTime.Now <= a.EndTime
-                && a.Status == (int)AuctionStatus.Chấp_nhân
+                .Where(a => a.Status == (int)AuctionStatus.Chấp_nhân
+                                || a.Status == (int)AuctionStatus.Kết_thúc
                 && a.DeleteFlag == false)
                 .Include(a => a.Images)
                 .Include(a => a.User)
@@ -316,11 +318,12 @@ namespace RealEstateAuction.DAL
             return context.Auctions
                 .Include(a => a.Images)
                 .Include(a => a.Users)
-                .Include(a => a.AuctionBiddings)
+                .Include(a => a.AuctionBiddings.OrderByDescending(x => x.BiddingId))
                 .Include(a => a.User)
                 .Include(a => a.Categories)
                 .Where(a => a.Users.Any(x => x.Id == id)
                                 && a.DeleteFlag == false)
+                .OrderByDescending(a => a.Id)
                 .ToPagedList(page, 10);
         }
 

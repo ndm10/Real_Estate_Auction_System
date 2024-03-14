@@ -471,7 +471,7 @@ namespace RealEstateAuction.Controllers
             }
 
             //check if auction is expired
-            if (auction.EndTime.CompareTo(DateTime.Now) < 0)
+            if (auction.EndTime.CompareTo(DateTime.Now) < 0 || auction.Status == (int) AuctionStatus.Kết_thúc)
             {
                 TempData["Message"] = "Phiên đấu giá đã kết thúc!";
                 return Redirect("/auction-details?auctionId=" + auctionId);
@@ -532,14 +532,14 @@ namespace RealEstateAuction.Controllers
             }
 
             //Check if auction is started
-            if (auction.StartTime.CompareTo(DateTime.Now) < 0)
+            if (auction.StartTime > DateTime.Now)
             {
                 TempData["Message"] = "Phiên đấu giá chưa bắt đầu!";
                 return Redirect(url);
             }
 
             //Check if auction is expired
-            if (auction.EndTime.CompareTo(DateTime.Now) < 0)
+            if (auction.EndTime.CompareTo(DateTime.Now) < 0 || auction.Status == (int)AuctionStatus.Kết_thúc)
             {
                 TempData["Message"] = "Phiên đấu giá đã kết thúc!";
                 return Redirect(url);
@@ -609,6 +609,13 @@ namespace RealEstateAuction.Controllers
             {
                 //Update status of auction to end
                 auction.Status = (int)AuctionStatus.Kết_thúc;
+
+                //keep 10% of the price as a deposit
+                var deposit = biddingDataModel.BiddingPrice * 0.1m;
+
+                //return the rest of the price to the winner
+                user.Wallet += biddingDataModel.BiddingPrice - deposit;
+
                 //Update Auction to database
                 bool isSuccess = auctionDAO.EditAuction(auction);
             }
@@ -764,7 +771,7 @@ namespace RealEstateAuction.Controllers
                             break;
                         case PaymentType.Refund:
                             int paymentId = Int32.Parse(Request.Form["PaymentId"]);
-                            var paymentRefund = paymentDAO.getPayment(paymentId);
+                            var paymentRefund = paymentDAO.getPaymentRefund(paymentId);
                             var newPayment = new Payment()
                             {
                                 Amount = paymentRefund.Amount,
@@ -797,6 +804,7 @@ namespace RealEstateAuction.Controllers
             catch (Exception ex)
             {
                 Console.WriteLine(2);
+                Console.WriteLine(ex.Message);
 
                 TempData["Message"] = "Tạo yêu cầu thất bại";
             }
@@ -1044,7 +1052,6 @@ namespace RealEstateAuction.Controllers
                 try
                 {
                     winner = winners.SingleOrDefault(w => w.AuctionId == auction.Id && w.MemberId == userId);
-
                 } catch
                 {
                     winner = null;
