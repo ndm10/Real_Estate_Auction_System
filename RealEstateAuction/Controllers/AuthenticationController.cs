@@ -42,6 +42,8 @@ namespace RealEstateAuction.Controllers
                 { Roles.Staff, "Staff" },
                 { Roles.Member, "Member" }
             };
+
+            Console.WriteLine(user);
             if (user != null)
             {
                 List<Claim> claims = new List<Claim>() {
