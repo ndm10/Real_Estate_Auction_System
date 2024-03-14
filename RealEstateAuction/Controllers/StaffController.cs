@@ -366,5 +366,72 @@ namespace RealEstateAuction.Controllers
 
             return Redirect("list-auction-staff");
         }
+        [Authorize(Roles = "Staff")]
+        [HttpGet("confirm-auction")]
+        public IActionResult ConfirmAuction(int auctionId,int status)
+        {
+
+            //get auction by Id
+            Auction auction = auctionDAO.GetAuctionById(auctionId);
+
+            //check status
+            if (status == 5)
+            {
+                //update status of auction
+                auction.Status = byte.Parse(status.ToString());
+
+                //update auction
+                bool flag = auctionDAO.EditAuction(auction);
+
+                //check if update auction success
+                if(flag)
+                {
+                    TempData["Message"] = "Cập nhật thành công!";
+                }
+                else
+                {
+                    TempData["Message"] = "Cập nhật thất bại";
+                }
+            }
+            else
+            {
+                //get the price of winner
+                var price = auctionDAO.GetMaxPrice(auctionId);
+
+                //take 10% of the price as a deposit
+                var deposit = price * 0.1m;
+
+                //keep 5% of deposit for the system
+                var systemFee = deposit * 0.05m;
+
+                //get the winner id
+                var winnerId = auctionDAO.GetWinnerId(auction);
+
+                //get the winner
+                var winner = userDAO.GetUserById(winnerId);
+                
+                //return the rest of the deposit to the winner
+                winner.Wallet += deposit - systemFee;
+
+                //update user
+                userDAO.UpdateUser(winner);
+
+                //update status of auction
+                auction.Status = byte.Parse(status.ToString());
+
+                //update auction
+                bool flag = auctionDAO.EditAuction(auction);
+                if (flag)
+                {
+                    TempData["Message"] = "Cập nhật thành công!";
+                }
+                else
+                {
+                    TempData["Message"] = "Cập nhật thất bại";
+                }
+            }
+
+            return Redirect("list-auction-staff");
+        }
     }
 }
