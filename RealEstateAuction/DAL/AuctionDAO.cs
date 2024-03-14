@@ -19,7 +19,6 @@ namespace RealEstateAuction.DAL
         {
             return context.Auctions.Where(a => a.Status == (int)AuctionStatus.Chấp_nhân
                                     && a.DeleteFlag == false
-                                    && a.StartTime <= DateTime.Now
                                     && DateTime.Now <= a.EndTime)
                                    .Include(a => a.Images)
                                    .Include(a => a.User)
@@ -33,6 +32,7 @@ namespace RealEstateAuction.DAL
         {
             var auctions = context.Auctions.Include(a => a.Images)
                                    .Include(a => a.User)
+                                   .Include(a => a.Users)
                                    .Include(a => a.Categories)
                                    .Where(a => a.Status == (int)AuctionStatus.Chấp_nhân
                                     && a.DeleteFlag == false
@@ -183,10 +183,10 @@ namespace RealEstateAuction.DAL
             return context.Auctions
                 .Where(a => a.Status == (int)AuctionStatus.Chấp_nhân
                 && a.DeleteFlag == false
-                && a.StartTime <= DateTime.Now
                 && DateTime.Now <= a.EndTime)
                 .Include(a => a.Images)
                 .Include(a => a.User)
+                .Include(a => a.Users)
                 .OrderByDescending(a => a.CreatedTime)
                 .Take(number)
                 .ToList();
@@ -250,8 +250,7 @@ namespace RealEstateAuction.DAL
         public Auction? GetAuctionBiddingById(int id)
         {
             return context.Auctions
-                .Where(a => a.StartTime <= DateTime.Now
-                && DateTime.Now <= a.EndTime
+                .Where(a => DateTime.Now <= a.EndTime
                 && a.Status == (int)AuctionStatus.Chấp_nhân
                 && a.DeleteFlag == false)
                 .Include(a => a.Images)

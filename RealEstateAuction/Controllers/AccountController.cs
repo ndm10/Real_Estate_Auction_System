@@ -464,6 +464,12 @@ namespace RealEstateAuction.Controllers
                 return Redirect("/auction-details?auctionId=" + auctionId);
             }
 
+            if (DateTime.Now < auction.StartTime)
+            {
+                TempData["Message"] = "Phiên đấu giá chưa bắt đầu!";
+                return Redirect("/auction-details?auctionId=" + auctionId);
+            }
+
             //check if auction is expired
             if (auction.EndTime.CompareTo(DateTime.Now) < 0)
             {
@@ -526,7 +532,7 @@ namespace RealEstateAuction.Controllers
             }
 
             //Check if auction is started
-            if (auction.StartTime.CompareTo(DateTime.Now) > 0)
+            if (auction.StartTime.CompareTo(DateTime.Now) < 0)
             {
                 TempData["Message"] = "Phiên đấu giá chưa bắt đầu!";
                 return Redirect(url);
@@ -931,6 +937,56 @@ namespace RealEstateAuction.Controllers
 
             //Count number of participant
             int participantCount = auctionBiddingDAO.CountParticipant(auctionId.Value);
+
+            //Get number of page
+            int pageSize = (int)Math.Ceiling((double)participantCount / pagination.RecordPerPage);
+
+            ViewBag.currentPage = pagination.PageNumber;
+            ViewBag.pageSize = pageSize;
+
+            return View(list);
+        }
+
+        [HttpGet("list-joining")]
+        [Authorize(Roles = "Member")]
+        public IActionResult ListJoining(int? auctionId, int? pageNumber)
+        {
+            //Check if auctionId is null
+            if (!auctionId.HasValue)
+            {
+                TempData["Message"] = "Phiên đấu giá không tồn tại";
+                return RedirectToAction("ManageAuction");
+            }
+
+            //Get auction by id
+            var auction = auctionDAO.GetAuctionById(auctionId.Value);
+
+            if (auction == null)
+            {
+                TempData["Message"] = "Phiên đấu giá không tồn tại";
+                return RedirectToAction("ManageAuction");
+            }
+
+            //Get current userId
+            int userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+            //Check if auction belong to this user
+            if (auction.UserId != userId)
+            {
+                TempData["Message"] = "Bạn không thể xem danh sách người tham gia của phiên đấu giá này!";
+                return RedirectToAction("ManageAuction");
+            }
+
+            if (pageNumber.HasValue)
+            {
+                pagination.PageNumber = pageNumber.Value;
+            }
+
+            //Get list of participant
+            var list = auctionBiddingDAO.GetJoiningByAuctionId(auctionId.Value, pagination);
+
+            //Count number of participant
+            int participantCount = auctionBiddingDAO.CountJoining(auctionId.Value);
 
             //Get number of page
             int pageSize = (int)Math.Ceiling((double)participantCount / pagination.RecordPerPage);

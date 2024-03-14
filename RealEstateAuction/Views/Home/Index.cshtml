@@ -1,6 +1,8 @@
 ﻿@model IEnumerable<RealEstateAuction.Models.Auction>
 @{
     ViewData["Title"] = "Home Page";
+    var auctionStatus = "";
+    var btnType = "";
 }
 <section id="banner">
     <!-- Carousel wrapper -->
@@ -169,6 +171,9 @@
                                     <div class="fs-6 fw-light truncate-2-line mt-2">
                                         @item.Address
                                     </div>
+                                    <div class="fs-6 fw-light truncate-2-line mt-2">
+                                        Số lượng người tham gia: @item.Users.Count()
+                                    </div>
                                 </div>
                                 <div class="col-md-4 col-sm-4">
                                     <div class="d-flex align-items-center">
@@ -177,10 +182,19 @@
                                             Đấu giá trực tiếp
                                         </div>
                                     </div>
-                                    <a class="btn btn-danger mt-3 w-100" href="/auction-details?auctionId=@item.Id">
-                                        Đang diễn ra
+                                    @if(item.StartTime > DateTime.Now){
+                                        auctionStatus = "Sắp diễn ra";
+                                        btnType = "btn-warning";
+                                    }
+                                    else
+                                    {
+                                        auctionStatus = "Đang diễn ra";
+                                        btnType = "btn-danger";
+                                    }
+                                    <a class="btn @btnType mt-3 w-100">
+                                        @auctionStatus
                                     </a>
-                                    <a class="text-decoration-none cursor-pointer mt-3">
+                                    <a class="text-decoration-none cursor-pointer mt-3" href="/auction-details?auctionId=@item.Id">
                                         Tham gia đấu giá
                                     </a>
                                 </div>
