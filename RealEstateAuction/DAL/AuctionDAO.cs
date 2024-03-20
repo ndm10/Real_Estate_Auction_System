@@ -43,6 +43,12 @@ namespace RealEstateAuction.DAL
                 auctions = auctions.Where(a => a.Categories.Any(c => searchData.DataCategory.Contains(c.Id)));
             }
 
+            if (searchData.Keyword != "" && searchData.Keyword != null)
+            {
+                auctions = auctions.Where(a => a.Title.ToLower().Contains(searchData.Keyword)
+                || a.User.FullName.Contains(searchData.Keyword));
+            }
+
             switch (searchData.DataSort)
             {
                 case 1:
@@ -119,6 +125,7 @@ namespace RealEstateAuction.DAL
                 .Include(a => a.User)
                 .Include(a => a.Users)
                 .Include(a => a.Approver)
+                .Include(a => a.AuctionBiddings)
                 .FirstOrDefault(a => a.Id == id
                                 && a.DeleteFlag == false);
         }
@@ -130,8 +137,48 @@ namespace RealEstateAuction.DAL
                 .Include(a => a.User)
                 .Include(a => a.Users)
                 .Include(a => a.AuctionBiddings)
+                .OrderBy(a => a.Id)
                 .FirstOrDefault(a => a.Id == id
                                 && a.DeleteFlag == false);
+        }
+
+        public Auction? GetAuctionApproveById(int id)
+        {
+            return context.Auctions
+                .Include(a => a.Images)
+                .Include(a => a.User)
+                .Include(a => a.Users)
+                .Include(a => a.AuctionBiddings)
+                .OrderBy(a => a.Id)
+                .FirstOrDefault(a => a.Id == id 
+                                && a.UserId == null
+                                && a.DeleteFlag == false);
+        }
+
+        public Auction? GetAuctionEndById(int id)
+        {
+            var auction =  context.Auctions
+                .Include(a => a.Images)
+                .Include(a => a.User)
+                .Include(a => a.Users)
+                .FirstOrDefault(a => a.Id == id
+                                && a.DeleteFlag == false);
+            if (auction != null)
+            {
+                auction.AuctionBiddings.Clear();
+                foreach (var user in auction.Users)
+                {
+                    var nearestBidding = context.AuctionBiddings
+                        .Include(a => a.Member)
+                        .Where(ab => ab.MemberId == user.Id && ab.AuctionId == auction.Id)
+                        .OrderByDescending(ab => ab.BiddingPrice)
+                        .FirstOrDefault();
+                    Console.WriteLine($"user {nearestBidding.Member.FullName}, bidding: {nearestBidding.BiddingPrice}");
+                    auction.AuctionBiddings.Add(nearestBidding);
+                }
+            }    
+
+            return auction ?? null;
         }
 
         public List<Auction> GetAuctionByUserId(int userId, Pagination pagination)
@@ -280,6 +327,19 @@ namespace RealEstateAuction.DAL
         {
             var winnerPrice = auction.AuctionBiddings.Max(x => x.BiddingPrice);
             return auction.AuctionBiddings.FirstOrDefault(x => x.BiddingPrice == winnerPrice).MemberId;
+        }
+
+        public AuctionBidding GetWinner(Auction auction)
+        {
+            if (auction.Status >= (int) AuctionStatus.Kết_thúc)
+            {
+                if (auction.AuctionBiddings.Any())
+                {
+                    var winnerPrice = auction.AuctionBiddings.Max(x => x.BiddingPrice);
+                    return auction.AuctionBiddings.FirstOrDefault(x => x.BiddingPrice == winnerPrice);
+                }               
+            }
+            return null;
         }
 
         public IPagedList<Auction> GetAuctions(int page)

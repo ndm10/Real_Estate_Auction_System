@@ -44,7 +44,7 @@ Page @(list.PageCount < list.PageNumber ? 0 : list.PageNumber) of @list.PageCoun
                     <th>@item.Id</th>
                     <td>@item.Title</td>
                     <td>@item.User.FullName</td>
-                    @if (item.Approver != null && item.Status > (int)AuctionStatus.Chờ_phê_duyệt)
+                    @if (item.Approver != null)
                     {
                         <td>@item.Approver?.FullName</td>
                     } else

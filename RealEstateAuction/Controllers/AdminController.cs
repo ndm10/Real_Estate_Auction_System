@@ -94,10 +94,16 @@ namespace RealEstateAuction.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var auction = auctionDAO.GetAuctionById(assignAuctionData.AuctionId);
-                    auction.ApproverId = assignAuctionData.StaffId;
-                    auctionDAO.EditAuction(auction);
-                    TempData["Message"] = "Bàn giao thành công";
+                    var auction = auctionDAO.GetAuctionApproveById(assignAuctionData.AuctionId);
+                    if (auction != null)
+                    {
+                        auction.ApproverId = assignAuctionData.StaffId;
+                        auctionDAO.EditAuction(auction);
+                        TempData["Message"] = "Bàn giao thành công";
+                    } else
+                    {
+                        TempData["Message"] = "Bàn giao thất bại";
+                    }                 
                 }
                 else
                 {
