@@ -7,6 +7,8 @@ using RealEstateAuction.DAL;
 using RealEstateAuction.Services;
 using RealEstateAuction.ViewComponents;
 using System.Web.Mvc;
+using Microsoft.EntityFrameworkCore;
+using RealEstateAuction.Models;
 internal class Program
 {
     private static void Main(string[] args)
@@ -14,6 +16,10 @@ internal class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // Add automapper service
+        builder.Services.AddDbContext<RealEstateContext>(options =>
+        {
+            options.UseSqlServer(builder.Configuration.GetConnectionString("connection"));
+        });
         builder.Services.AddAutoMapper(typeof(DataModelToModel).Assembly, typeof(ModelToDataModel).Assembly);
 
         builder.Services.AddTransient<IEmailSender, EmailSender>();

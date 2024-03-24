@@ -149,10 +149,9 @@ namespace RealEstateAuction.DAL
                 .Include(a => a.User)
                 .Include(a => a.Users)
                 .Include(a => a.AuctionBiddings)
+                .Where(a => a.Id == id && a.Approver == null && a.DeleteFlag == false)
                 .OrderBy(a => a.Id)
-                .FirstOrDefault(a => a.Id == id 
-                                && a.UserId == null
-                                && a.DeleteFlag == false);
+                .FirstOrDefault();
         }
 
         public Auction? GetAuctionEndById(int id)
@@ -161,23 +160,27 @@ namespace RealEstateAuction.DAL
                 .Include(a => a.Images)
                 .Include(a => a.User)
                 .Include(a => a.Users)
+                .Include(a => a.Approver)
                 .FirstOrDefault(a => a.Id == id
                                 && a.DeleteFlag == false);
             if (auction != null)
             {
                 auction.AuctionBiddings.Clear();
-                foreach (var user in auction.Users)
+                Console.WriteLine($"bidding count: {auction.AuctionBiddings.Count()}");
+                Console.WriteLine($"user count: {auction.Users.Count()}");
+                if (auction.Users.Count > 0)
                 {
-                    var nearestBidding = context.AuctionBiddings
-                        .Include(a => a.Member)
-                        .Where(ab => ab.MemberId == user.Id && ab.AuctionId == auction.Id)
-                        .OrderByDescending(ab => ab.BiddingPrice)
-                        .FirstOrDefault();
-                    Console.WriteLine($"user {nearestBidding.Member.FullName}, bidding: {nearestBidding.BiddingPrice}");
-                    auction.AuctionBiddings.Add(nearestBidding);
-                }
-            }    
-
+                    foreach (var user in auction.Users)
+                    {
+                        Console.WriteLine($"bidding count: {auction.AuctionBiddings.Count()}");
+                        var nearestBidding = context.AuctionBiddings
+                            .Include(a => a.Member)
+                            .Where(ab => ab.MemberId == user.Id && ab.AuctionId == auction.Id)
+                            .OrderByDescending(ab => ab.BiddingPrice)
+                            .FirstOrDefault();
+                    }
+                }               
+            }
             return auction ?? null;
         }
 

@@ -50,7 +50,7 @@ Page @(list.PageCount < list.PageNumber ? 0 : list.PageNumber) of @list.PageCoun
                     } else
                     {
                         <td>
-                            <select class="form-select form-select-sm text-center" id="staffIdSelect" data-auction-id="@item.Id">
+                            <select class="form-select form-select-sm text-center staffIdSelect" data-auction-id="@item.Id">
                                 <option value=""> --Chọn nhân viên-- </option>
                                 @foreach (var i in staff)
                                 {
@@ -106,7 +106,7 @@ Page @(list.PageCount < list.PageNumber ? 0 : list.PageNumber) of @list.PageCoun
 }
 @section Scripts{
     <script>
-        $("#staffIdSelect").on("change", function () {
+        $(".staffIdSelect").on("change", function () {
             $("#AuctionId").val($(this).data("auction-id"))
             $("#StaffId").val($(this).val())
             $("#modalConfirmAssignAuction").modal("show")
