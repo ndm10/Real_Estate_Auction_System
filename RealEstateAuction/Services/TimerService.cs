@@ -107,6 +107,13 @@ namespace RealEstateAuction.Services
                     }
                     notifications.Add(notification);
                 }
+
+                //Plus the deposit to the staff's wallet
+                var staff = _userDAO.GetUserById(auction.ApproverId);
+                staff.Wallet += deposit;
+
+                //update staff's wallet to database
+                _userDAO.UpdateUser(staff);
             }        
 
             notificationForUser = new Notification
