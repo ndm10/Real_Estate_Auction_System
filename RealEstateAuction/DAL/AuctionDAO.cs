@@ -166,20 +166,20 @@ namespace RealEstateAuction.DAL
             if (auction != null)
             {
                 auction.AuctionBiddings.Clear();
-                Console.WriteLine($"bidding count: {auction.AuctionBiddings.Count()}");
+                Console.WriteLine($"bidding count after clean: {auction.AuctionBiddings.Count()}");
                 Console.WriteLine($"user count: {auction.Users.Count()}");
                 if (auction.Users.Count > 0)
                 {
                     foreach (var user in auction.Users)
                     {
-                        Console.WriteLine($"bidding count: {auction.AuctionBiddings.Count()}");
                         var nearestBidding = context.AuctionBiddings
                             .Include(a => a.Member)
                             .Where(ab => ab.MemberId == user.Id && ab.AuctionId == auction.Id)
                             .OrderByDescending(ab => ab.BiddingPrice)
                             .FirstOrDefault();
                     }
-                }               
+                }
+                Console.WriteLine($"bidding count after modified: {auction.AuctionBiddings.Count()}");
             }
             return auction ?? null;
         }
