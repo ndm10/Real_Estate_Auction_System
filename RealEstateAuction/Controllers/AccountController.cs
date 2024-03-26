@@ -612,12 +612,6 @@ namespace RealEstateAuction.Controllers
                 //Update status of auction to end
                 auction.Status = (int)AuctionStatus.Kết_thúc;
 
-                //keep 10% of the price as a deposit
-                var deposit = biddingDataModel.BiddingPrice * 0.1m;
-
-                //return the rest of the price to the winner
-                user.Wallet += biddingDataModel.BiddingPrice - deposit;
-
                 //Update Auction to database
                 bool isSuccess = auctionDAO.EditAuction(auction);
             }
@@ -648,25 +642,35 @@ namespace RealEstateAuction.Controllers
 
                     foreach (var bidding in auction.AuctionBiddings)
                     {
-                        Console.WriteLine(bidding.BiddingId);
+                        Console.WriteLine(bidding.BiddingId +", price: " + bidding.BiddingPrice);
                         var notification = new Notification();
-                        if (bidding.MemberId == winnerId)
-                        {
+                        if (bidding.MemberId == winnerId) {
+                            //Keep 10% price as deposit
+                            var deposit = bidding.BiddingPrice * 0.1m;
+                            //return the rest of the price to the winner
+                            user.Wallet += bidding.BiddingPrice - deposit;
+                            userDAO.UpdateUser(user);
+
+                            var approver = userDAO.GetStaffDetail(auction.ApproverId.Value);
+                            approver.Wallet += deposit;
+                            userDAO.UpdateUser(approver);
+
                             notification = new Notification
                             {
                                 Description = $"Bạn đã thắng phiên đấu giá {auction.Title}, 10% tiền đấu giá sẽ bị giữ lại làm cọc!",
                                 ToUser = bidding.MemberId,
                                 Link = $"/auction-details?auctionId={auction.Id}",
                                 IsRead = false,
-                            };
+                            };                           
                         }
                         else
                         {
+                            Console.WriteLine("user lost: " + bidding.Member.FullName);
                             var userEnd = userDAO.GetUserById(bidding.MemberId);
-
+                            Console.WriteLine("wallet before: " + userEnd.Wallet);
                             userEnd.Wallet += bidding.BiddingPrice;
-
-                            userDAO.UpdateUser(userEnd);
+                            Console.WriteLine("wallet after: " + userEnd.Wallet);
+                            Console.WriteLine(userDAO.UpdateUser(userEnd));
                             notification = new Notification
                             {
                                 Description = $"Phiên đấu giá {auction.Title} đã kết thúc",

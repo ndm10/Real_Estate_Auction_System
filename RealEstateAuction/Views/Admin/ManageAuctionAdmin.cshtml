@@ -8,6 +8,7 @@
             { AuctionStatus.Từ_chối, "Từ chối" },
             { AuctionStatus.Kết_thúc, "Kết thúc" },
             { AuctionStatus.Thành_công, "Thành công" },
+            { AuctionStatus.Thất_bại, "Thất bại" },
         };
     var statusStyle = new Dictionary<AuctionStatus, string>
         {
@@ -16,6 +17,7 @@
             { AuctionStatus.Từ_chối, "badge bg-danger" },
             { AuctionStatus.Kết_thúc, "badge bg-secondary" },
             { AuctionStatus.Thành_công, "badge bg-success" },
+            { AuctionStatus.Thất_bại, "badge bg-danger" },
         };
     var list = (X.PagedList.IPagedList<Auction>)ViewData["List"];
     var staff = (List<User>)ViewData["Staffs"];

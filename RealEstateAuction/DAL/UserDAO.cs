@@ -45,8 +45,9 @@ namespace RealEstateAuction.DAL
                 context.SaveChanges();
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return false;
             }
         }
@@ -119,6 +120,21 @@ namespace RealEstateAuction.DAL
         public IPagedList<User> GetMember(int page)
         {
             return context.Users.Where(x => x.RoleId == (int)Roles.Member).ToPagedList(page, 10);
+        }
+
+        public bool UpdateRangeUser(List<User> users)
+        {
+            try
+            {
+                context.Users.UpdateRange(users);
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
         }
     }
 }

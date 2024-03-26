@@ -137,6 +137,7 @@ namespace RealEstateAuction.DAL
                 .Include(a => a.User)
                 .Include(a => a.Users)
                 .Include(a => a.AuctionBiddings)
+                .Include(a => a.Approver)
                 .OrderBy(a => a.Id)
                 .FirstOrDefault(a => a.Id == id
                                 && a.DeleteFlag == false);
@@ -161,12 +162,13 @@ namespace RealEstateAuction.DAL
                 .Include(a => a.User)
                 .Include(a => a.Users)
                 .Include(a => a.Approver)
+                .Include(a => a.AuctionBiddings)
                 .FirstOrDefault(a => a.Id == id
                                 && a.DeleteFlag == false);
             if (auction != null)
             {
+                Console.WriteLine($"bidding count before clean: {auction.AuctionBiddings.Count()}");
                 auction.AuctionBiddings.Clear();
-                Console.WriteLine($"bidding count after clean: {auction.AuctionBiddings.Count()}");
                 Console.WriteLine($"user count: {auction.Users.Count()}");
                 if (auction.Users.Count > 0)
                 {
@@ -177,6 +179,8 @@ namespace RealEstateAuction.DAL
                             .Where(ab => ab.MemberId == user.Id && ab.AuctionId == auction.Id)
                             .OrderByDescending(ab => ab.BiddingPrice)
                             .FirstOrDefault();
+                        Console.WriteLine($"user bidding: {nearestBidding.BiddingPrice}");
+                        auction.AuctionBiddings.Add(nearestBidding);
                     }
                 }
                 Console.WriteLine($"bidding count after modified: {auction.AuctionBiddings.Count()}");
@@ -218,6 +222,7 @@ namespace RealEstateAuction.DAL
         {
             return context.Auctions.Where(a => a.ApproverId == staffId && a.DeleteFlag == false)
                                    .Include(a => a.Images)
+                                   .Include(a => a.AuctionBiddings)
                                    .OrderBy(a => a.Status)
                                    .Skip((pagination.PageNumber - 1) * pagination.RecordPerPage)
                                    .Take(pagination.RecordPerPage)

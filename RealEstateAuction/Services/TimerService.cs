@@ -109,7 +109,7 @@ namespace RealEstateAuction.Services
                 }
 
                 //Plus the deposit to the staff's wallet
-                var staff = _userDAO.GetUserById(auction.ApproverId);
+                var staff = _userDAO.GetUserById(auction.ApproverId.Value);
                 staff.Wallet += deposit;
 
                 //update staff's wallet to database
